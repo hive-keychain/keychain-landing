@@ -1,5 +1,7 @@
 import React from 'react';
 import { Apple, Chrome, Download } from 'lucide-react';
+import { FaApple, FaAndroid, FaChrome, FaFirefoxBrowser } from 'react-icons/fa'; // Importamos los iconos necesarios
+
 
 const DownloadSection = () => {
   return (
@@ -10,37 +12,37 @@ const DownloadSection = () => {
         </h2>
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           <div className="space-y-4">
-            <h3 className="text-xl font-semibold mb-4">Mobile Apps</h3>
+            <h3 className="text-xl text-center font-semibold mb-4">Mobile Apps</h3>
             <a
-              href="#"
+              href="https://apps.apple.com/us/app/hive-keychain/id1552190010"
               className="flex items-center space-x-3 bg-black text-white p-4 rounded-lg hover:bg-gray-800 transition-colors w-full"
             >
-              <Apple size={24} />
+              <FaApple size={24} />
               <span>Download for iOS</span>
             </a>
             <a
-              href="#"
+              href="https://play.google.com/store/apps/details?id=com.mobilekeychain"
               className="flex items-center space-x-3 bg-green-600 text-white p-4 rounded-lg hover:bg-green-700 transition-colors w-full"
             >
-              <Download size={24} />
+              <FaAndroid size={24} />
               <span>Download for Android</span>
             </a>
           </div>
           <div className="space-y-4">
-            <h3 className="text-xl font-semibold mb-4">Browser Extensions</h3>
+            <h3 className="text-xl text-center font-semibold mb-4">Browser Extensions</h3>
             <a
-              href="#"
+              href="https://chrome.google.com/webstore/detail/hive-keychain/jcacnejopjdphbnjgfaaobbfafkihpep?hl=en"
               className="flex items-center space-x-3 bg-blue-600 text-white p-4 rounded-lg hover:bg-blue-700 transition-colors w-full"
             >
-              <Chrome size={24} />
-              <span>Chrome Extension</span>
+              <FaChrome size={24} />
+              <span>Install Chrome Extension</span>
             </a>
             <a
-              href="#"
+              href="https://addons.mozilla.org/en-US/firefox/addon/hive-keychain/"
               className="flex items-center space-x-3 bg-orange-600 text-white p-4 rounded-lg hover:bg-orange-700 transition-colors w-full"
             >
-              <Chrome size={24} />
-              <span>Firefox Extension</span>
+              <FaFirefoxBrowser size={24} />
+              <span>Install Firefox Extension</span>
             </a>
           </div>
         </div>
