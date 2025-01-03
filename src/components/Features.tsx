@@ -12,7 +12,7 @@ const Features = () => {
     {
       icon: UserCheck,
       title: 'User-Friendly',
-      description: 'Designed for seamless interaction with the Hive ecosystem.',
+      description: 'Designed for seamless interaction with the Hive ecosystem and use by 100,000+ users.',
     },
     {
       icon: Laptop,
