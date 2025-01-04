@@ -63,7 +63,7 @@ const EcosystemCarousel: React.FC<CarouselProps> = ({ children, itemsPerSlide })
           {Array.from({ length: totalSlides }).map((_, index) => (
             <div
               key={index}
-              className="min-w-full grid grid-cols-1 md:grid-cols-4 gap-6 px-4"
+              className="min-w-full grid grid-cols-1 md:grid-cols-4 gap-6 px-4 py-5"
             >
               {children.slice(
                 index * itemsPerSlide,

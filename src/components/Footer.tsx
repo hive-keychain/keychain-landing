@@ -1,5 +1,7 @@
 import React from 'react';
 import { Twitter, Github, MessageSquare } from 'lucide-react';
+import { FaTwitter, FaGithub, FaDiscord, FaHive } from 'react-icons/fa'; // Importamos los iconos necesarios
+
 
 const Footer = () => {
   return (
@@ -13,21 +15,21 @@ const Footer = () => {
             </p>
           </div>
           <div>
-            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+            <h4 className="text-lg font-semibold mb-4">Important Links</h4>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                <a href="/privacy" className="text-gray-400 hover:text-white transition-colors">
                   Privacy Policy
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                <a href="/terms" className="text-gray-400 hover:text-white transition-colors">
                   Terms of Service
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  Support
+                <a href="/fees" className="text-gray-400 hover:text-white transition-colors">
+                  Fees
                 </a>
               </li>
             </ul>
@@ -36,13 +38,16 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-4">Connect</h4>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <Twitter size={24} />
+                <FaTwitter size={24} />
               </a>
               <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <Github size={24} />
+                <FaGithub size={24} />
               </a>
               <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <MessageSquare size={24} />
+                <FaDiscord size={24} />
+              </a>
+              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                <FaHive size={24} />
               </a>
             </div>
           </div>

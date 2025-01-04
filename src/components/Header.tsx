@@ -7,10 +7,10 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
       <nav className="container mx-auto px-4 h-16 flex items-center">
-        <a href="#" className="text-xl font-bold text-red-600">Hive Keychain</a>
+        <a href="/" className="text-xl font-bold text-red-600">Hive Keychain</a>
         <div className="flex-1 flex justify-center">
           <div className="hidden md:flex space-x-6 relative">
-            <a href="#" className="text-gray-700 hover:text-red-600 transition-colors">Home</a>
+            <a href="/" className="text-gray-700 hover:text-red-600 transition-colors">Home</a>
             <a href="#why" className="text-gray-700 hover:text-red-600 transition-colors">Why Keychain</a>
             <a href="#download" className="text-gray-700 hover:text-red-600 transition-colors">Download</a>
             <div
