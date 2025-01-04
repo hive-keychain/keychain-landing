@@ -1,4 +1,4 @@
-export type AppCategory = 'Social' | 'Games' | 'NFT' | 'DeFi' | 'Tools';
+export type AppCategory = 'Social' | 'Gaming' | 'NFT' | 'Finance' | 'Tool';
 
 export interface EcosystemApp {
   name: string;

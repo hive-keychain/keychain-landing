@@ -1,18 +1,64 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import EcosystemCard from './EcosystemCard';
 import EcosystemCarousel from './EcosystemCarousel';
 import CategoryFilter from './CategoryFilter';
-import { ecosystemData, AppCategory } from './EcosystemData';
+import { AppCategory, EcosystemApp } from './EcosystemData';
 
-const categories: AppCategory[] = ['Social', 'Games', 'NFT', 'DeFi', 'Tools'];
+const categories: AppCategory[] = ['Social', 'Gaming', 'NFT', 'Finance', 'Tool'];
 
 const EcosystemSection = () => {
   const [selectedCategory, setSelectedCategory] = useState<AppCategory>('Social');
+  const [apps, setApps] = useState<EcosystemApp[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
 
-  const filteredApps = ecosystemData.filter(app => app.category === selectedCategory);
+  useEffect(() => {
+    const fetchApps = async () => {
+      try {
+        const response = await fetch('https://api.hive-keychain.com/hive/ecosystem/dapps');
+        if (!response.ok) {
+          throw new Error('Failed to fetch data');
+        }
+        const data = await response.json();
+        
+        // Flatten the data to get all dapps in a single array
+        interface CategoryResponse {
+  dapps: EcosystemApp[];
+}
+const allDapps = data.flatMap((categoryData: CategoryResponse) => categoryData.dapps);
+setApps(allDapps);
+        setApps(allDapps);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchApps();
+  }, []);
+
+const filteredApps = apps.filter(app => 
+  app.categories.some(category => 
+    category.toLowerCase() === selectedCategory.toLowerCase()
+  )
+);
   const cards = filteredApps.map((app) => (
     <EcosystemCard key={app.name} {...app} />
   ));
+
+  if (loading) {
+  return (
+    <div className="text-center py-8">
+      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto"></div>
+      <p className="mt-4 font-bold">Loading Ecosystem...</p>
+    </div>
+  );
+}
+
+  if (error) {
+    return <p>Error: {error}</p>;
+  }
 
   return (
     <section id="ecosystem" className="py-16 bg-white">

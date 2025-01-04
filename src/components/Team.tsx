@@ -3,22 +3,28 @@ import React from 'react';
 const Team = () => {
   const team = [
     {
-      name: 'John Doe',
-      role: 'Lead Developer',
-      hiveUsername: '@johndoe',
-      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&h=400&q=80',
+      name: 'Quentin',
+      role: 'CEO / Witness',
+      hiveUsername: '@stoodkev',
+      image: 'https://images.hive.blog/u/stoodkev/avatar',
     },
     {
-      name: 'Jane Smith',
-      role: 'UI/UX Designer',
-      hiveUsername: '@janesmith',
-      image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&h=400&q=80',
+      name: 'Cédric',
+      role: 'CTO / Full-stack Dev',
+      hiveUsername: '@cedricguillas',
+      image: 'https://images.hive.blog/u/cedricguillas/avatar',
     },
     {
-      name: 'Mike Johnson',
-      role: 'Security Expert',
-      hiveUsername: '@mikejohnson',
-      image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&h=400&q=80',
+      name: 'Manu',
+      role: 'Community Manager | Witness',
+      hiveUsername: '@manuphotos',
+      image: 'https://images.hive.blog/u/manuphotos/avatar',
+    },
+    {
+      name: 'Matt',
+      role: 'Advisor / Witness',
+      hiveUsername: '@yabapmatt',
+      image: 'https://images.hive.blog/u/yabapmatt/avatar',
     },
   ];
 
@@ -28,7 +34,7 @@ const Team = () => {
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
           Meet the Team
         </h2>
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-4 gap-8">
           {team.map((member, index) => (
             <div
               key={index}
@@ -43,7 +49,7 @@ const Team = () => {
                 <h3 className="text-xl font-semibold mb-1">{member.name}</h3>
                 <p className="text-gray-600 mb-2">{member.role}</p>
                 <a
-                  href={`https://hive.blog/@${member.hiveUsername}`}
+                  href={`https://peakd.com/@${member.hiveUsername}`}
                   className="text-red-600 hover:text-red-700 transition-colors"
                 >
                   {member.hiveUsername}
