@@ -10,7 +10,7 @@ const Contact = () => {
         </h2>
         <div className="max-w-2xl mx-auto grid md:grid-cols-2 gap-8">
           <a
-            href="#"
+            href="https://discord.gg/XWgvP4f7Jg"
             className="flex flex-col items-center p-6 bg-[#5865F2] text-white rounded-lg hover:bg-[#4752C4] transition-colors"
           >
             <MessageSquare size={48} className="mb-4" />

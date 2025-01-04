@@ -13,6 +13,8 @@ const Header = () => {
             <a href="/" className="text-gray-700 hover:text-red-600 transition-colors">Home</a>
             <a href="#why" className="text-gray-700 hover:text-red-600 transition-colors">Why Keychain</a>
             <a href="#download" className="text-gray-700 hover:text-red-600 transition-colors">Download</a>
+            <a href="#team" className="text-gray-700 hover:text-red-600 transition-colors">Team</a>
+            <a href="#contact" className="text-gray-700 hover:text-red-600 transition-colors">Contact Us</a>
             <div
               className="relative"
               onMouseEnter={() => setIsResourcesOpen(true)}
@@ -68,8 +70,6 @@ const Header = () => {
                 </div>
               )}
             </div>
-            <a href="#team" className="text-gray-700 hover:text-red-600 transition-colors">Team</a>
-            <a href="#contact" className="text-gray-700 hover:text-red-600 transition-colors">Contact Us</a>
           </div>
         </div>
         <a
