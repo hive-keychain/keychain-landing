@@ -5,25 +5,25 @@ const Team = () => {
     {
       name: 'Quentin',
       role: 'CEO / Witness',
-      hiveUsername: '@stoodkev',
+      hiveUsername: 'stoodkev',
       image: 'https://images.hive.blog/u/stoodkev/avatar',
     },
     {
       name: 'Cédric',
       role: 'CTO / Full-stack Dev',
-      hiveUsername: '@cedricguillas',
+      hiveUsername: 'cedricguillas',
       image: 'https://images.hive.blog/u/cedricguillas/avatar',
     },
     {
       name: 'Manu',
       role: 'Community Manager | Witness',
-      hiveUsername: '@manuphotos',
+      hiveUsername: 'manuphotos',
       image: 'https://images.hive.blog/u/manuphotos/avatar',
     },
     {
       name: 'Matt',
       role: 'Advisor / Witness',
-      hiveUsername: '@yabapmatt',
+      hiveUsername: 'yabapmatt',
       image: 'https://images.hive.blog/u/yabapmatt/avatar',
     },
   ];
