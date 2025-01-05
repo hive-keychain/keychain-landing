@@ -16,7 +16,7 @@ const EcosystemCard: React.FC<EcosystemCardProps> = ({ name, description, icon, 
       rel="noopener noreferrer"
       className="block p-4 bg-white rounded-xl shadow-md hover:shadow-xl transition-all transform hover:-translate-y-1"
     >
-      <img src={icon} alt={name} className="h-32 w-32 mx-auto mb-4 object-contain" />
+      <img src={icon} alt={name} className="h-32 w-32 mx-auto mb-4 object-contain rounded-xl" />
       <h3 className="text-xl font-semibold text-center mb-2 group-hover:text-red-500 transition-colors">
         {name}
       </h3>
