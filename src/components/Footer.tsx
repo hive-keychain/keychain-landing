@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div>
             <a href="/" className="col-2 flex items-center text-center mb-4">
-              <img src="/public/favicon.png" className="h-14 pr-5" alt="circle-logo hive keychain" />
+              <img src="/favicon.png" className="h-14 pr-5" alt="circle-logo hive keychain" />
               <h3 className="text-xl font-semibold">Hive Keychain</h3>
             </a>
             <p className="text-gray-400 mb-4">

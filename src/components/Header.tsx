@@ -8,7 +8,7 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
       <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
-        <a href="/"> <img src="/public/logo.png" className="h-12" alt="logo hive keychain" /></a>
+        <a href="/"> <img src="/logo.png" className="h-12" alt="logo hive keychain" /></a>
         
         <div className="md:hidden">
           <button onClick={() => setIsMenuOpen(true)} className="text-gray-700 hover:text-red-600 transition-colors focus:outline-none">
