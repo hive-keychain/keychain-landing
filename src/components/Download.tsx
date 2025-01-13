@@ -16,6 +16,7 @@ const DownloadSection = () => {
             <a
               href="https://apps.apple.com/us/app/hive-keychain/id1552190010"
               className="flex items-center space-x-3 bg-black text-white p-4 rounded-lg hover:bg-gray-800 transition-colors w-full"
+              target="_blank"
             >
               <FaApple size={24} />
               <span>Download for iOS</span>
@@ -23,6 +24,7 @@ const DownloadSection = () => {
             <a
               href="https://play.google.com/store/apps/details?id=com.mobilekeychain"
               className="flex items-center space-x-3 bg-green-600 text-white p-4 rounded-lg hover:bg-green-700 transition-colors w-full"
+              target="_blank"
             >
               <FaAndroid size={24} />
               <span>Download for Android</span>
@@ -33,6 +35,7 @@ const DownloadSection = () => {
             <a
               href="https://chrome.google.com/webstore/detail/hive-keychain/jcacnejopjdphbnjgfaaobbfafkihpep?hl=en"
               className="flex items-center space-x-3 bg-blue-600 text-white p-4 rounded-lg hover:bg-blue-700 transition-colors w-full"
+              target="_blank"
             >
               <FaChrome size={24} />
               <span>Install Chrome Extension</span>
@@ -40,6 +43,7 @@ const DownloadSection = () => {
             <a
               href="https://addons.mozilla.org/en-US/firefox/addon/hive-keychain/"
               className="flex items-center space-x-3 bg-orange-600 text-white p-4 rounded-lg hover:bg-orange-700 transition-colors w-full"
+              target="_blank" 
             >
               <FaFirefoxBrowser size={24} />
               <span>Install Firefox Extension</span>

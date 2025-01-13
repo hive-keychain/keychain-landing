@@ -17,16 +17,16 @@ const Footer = () => {
               Your secure gateway to the Hive ecosystem
             </p>
             <div className="flex space-x-4 ">
-              <a href="https://x.com/hivekeychain" className="text-gray-400 hover:text-white transition-colors">
+              <a href="https://x.com/hivekeychain" className="text-gray-400 hover:text-white transition-colors" target="_blank">
                 <FaXTwitter size={24} />
               </a>
-              <a href="https://github.com/hive-keychain" className="text-gray-400 hover:text-white transition-colors">
+              <a href="https://github.com/hive-keychain" className="text-gray-400 hover:text-white transition-colors" target="_blank">
                 <FaGithub size={24} />
               </a>
-              <a href="https://discord.gg/M3xsZXSVQK" className="text-gray-400 hover:text-white transition-colors">
+              <a href="https://discord.gg/M3xsZXSVQK" className="text-gray-400 hover:text-white transition-colors" target="_blank">
                 <FaDiscord size={24} />
               </a>
-              <a href="https://peakd.com/@keychain" className="text-gray-400 hover:text-white transition-colors">
+              <a href="https://peakd.com/@keychain" className="text-gray-400 hover:text-white transition-colors" target="_blank">
                 <FaHive size={24} />
               </a>
             </div>
@@ -35,17 +35,17 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-4">Important links</h4>
             <ul className="space-y-2">
               <li>
-                <a href="/privacy" className="text-gray-400 hover:text-white transition-colors">
+                <a href="/privacy" className="text-gray-400 hover:text-white transition-colors" target="_blank">
                   Privacy Policy
                 </a>
               </li>
               <li>
-                <a href="/terms" className="text-gray-400 hover:text-white transition-colors">
+                <a href="/terms" className="text-gray-400 hover:text-white transition-colors" target="_blank">
                   Terms of Service
                 </a>
               </li>
               <li>
-                <a href="/fees" className="text-gray-400 hover:text-white transition-colors">
+                <a href="/fees" className="text-gray-400 hover:text-white transition-colors" target="_blank">
                   Fees
                 </a>
               </li>
@@ -55,27 +55,27 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-4">Resources</h4>
             <ul className="space-y-2">
               <li>
-                <a href="https://www.npmjs.com/package/keychain-sdk" className="text-gray-400 hover:text-white transition-colors">
+                <a href="https://www.npmjs.com/package/keychain-sdk" className="text-gray-400 hover:text-white transition-colors" target="_blank">
                   Keychain SDK
                 </a>
               </li>
               <li>
-                <a href="https://play.hive-keychain.com/" className="text-gray-400 hover:text-white transition-colors">
+                <a href="https://play.hive-keychain.com/" className="text-gray-400 hover:text-white transition-colors" target="_blank">
                   Keychain Playground
                 </a>
               </li>
               <li>
-                <a href="https://github.com/hive-keychain" className="text-gray-400 hover:text-white transition-colors">
+                <a href="https://github.com/hive-keychain" className="text-gray-400 hover:text-white transition-colors" target="_blank">
                   Github
                 </a>
               </li>
               <li>
-                <a href="https://multisig-doc.hive-keychain.com/" className="text-gray-400 hover:text-white transition-colors">
+                <a href="https://multisig-doc.hive-keychain.com/" className="text-gray-400 hover:text-white transition-colors" target="_blank">
                   Hive Multisig
                 </a>
               </li>
               <li>
-                <a href="https://qr.hive-keychain.com/" className="text-gray-400 hover:text-white transition-colors">
+                <a href="https://qr.hive-keychain.com/" className="text-gray-400 hover:text-white transition-colors" target="_blank">
                   Hive QR Code Generator
                 </a>
               </li>

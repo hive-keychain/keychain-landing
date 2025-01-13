@@ -51,6 +51,7 @@ const Team = () => {
                 <a
                   href={`https://peakd.com/${member.hiveUsername}`}
                   className="text-red-600 hover:text-red-700 transition-colors"
+                  target="_blank"
                 >
                   {member.hiveUsername}
                 </a>
