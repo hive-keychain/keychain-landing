@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import EcosystemCard from './EcosystemCard';
 import EcosystemCarousel from './EcosystemCarousel';
 import CategoryFilter from './CategoryFilter';
-import { AppCategory, EcosystemApp } from './EcosystemData';
+import { AppCategory, EcosystemApp, CategoryResponse } from './EcosystemData';
 
-const categories: AppCategory[] = ['Social', 'Gaming', 'NFT', 'Finance', 'Tool'];
+const categories: AppCategory[] = ['social', 'gaming', 'nft', 'finance', 'tool'];
 
 const EcosystemSection = () => {
-  const [selectedCategory, setSelectedCategory] = useState<AppCategory>('Social');
+  const [selectedCategory, setSelectedCategory] = useState<AppCategory>('social');
   const [apps, setApps] = useState<EcosystemApp[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -19,17 +19,21 @@ const EcosystemSection = () => {
         if (!response.ok) {
           throw new Error('Failed to fetch data');
         }
-        const data = await response.json();
+        const data: CategoryResponse[] = await response.json();
         
-        // Flatten the data to get all dapps in a single array
-        interface CategoryResponse {
-  dapps: EcosystemApp[];
-}
-const allDapps = data.flatMap((categoryData: CategoryResponse) => categoryData.dapps);
-setApps(allDapps);
-        setApps(allDapps);
+        // Eliminar duplicados basándose en el ID
+        const uniqueApps = data.flatMap(categoryData => categoryData.dapps)
+          .reduce((unique: EcosystemApp[], app) => {
+            const exists = unique.some(item => item.id === app.id);
+            if (!exists) {
+              unique.push(app);
+            }
+            return unique;
+          }, []);
+        
+        setApps(uniqueApps);
       } catch (err) {
-        setError(err.message);
+        setError(err instanceof Error ? err.message : 'An error occurred');
       } finally {
         setLoading(false);
       }
@@ -38,23 +42,24 @@ setApps(allDapps);
     fetchApps();
   }, []);
 
-const filteredApps = apps.filter(app => 
-  app.categories.some(category => 
-    category.toLowerCase() === selectedCategory.toLowerCase()
-  )
-);
+  const filteredApps = apps.filter(app => 
+    app.categories.some(category => 
+      category.toLowerCase() === selectedCategory.toLowerCase()
+    )
+  );
+
   const cards = filteredApps.map((app) => (
-    <EcosystemCard key={app.name} {...app} />
+    <EcosystemCard key={app.id} {...app} />
   ));
 
   if (loading) {
-  return (
-    <div className="text-center py-8">
-      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto"></div>
-      <p className="mt-4 font-bold">Loading Ecosystem...</p>
-    </div>
-  );
-}
+    return (
+      <div className="text-center py-8">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto"></div>
+        <p className="mt-4 font-bold">Loading Ecosystem...</p>
+      </div>
+    );
+  }
 
   if (error) {
     return <p>Error: {error}</p>;

@@ -30,7 +30,7 @@ const EcosystemCarousel: React.FC<CarouselProps> = ({ children, itemsPerSlide })
   };
 
   useEffect(() => {
-    const interval = setInterval(nextSlide, 5000);
+    const interval = setInterval(nextSlide, 15000);
     return () => clearInterval(interval);
   }, []);
 
@@ -63,12 +63,18 @@ const EcosystemCarousel: React.FC<CarouselProps> = ({ children, itemsPerSlide })
           {Array.from({ length: totalSlides }).map((_, index) => (
             <div
               key={index}
-              className="min-w-full grid grid-cols-1 md:grid-cols-4 gap-6 px-4 py-5"
+              className="min-w-full flex gap-6 px-4 py-5"
             >
-              {children.slice(
-                index * itemsPerSlide,
-                (index + 1) * itemsPerSlide
-              )}
+              {children
+                .slice(index * itemsPerSlide, (index + 1) * itemsPerSlide)
+                .map((child, childIndex) => (
+                  <div
+                    key={childIndex}
+                    className="flex-1 w-1/4 flex-shrink-0"
+                  >
+                    {child}
+                  </div>
+                ))}
             </div>
           ))}
         </div>
