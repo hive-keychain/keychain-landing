@@ -20,6 +20,7 @@ const Header = () => {
           <a href="/" className="text-gray-700 hover:text-red-600 transition-colors">Home</a>
           <a href="#why" className="text-gray-700 hover:text-red-600 transition-colors">Why Keychain</a>
           <a href="#download" className="text-gray-700 hover:text-red-600 transition-colors">Download</a>
+          <a href="#ecosystem" className="text-gray-700 hover:text-red-600 transition-colors">Ecosystem</a>
           <a href="#team" className="text-gray-700 hover:text-red-600 transition-colors">Team</a>
           <a href="#contact" className="text-gray-700 hover:text-red-600 transition-colors">Contact Us</a>
           <div
@@ -69,7 +70,7 @@ const Header = () => {
           <a href="#team" className="text-gray-700 hover:text-red-600 transition-colors text-xl">Team</a>
           <a href="#contact" className="text-gray-700 hover:text-red-600 transition-colors text-xl">Contact Us</a>
           <div className="text-gray-700 hover:text-red-600 transition-colors text-xl">
-            <button onClick={() => setIsResourcesOpen(!isResourcesOpen)} className="flex items-center focus:outline-none">
+            <button onClick={() => setIsResourcesOpen(!isResourcesOpen)} className="flex items-center w-full justify-center focus:outline-none">
               Resources <ChevronDown size={16} className="ml-1" />
             </button>
             {isResourcesOpen && (
