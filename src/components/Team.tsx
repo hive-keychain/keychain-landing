@@ -4,26 +4,26 @@ const Team = () => {
   const team = [
     {
       name: 'Quentin',
-      role: 'CEO / Witness',
-      hiveUsername: 'stoodkev',
+      role: 'Founder / Witness',
+      hiveUsername: '@stoodkev',
       image: 'https://images.hive.blog/u/stoodkev/avatar',
     },
     {
       name: 'Cédric',
-      role: 'CTO / Full-stack Dev',
-      hiveUsername: 'cedricguillas',
+      role: 'Lead Developer / Full-stack Dev',
+      hiveUsername: '@cedricguillas',
       image: 'https://images.hive.blog/u/cedricguillas/avatar',
     },
     {
       name: 'Manu',
       role: 'Community Manager | Witness',
-      hiveUsername: 'manuphotos',
+      hiveUsername: '@manuphotos',
       image: 'https://images.hive.blog/u/manuphotos/avatar',
     },
     {
       name: 'Matt',
       role: 'Advisor / Witness',
-      hiveUsername: 'yabapmatt',
+      hiveUsername: '@yabapmatt',
       image: 'https://images.hive.blog/u/yabapmatt/avatar',
     },
   ];
@@ -49,7 +49,7 @@ const Team = () => {
                 <h3 className="text-xl font-semibold mb-1">{member.name}</h3>
                 <p className="text-gray-600 mb-2">{member.role}</p>
                 <a
-                  href={`https://peakd.com/@${member.hiveUsername}`}
+                  href={`https://peakd.com/${member.hiveUsername}`}
                   className="text-red-600 hover:text-red-700 transition-colors"
                 >
                   {member.hiveUsername}
