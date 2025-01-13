@@ -8,7 +8,7 @@ const DownloadSection = () => {
     <section id="download" className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-          Download Hive Keychain
+          Start with Keychain now!
         </h2>
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           <div className="space-y-4">

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Twitter, Github, MessageSquare } from 'lucide-react';
-import { FaTwitter, FaGithub, FaDiscord, FaHive } from 'react-icons/fa'; // Importamos los iconos necesarios
+import { FaXTwitter, FaGithub, FaDiscord, FaHive } from 'react-icons/fa6'; // Importamos los iconos necesarios
 
 
 const Footer = () => {
@@ -18,12 +18,12 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4 ">
               <a href="https://x.com/hivekeychain" className="text-gray-400 hover:text-white transition-colors">
-                <FaTwitter size={24} />
+                <FaXTwitter size={24} />
               </a>
               <a href="https://github.com/hive-keychain" className="text-gray-400 hover:text-white transition-colors">
                 <FaGithub size={24} />
               </a>
-              <a href="https://discord.gg/XWgvP4f7Jg" className="text-gray-400 hover:text-white transition-colors">
+              <a href="https://discord.gg/M3xsZXSVQK" className="text-gray-400 hover:text-white transition-colors">
                 <FaDiscord size={24} />
               </a>
               <a href="https://peakd.com/@keychain" className="text-gray-400 hover:text-white transition-colors">
@@ -32,7 +32,7 @@ const Footer = () => {
             </div>
           </div>
           <div>
-            <h4 className="text-lg font-semibold mb-4">Important Links</h4>
+            <h4 className="text-lg font-semibold mb-4">Important links</h4>
             <ul className="space-y-2">
               <li>
                 <a href="/privacy" className="text-gray-400 hover:text-white transition-colors">
@@ -61,7 +61,7 @@ const Footer = () => {
               </li>
               <li>
                 <a href="https://play.hive-keychain.com/" className="text-gray-400 hover:text-white transition-colors">
-                  Keychain Plaground
+                  Keychain Playground
                 </a>
               </li>
               <li>
@@ -81,7 +81,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          <div>
+          {/* <div>
             <h4 className="text-lg font-semibold mb-4">Download</h4>
             <ul className="space-y-2">
               <li>
@@ -100,7 +100,7 @@ const Footer = () => {
                 </a>
               </li>
             </ul>
-          </div>
+          </div> */}
         </div>
         <div className="border-t border-gray-800 pt-8 text-center">
           <p className="text-gray-400">
