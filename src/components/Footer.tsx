@@ -16,7 +16,7 @@ const Footer = () => {
             <p className="text-gray-400 mb-4">
               Your secure gateway to the Hive ecosystem
             </p>
-            <div className="flex space-x-4 ">
+            {/* <div className="flex space-x-4 ">
               <a href="https://x.com/hivekeychain" className="text-gray-400 hover:text-white transition-colors" target="_blank">
                 <FaXTwitter size={24} />
               </a>
@@ -29,7 +29,7 @@ const Footer = () => {
               <a href="https://peakd.com/@keychain" className="text-gray-400 hover:text-white transition-colors" target="_blank">
                 <FaHive size={24} />
               </a>
-            </div>
+            </div> */}
           </div>
           <div>
             <h4 className="text-lg font-semibold mb-4">Important links</h4>
@@ -64,11 +64,11 @@ const Footer = () => {
                   Keychain Playground
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a href="https://github.com/hive-keychain" className="text-gray-400 hover:text-white transition-colors" target="_blank">
                   Github
                 </a>
-              </li>
+              </li> */}
               <li>
                 <a href="https://multisig-doc.hive-keychain.com/" className="text-gray-400 hover:text-white transition-colors" target="_blank">
                   Hive Multisig
@@ -81,26 +81,32 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          {/* <div>
-            <h4 className="text-lg font-semibold mb-4">Download</h4>
+          <div>
+            <h4 className="text-lg font-semibold mb-4">Socials</h4>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  iOS App
+                <a href="https://peakd.com/@keychain" className="flex justify-start items-center text-gray-400 hover:text-white transition-colors" target="_blank">
+                  <FaHive className="mr-2" size={18} /> Hive
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  Android App
+                <a href="https://x.com/hivekeychain" className="flex justify-start items-center text-gray-400 hover:text-white transition-colors" target="_blank">
+                  <FaXTwitter className="mr-2" size={18} /> Twitter
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  Browser Extensions
+                <a href="https://discord.gg/M3xsZXSVQK" className="flex justify-start items-center text-gray-400 hover:text-white transition-colors" target="_blank">
+                  <FaDiscord className="mr-2" size={18} /> Discord
                 </a>
               </li>
+              <li>
+                <a href="https://github.com/hive-keychain" className="flex justify-start items-center text-gray-400 hover:text-white transition-colors" target="_blank">
+                  <FaGithub className="mr-2" size={18} /> Github
+                </a>
+              </li>
+
             </ul>
-          </div> */}
+          </div>
         </div>
         <div className="border-t border-gray-800 pt-8 text-center">
           <p className="text-gray-400">
