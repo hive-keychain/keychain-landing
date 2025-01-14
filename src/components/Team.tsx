@@ -6,25 +6,25 @@ const Team = () => {
       name: 'Quentin',
       role: 'Founder / Witness',
       hiveUsername: '@stoodkev',
-      image: 'https://images.hive.blog/u/stoodkev/avatar',
+      image: 'https://files.peakd.com/file/peakd-hive/stoodkev/273162954_469718881301752_2563467209379192939_n.png',
     },
     {
       name: 'Cédric',
       role: 'Lead Developer / Full-stack Dev',
       hiveUsername: '@cedricguillas',
-      image: 'https://images.hive.blog/u/cedricguillas/avatar',
+      image: 'https://files.peakd.com/file/peakd-hive/cedricguillas/285053246_1250941865310987_7996652080792882831_n.jpg',
     },
     {
       name: 'Manu',
       role: 'Community Manager | Witness',
       hiveUsername: '@manuphotos',
-      image: 'https://images.hive.blog/u/manuphotos/avatar',
+      image: 'https://files.peakd.com/file/peakd-hive/manuphotos/IMG_5767.jpeg',
     },
     {
       name: 'Matt',
       role: 'Advisor / Witness',
       hiveUsername: '@yabapmatt',
-      image: 'https://images.hive.blog/u/yabapmatt/avatar',
+      image: 'https://pbs.twimg.com/profile_images/1585239290459586560/XDaNWJ6u_400x400.png',
     },
   ];
 
