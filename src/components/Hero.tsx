@@ -28,9 +28,9 @@ const Hero = () => {
           </AnimatedSection>
           <AnimatedSection direction="right" className="flex-1">
             <FloatingImage
-              src="/keychain-app.png"
+              src="/heroimage.svg"
               alt="Hive Keychain Mobile App"
-              className="max-w-md mx-auto"
+              className="max-w-full mx-auto"
             />
           </AnimatedSection>
         </div>
