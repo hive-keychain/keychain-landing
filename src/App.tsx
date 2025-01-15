@@ -11,30 +11,33 @@ import Footer from './components/Footer';
 import TermsOfService from './components/Pages/TermsOfService';
 import Fees from './components/Pages/Fees';
 import Privacy from './components/Pages/Privacy';
+import { LanguageProvider } from './context/LanguageContext';
 
 function App() {
   return (
-    <Router>
-      <div className="min-h-screen bg-white">
-        <Header />
-        <Routes>
-          <Route path="/" element={
-            <main>
-              <Hero />
-              <Features />
-              <Download />
-              <EcosystemSection />
-              <Team />
-              <Contact />
-            </main>
-          } />
-          <Route path="/terms" element={<TermsOfService />} />
-          <Route path="/privacy" element={<Privacy />} />
-          <Route path="/fees" element={<Fees />} />
-        </Routes>
-        <Footer />
-      </div>
-    </Router>
+    <LanguageProvider>
+      <Router>
+        <div className="min-h-screen bg-white">
+          <Header />
+          <Routes>
+            <Route path="/" element={
+              <main>
+                <Hero />
+                <Features />
+                <Download />
+                <EcosystemSection />
+                <Team />
+                <Contact />
+              </main>
+            } />
+            <Route path="/terms" element={<TermsOfService />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/fees" element={<Fees />} />
+          </Routes>
+          <Footer />
+        </div>
+      </Router>
+    </LanguageProvider>
   );
 }
 

@@ -38,7 +38,7 @@ export const FloatingImage: React.FC<FloatingImageProps> = ({
       <img
         src={src}
         alt={alt}
-        className="max-w-xs max-h-96 object-contain transform transition-transform"
+        className="object-contain transform transition-transform"
         style={{
           transform: `translateY(${offset}px)`,
         }}
