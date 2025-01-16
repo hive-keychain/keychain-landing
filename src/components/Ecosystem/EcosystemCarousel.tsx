@@ -34,7 +34,6 @@ const EcosystemCarousel: React.FC<CarouselProps> = ({ children, itemsPerSlide })
     return () => clearInterval(interval);
   }, []);
 
-  // Reset current slide when children change
   useEffect(() => {
     setCurrentSlide(0);
   }, [children.length]);
@@ -60,23 +59,29 @@ const EcosystemCarousel: React.FC<CarouselProps> = ({ children, itemsPerSlide })
             transform: `translateX(-${currentSlide * 100}%)`,
           }}
         >
-          {Array.from({ length: totalSlides }).map((_, index) => (
-            <div
-              key={index}
-              className="min-w-full flex gap-6 px-4 py-5"
-            >
-              {children
-                .slice(index * itemsPerSlide, (index + 1) * itemsPerSlide)
-                .map((child, childIndex) => (
+          {Array.from({ length: totalSlides }).map((_, index) => {
+            const currentSlideItems = children.slice(
+              index * itemsPerSlide,
+              (index + 1) * itemsPerSlide
+            );
+            return (
+              <div
+                key={index}
+                className={`min-w-full flex gap-6 px-4 py-5 ${
+                  currentSlideItems.length < 4 ? 'justify-start' : 'justify-between'
+                }`}
+              >
+                {currentSlideItems.map((child, childIndex) => (
                   <div
                     key={childIndex}
-                    className="flex-1 w-1/4 flex-shrink-0"
+                    className="flex-1 w-1/4 flex-shrink-0 max-w-[290px]"
                   >
                     {child}
                   </div>
                 ))}
-            </div>
-          ))}
+              </div>
+            );
+          })}
         </div>
       </div>
 
