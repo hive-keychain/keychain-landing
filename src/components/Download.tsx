@@ -1,11 +1,11 @@
 import React from 'react';
 import { Apple, Chrome, Download } from 'lucide-react';
-import { FaApple, FaAndroid, FaChrome, FaFirefoxBrowser } from 'react-icons/fa'; // Importamos los iconos necesarios
+import { FaBrain, FaChrome, FaFirefoxBrowser } from 'react-icons/fa'; // Importamos los iconos necesarios
 
 
 const DownloadSection = () => {
   return (
-    <section id="download" className="py-16 bg-gray-50">
+    <section id="download" className="py-16 bg-[#E5EDF5]">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
           Start with Keychain now!
@@ -15,39 +15,53 @@ const DownloadSection = () => {
             <h3 className="text-xl text-center font-semibold mb-4">Mobile Apps</h3>
             <a
               href="https://apps.apple.com/us/app/hive-keychain/id1552190010"
-              className="flex items-center space-x-3 bg-black text-white p-4 rounded-lg hover:bg-gray-800 transition-colors w-full"
+              className="flex justify-center items-center w-full hover:group-hover hover:transition-transform hover:scale-110 hover:brightness-125"
               target="_blank"
             >
-              <FaApple size={24} />
-              <span>Download for iOS</span>
+              <img src="/appstore.svg" alt="Download on Apple Store" className="max-w-full h-[60px] mx-auto"/>
+              {/* <FaApple size={24} />
+              <span>Download for iOS</span> */}
             </a>
             <a
               href="https://play.google.com/store/apps/details?id=com.mobilekeychain"
-              className="flex items-center space-x-3 bg-green-600 text-white p-4 rounded-lg hover:bg-green-700 transition-colors w-full"
+              className="flex justify-center items-center text-black w-full hover:group-hover hover:transition-transform hover:scale-110 hover:brightness-125"
               target="_blank"
             >
-              <FaAndroid size={24} />
-              <span>Download for Android</span>
+              <img src="/googleplay.png" alt="Download on Google Play" className="max-w-full h-[80px] mx-auto"/>
+              {/* <FaAndroid size={24} />
+              <span>Download for Android</span> */}
             </a>
           </div>
           <div className="space-y-4">
             <h3 className="text-xl text-center font-semibold mb-4">Browser Extensions</h3>
-            <a
+            <div className='flex-column flex h-full pt-4 justify-evenly items-start'>
+              <a
               href="https://chrome.google.com/webstore/detail/hive-keychain/jcacnejopjdphbnjgfaaobbfafkihpep?hl=en"
-              className="flex items-center space-x-3 bg-blue-600 text-white p-4 rounded-lg hover:bg-blue-700 transition-colors w-full"
+              className="flex justify-center items-center hover:group-hover hover:transition-transform hover:scale-110 hover:brightness-125"
               target="_blank"
-            >
-              <FaChrome size={24} />
-              <span>Install Chrome Extension</span>
+              >
+                <img src="/chrome.svg" alt="Install the Chrome Extension" className="max-w-full h-[70px] mx-auto"/>
+              {/* <FaChrome size={65} /> */}
+              {/* <span>Install Chrome Extension</span> */}
             </a>
             <a
               href="https://addons.mozilla.org/en-US/firefox/addon/hive-keychain/"
-              className="flex items-center space-x-3 bg-orange-600 text-white p-4 rounded-lg hover:bg-orange-700 transition-colors w-full"
+              className="flex justify-center items-center pt-10 hover:group-hover hover:transition-transform hover:scale-110 hover:brightness-125"
               target="_blank" 
             >
-              <FaFirefoxBrowser size={24} />
-              <span>Install Firefox Extension</span>
+              <img src="/firefox.svg" alt="Install the Brave Extension" className="max-w-full h-[70px] mx-auto"/>
+              {/* <span>Install Firefox Extension</span> */}
             </a>
+            <a
+              href="https://chrome.google.com/webstore/detail/hive-keychain/jcacnejopjdphbnjgfaaobbfafkihpep?hl=en"
+              className="flex justify-center items-center hover:group-hover hover:transition-transform hover:scale-110 hover:brightness-125"
+              target="_blank" 
+            >
+              <img src="/brave.png" alt="Install the Brave Extension" className="max-w-full h-[70px] mx-auto"/>
+              {/* <span>Install Firefox Extension</span> */}
+            </a>
+
+            </div>
           </div>
         </div>
         <p className="text-center mt-8 text-gray-600">

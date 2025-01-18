@@ -1,11 +1,34 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Download } from 'lucide-react';
 import { AnimatedSection } from './AnimatedSection';
 import { FloatingImage } from './FloatingImage';
 
 const Hero = () => {
+  const [showScrollIndicator, setShowScrollIndicator] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setShowScrollIndicator(false);
+      } else {
+        setShowScrollIndicator(true);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <section className="pt-24 pb-16 bg-gradient-to-b from-white to-gray-50">
+    <section className="pt-24 pb-16 bg-gradient-to-b from-white to-[#E5EDF5] relative h-screen">
+      {/* <img
+        src="/hiveframe.png"
+        alt="Background"
+        className="absolute inset-0 w-full h-full object-cover z-0 left-[10px]"
+        style={{ pointerEvents: 'none' }}
+      /> */}
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center gap-12">
           <AnimatedSection direction="left" className="flex-1 md:text-left text-center">
@@ -15,13 +38,6 @@ const Hero = () => {
             <h2 className="text-xl md:text-2xl text-gray-600 mb-1">
               Secure. Simple. Powerful.
             </h2>
-            {/* <a
-              href="#download"
-              className="inline-flex items-center space-x-2 bg-red-600 text-white px-8 py-4 rounded-lg hover:bg-red-700 transition-colors text-lg"
-            >
-              <Download size={24} />
-              <span>Download Now</span>
-            </a> */}
             <p className="text-gray-600">
               Available on iOS, Android, Chrome, Brave, and Firefox
             </p>
@@ -35,6 +51,35 @@ const Hero = () => {
           </AnimatedSection>
         </div>
       </div>
+      {showScrollIndicator && (
+        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-red-600 pb-20">
+          <AnimatedSection direction="up" className="animate-float">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              className="w-20 h-20 mx-auto"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </AnimatedSection>
+          
+        </div>
+      )}
+      <style jsx>{`
+        .animate-float {
+          animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+          0%, 100% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(-10px);
+          }
+        }
+      `}</style>
     </section>
   );
 };

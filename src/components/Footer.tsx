@@ -5,7 +5,7 @@ import { FaXTwitter, FaGithub, FaDiscord, FaHive } from 'react-icons/fa6'; // Im
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-white py-12">
+    <footer className="bg-[#212838] text-white py-12">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div>
