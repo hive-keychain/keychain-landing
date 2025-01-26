@@ -89,7 +89,7 @@ const EcosystemCarousel: React.FC<CarouselProps> = ({ children, itemsPerSlide })
         <>
           <button
             onClick={prevSlide}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 bg-white p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity"
+            className="absolute left-[-16px] top-1/2 -translate-y-1/2 -translate-x-1/2 bg-white p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity"
             aria-label="Previous slide"
           >
             <ChevronLeft className="w-6 h-6 text-gray-600" />
@@ -97,7 +97,7 @@ const EcosystemCarousel: React.FC<CarouselProps> = ({ children, itemsPerSlide })
 
           <button
             onClick={nextSlide}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 bg-white p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity"
+            className="absolute right-[-16px] top-1/2 -translate-y-1/2 translate-x-1/2 bg-white p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity"
             aria-label="Next slide"
           >
             <ChevronRight className="w-6 h-6 text-gray-600" />

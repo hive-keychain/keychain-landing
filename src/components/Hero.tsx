@@ -59,7 +59,7 @@ const Hero = () => {
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
-              className="w-20 h-20 mx-auto"
+              className="w-20 h-20 mx-auto hidden md:block"
             >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
             </svg>

@@ -10,10 +10,11 @@ const DownloadSection = () => {
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
           Start with Keychain now!
         </h2>
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-8 mx-auto">
           <div className="space-y-4">
-            <h3 className="text-xl text-center font-semibold mb-4">Mobile Apps</h3>
-            <a
+            <h3 className="text-xl text-center font-semibold mb-6">Mobile Apps</h3>
+            <div className="flex justify-center gap-8 items-center">
+              <a
               href="https://apps.apple.com/us/app/hive-keychain/id1552190010"
               className="flex justify-center items-center w-full hover:group-hover hover:transition-transform hover:scale-110 hover:brightness-125"
               target="_blank"
@@ -31,10 +32,11 @@ const DownloadSection = () => {
               {/* <FaAndroid size={24} />
               <span>Download for Android</span> */}
             </a>
+            </div>
           </div>
           <div className="space-y-4">
-            <h3 className="text-xl text-center font-semibold mb-4">Browser Extensions</h3>
-            <div className='flex-column flex h-full pt-4 justify-evenly items-start'>
+            <h3 className="text-xl text-center font-semibold mb-6">Browser Extensions</h3>
+            <div className='flex-column flex h-full justify-evenly items-start'>
               <a
               href="https://chrome.google.com/webstore/detail/hive-keychain/jcacnejopjdphbnjgfaaobbfafkihpep?hl=en"
               className="flex justify-center items-center hover:group-hover hover:transition-transform hover:scale-110 hover:brightness-125"
@@ -46,7 +48,7 @@ const DownloadSection = () => {
             </a>
             <a
               href="https://addons.mozilla.org/en-US/firefox/addon/hive-keychain/"
-              className="flex justify-center items-center pt-10 hover:group-hover hover:transition-transform hover:scale-110 hover:brightness-125"
+              className="flex justify-center items-center hover:group-hover hover:transition-transform hover:scale-110 hover:brightness-125"
               target="_blank" 
             >
               <img src="/firefox.svg" alt="Install the Brave Extension" className="max-w-full h-[70px] mx-auto"/>
@@ -58,6 +60,24 @@ const DownloadSection = () => {
               target="_blank" 
             >
               <img src="/brave.png" alt="Install the Brave Extension" className="max-w-full h-[70px] mx-auto"/>
+              {/* <span>Install Firefox Extension</span> */}
+              </a>
+
+              <a
+              href="https://chrome.google.com/webstore/detail/hive-keychain/jcacnejopjdphbnjgfaaobbfafkihpep?hl=en"
+              className="flex justify-center items-center hover:group-hover hover:transition-transform hover:scale-110 hover:brightness-125"
+              target="_blank" 
+            >
+              <img src="/edge.svg" alt="Install the Brave Extension" className="max-w-full h-[70px] mx-auto"/>
+              {/* <span>Install Firefox Extension</span> */}
+              </a>
+
+              <a
+              href="https://chrome.google.com/webstore/detail/hive-keychain/jcacnejopjdphbnjgfaaobbfafkihpep?hl=en"
+              className="flex justify-center items-center hover:group-hover hover:transition-transform hover:scale-110 hover:brightness-125"
+              target="_blank" 
+            >
+              <img src="/opera.svg" alt="Install the Brave Extension" className="max-w-full h-[70px] mx-auto"/>
               {/* <span>Install Firefox Extension</span> */}
             </a>
 
