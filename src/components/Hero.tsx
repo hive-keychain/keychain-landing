@@ -22,7 +22,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="pt-24 pb-16 bg-gradient-to-b from-white to-[#E5EDF5] relative h-screen">
+    <section className="pt-24 pb-16 bg-gradient-to-b from-white to-[#E5EDF5] relative h-auto md:h-screen">
       {/* <img
         src="/hiveframe.png"
         alt="Background"
@@ -30,7 +30,7 @@ const Hero = () => {
         style={{ pointerEvents: 'none' }}
       /> */}
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row items-center gap-12">
+        <div className="flex flex-col md:flex-row items-center gap-0 md:gap-12">
           <AnimatedSection direction="left" className="flex-1 md:text-left text-center">
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
               Your gateway to the Hive ecosystem
