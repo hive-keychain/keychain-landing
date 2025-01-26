@@ -35,6 +35,10 @@ const Header = () => {
     }
   };
 
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
       <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
@@ -121,9 +125,15 @@ const Header = () => {
         </div>
 
         {isMenuOpen && (
-          <div className="fixed inset-0 bg-white z-50 flex flex-col items-center justify-center space-y-6">
+          <div
+            className="fixed inset-0 bg-white z-50 flex flex-col items-center justify-center space-y-6"
+            onClick={closeMenu} // Cierra el menú al hacer clic en cualquier lugar
+          >
             <button
-              onClick={() => setIsMenuOpen(false)}
+              onClick={(e) => {
+                e.stopPropagation(); // Evita que el clic en el botón cierre el menú
+                closeMenu();
+              }}
               className="absolute top-4 right-4 text-gray-700 hover:text-red-600 transition-colors focus:outline-none"
             >
               <X size={24} />
@@ -132,17 +142,23 @@ const Header = () => {
               <a
                 key={item.href}
                 href={item.href}
-                onClick={(e) => scrollToSection(e, item.href)} // Llama a la función personalizada
+                onClick={(e) => {
+                  e.stopPropagation(); // Evita que el clic en el enlace cierre el menú
+                  scrollToSection(e, item.href);
+                  closeMenu();
+                }}
                 className={`text-gray-700 hover:text-red-600 transition-colors text-xl
                   ${activeSection === item.href.substring(1) ? 'text-red-600 font-medium' : ''}`}
-                onClick={() => setIsMenuOpen(false)}
               >
                 {item.label}
               </a>
             ))}
             <div className="text-gray-700 hover:text-red-600 transition-colors text-xl">
               <button
-                onClick={toggleResources}
+                onClick={(e) => {
+                  e.stopPropagation(); // Evita que el clic en el botón cierre el menú
+                  toggleResources();
+                }}
                 className="flex items-center w-full justify-center focus:outline-none"
               >
                 Resources <ChevronDown size={16} className="ml-1" />
