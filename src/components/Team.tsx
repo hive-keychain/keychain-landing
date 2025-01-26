@@ -24,7 +24,7 @@ const Team = () => {
       name: 'Matt',
       role: 'Advisor / Witness',
       hiveUsername: '@yabapmatt',
-      image: 'https://pbs.twimg.com/profile_images/1585239290459586560/XDaNWJ6u_400x400.png',
+      image: 'https://cdn.steemitimages.com/DQmaj4WmfPgxL2iGkDLUVxiAySQmptZtkJoBxnS4DDNPtDY/profile_yabapmatt_800.jpg',
     },
   ];
 
