@@ -9,7 +9,8 @@ interface CarouselProps {
 const EcosystemCarousel: React.FC<CarouselProps> = ({ children, itemsPerSlide }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [touchStart, setTouchStart] = useState(0);
-  const totalSlides = Math.ceil(children.length / itemsPerSlide);
+  const [dynamicItemsPerSlide, setDynamicItemsPerSlide] = useState(itemsPerSlide);
+  const totalSlides = Math.ceil(children.length / dynamicItemsPerSlide);
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % totalSlides);
@@ -30,13 +31,30 @@ const EcosystemCarousel: React.FC<CarouselProps> = ({ children, itemsPerSlide })
   };
 
   useEffect(() => {
+    const updateItemsPerSlide = () => {
+      if (window.innerWidth < 768) {
+        setDynamicItemsPerSlide(1); // Show 2 cards per slide for small screens
+      } else {
+        setDynamicItemsPerSlide(itemsPerSlide); // Default value for larger screens
+      }
+    };
+
+    updateItemsPerSlide();
+    window.addEventListener('resize', updateItemsPerSlide);
+
+    return () => {
+      window.removeEventListener('resize', updateItemsPerSlide);
+    };
+  }, [itemsPerSlide]);
+
+  useEffect(() => {
     const interval = setInterval(nextSlide, 15000);
     return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
     setCurrentSlide(0);
-  }, [children.length]);
+  }, [children.length, dynamicItemsPerSlide]);
 
   if (children.length === 0) {
     return (
@@ -61,20 +79,21 @@ const EcosystemCarousel: React.FC<CarouselProps> = ({ children, itemsPerSlide })
         >
           {Array.from({ length: totalSlides }).map((_, index) => {
             const currentSlideItems = children.slice(
-              index * itemsPerSlide,
-              (index + 1) * itemsPerSlide
+              index * dynamicItemsPerSlide,
+              (index + 1) * dynamicItemsPerSlide
             );
             return (
               <div
                 key={index}
-                className={`min-w-full flex gap-6 px-4 py-5 ${
-                  currentSlideItems.length < 4 ? 'justify-start' : 'justify-between'
+                className={`min-w-full flex gap-6 px-4 py-5 justify-center ${
+                  currentSlideItems.length < dynamicItemsPerSlide ? 'md:justify-start' : 'md:justify-between'
                 }`}
               >
                 {currentSlideItems.map((child, childIndex) => (
                   <div
                     key={childIndex}
-                    className="flex-1 w-1/4 flex-shrink-0 max-w-[290px]"
+                    className="flex-1 flex-shrink-0 max-w-[290px] flex flex-col justify-between"
+                    style={{ flexBasis: `${100 / dynamicItemsPerSlide}%` }} // Ensure equal width for all cards
                   >
                     {child}
                   </div>
@@ -89,7 +108,7 @@ const EcosystemCarousel: React.FC<CarouselProps> = ({ children, itemsPerSlide })
         <>
           <button
             onClick={prevSlide}
-            className="absolute left-[-16px] top-1/2 -translate-y-1/2 -translate-x-1/2 bg-white p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity"
+            className="absolute left-[30px] md:left-[-16px] top-1/2 -translate-y-1/2 -translate-x-1/2 bg-white p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity"
             aria-label="Previous slide"
           >
             <ChevronLeft className="w-6 h-6 text-gray-600" />
@@ -97,7 +116,7 @@ const EcosystemCarousel: React.FC<CarouselProps> = ({ children, itemsPerSlide })
 
           <button
             onClick={nextSlide}
-            className="absolute right-[-16px] top-1/2 -translate-y-1/2 translate-x-1/2 bg-white p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity"
+            className="absolute right-[30px] md:right-[-16px] top-1/2 -translate-y-1/2 translate-x-1/2 bg-white p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity"
             aria-label="Next slide"
           >
             <ChevronRight className="w-6 h-6 text-gray-600" />
