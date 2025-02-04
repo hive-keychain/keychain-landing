@@ -34,7 +34,7 @@ const Hero = () => {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center gap-0 md:gap-12">
           <AnimatedSection direction="left" className="flex-1 md:text-left text-center">
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 !leading-tight">
               Your gateway to the Hive ecosystem
             </h1>
             <h2 className="text-xl md:text-2xl text-gray-600 mb-1">
