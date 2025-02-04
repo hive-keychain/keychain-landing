@@ -21,14 +21,16 @@ const Hero = () => {
     };
   }, []);
 
+  const handleScrollToWhy = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    event.preventDefault();
+    const section = document.getElementById('why');
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="pt-24 pb-16 bg-gradient-to-b from-white to-[#E5EDF5] relative h-auto md:h-screen">
-      {/* <img
-        src="/hiveframe.png"
-        alt="Background"
-        className="absolute inset-0 w-full h-full object-cover z-0 left-[10px]"
-        style={{ pointerEvents: 'none' }}
-      /> */}
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center gap-0 md:gap-12">
           <AnimatedSection direction="left" className="flex-1 md:text-left text-center">
@@ -53,18 +55,19 @@ const Hero = () => {
       </div>
       {showScrollIndicator && (
         <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-red-600 pb-20">
-          <AnimatedSection direction="up" className="animate-float">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              className="w-20 h-20 mx-auto hidden md:block"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-            </svg>
-          </AnimatedSection>
-          
+          <a href="#why" onClick={handleScrollToWhy}>
+            <AnimatedSection direction="up" className="animate-float">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                className="w-20 h-20 mx-auto hidden md:block"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </AnimatedSection>
+          </a>
         </div>
       )}
       <style jsx>{`

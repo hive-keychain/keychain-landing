@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import EcosystemCard from './EcosystemCard';
-import EcosystemCarousel from './EcosystemCarousel';
 import CategoryFilter from './CategoryFilter';
+import EcosystemCarousel from './EcosystemCarousel';
 import { AppCategory, EcosystemApp, CategoryResponse } from './EcosystemData';
 
-const categories: AppCategory[] = ['social', 'gaming', 'nft', 'finance', 'tool'];
+const categories: AppCategory[] = ['social', 'finance', 'games', 'tools', 'other']; // Example categories
 
 const EcosystemSection = () => {
   const [selectedCategory, setSelectedCategory] = useState<AppCategory>('social');
@@ -52,18 +52,18 @@ const EcosystemSection = () => {
     <EcosystemCard key={app.id} {...app} />
   ));
 
-  if (loading) {
-    return (
-      <div className="text-center py-8">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto"></div>
-        <p className="mt-4 font-bold">Loading Ecosystem...</p>
-      </div>
-    );
-  }
+  // if (loading) {
+  //   return (
+  //     <div className="text-center py-8">
+  //       <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto"></div>
+  //       <p className="mt-4 font-bold">Loading Ecosystem...</p>
+  //     </div>
+  //   );
+  // }
 
-  if (error) {
-    return <p>Error: {error}</p>;
-  }
+  // if (error) {
+  //   return <p>Error: {error}</p>;
+  // }
 
   return (
     <section id="ecosystem" className="py-16 bg-white">

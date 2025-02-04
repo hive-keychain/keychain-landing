@@ -15,6 +15,7 @@ export const useIntersectionObserver = ({
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
+        console.log(`Observando elemento: ${entry.target.id}, Intersectando: ${entry.isIntersecting}`);
         if (entry.isIntersecting) {
           setIsVisible(true);
           if (elementRef.current) {
@@ -26,11 +27,13 @@ export const useIntersectionObserver = ({
     );
 
     if (elementRef.current) {
+      console.log(`Iniciando observación para: ${elementRef.current.id}`);
       observer.observe(elementRef.current);
     }
 
     return () => {
       if (elementRef.current) {
+        console.log(`Deteniendo observación para: ${elementRef.current.id}`);
         observer.unobserve(elementRef.current);
       }
     };
