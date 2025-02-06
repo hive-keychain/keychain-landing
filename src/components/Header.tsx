@@ -194,7 +194,9 @@ const Header = () => {
                     </div>
                   )}
                 </div>
-                <LanguageSelector />
+                <div onClick={(e) => e.stopPropagation()}>
+                  <LanguageSelector />
+                </div>
               </div>
             )}
           </>
