@@ -54,7 +54,7 @@ const Hero = () => {
         </div>
       </div>
       {showScrollIndicator && (
-        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-red-600 pb-20">
+        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-red-600 pb-0 md:pb-20">
           <a href="#why" onClick={handleScrollToWhy}>
             <AnimatedSection direction="up" className="animate-float">
               <svg
@@ -62,7 +62,7 @@ const Hero = () => {
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
-                className="w-20 h-20 mx-auto hidden md:block"
+                className="w-20 h-20 mx-auto"
               >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
