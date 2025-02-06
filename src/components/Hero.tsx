@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Download } from 'lucide-react';
 import { AnimatedSection } from './AnimatedSection';
 import { FloatingImage } from './FloatingImage';
 
