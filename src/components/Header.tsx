@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Download, Menu, X, ChevronDown } from 'lucide-react';
 import { LanguageSelector } from '../context/LanguageContext';
 import { useActiveSection } from '../hooks/useActiveSection';
@@ -17,6 +17,25 @@ const Header = () => {
     { href: '#team', label: 'Team' },
     { href: '#contact', label: 'Contact' },
   ];
+
+  const resourceItems = [
+    { href: 'https://www.npmjs.com/package/keychain-sdk', label: 'Keychain SDK' },
+    { href: 'https://play.hive-keychain.com/', label: 'Keychain playground' },
+    { href: 'https://github.com/hive-keychain', label: 'Github' },
+    { href: 'https://multisig-doc.hive-keychain.com/', label: 'Hive Multisig' },
+    { href: 'https://qr.hive-keychain.com/', label: 'Hive QR Code Generator' },
+  ];
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [isMenuOpen]);
 
   const toggleResources = () => {
     setIsResourcesOpen(!isResourcesOpen);
@@ -39,9 +58,9 @@ const Header = () => {
 
   const closeMenu = () => {
     setIsMenuOpen(false);
+    setIsResourcesOpen(false);
   };
 
-  // Condición para ocultar el menú en ciertas páginas
   const hideMenu = ['/privacy', '/terms', '/fees'].includes(location.pathname);
 
   return (
@@ -80,41 +99,20 @@ const Header = () => {
                   onClick={toggleResources}
                   className="flex items-center text-gray-700 hover:text-red-600 transition-colors focus:outline-none"
                 >
-                  Resources <ChevronDown size={16} className="ml-1" />
+                  Resources <ChevronDown size={16} className={`ml-1 transform transition-transform duration-200 ${isResourcesOpen ? 'rotate-180' : ''}`} />
                 </button>
 
                 {isResourcesOpen && (
                   <div className="absolute top-full left-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg">
-                    <a
-                      href="https://www.npmjs.com/package/keychain-sdk"
-                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                    >
-                      Keychain SDK
-                    </a>
-                    <a
-                      href="https://play.hive-keychain.com/"
-                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                    >
-                      Keychain playground
-                    </a>
-                    <a
-                      href="https://github.com/hive-keychain"
-                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                    >
-                      Github
-                    </a>
-                    <a
-                      href="https://multisig-doc.hive-keychain.com/"
-                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                    >
-                      Hive Multisig
-                    </a>
-                    <a
-                      href="https://qr.hive-keychain.com/"
-                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                    >
-                      Hive QR Code Generator
-                    </a>
+                    {resourceItems.map((item) => (
+                      <a
+                        key={item.href}
+                        href={item.href}
+                        className="block px-4 py-2 text-gray-700 hover:bg-red-100"
+                      >
+                        {item.label}
+                      </a>
+                    ))}
                   </div>
                 )}
               </div>
@@ -122,7 +120,7 @@ const Header = () => {
 
             {isMenuOpen && (
               <div
-                className="fixed inset-0 bg-white z-50 flex flex-col items-center justify-center space-y-6"
+                className="fixed inset-0 bg-white z-50"
                 onClick={closeMenu}
               >
                 <button
@@ -134,68 +132,62 @@ const Header = () => {
                 >
                   <X size={24} />
                 </button>
-                {menuItems.map((item) => (
-                  <a
-                    key={item.href}
-                    href={item.href}
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      scrollToSection(e, item.href);
-                      closeMenu();
-                    }}
-                    className={`text-gray-700 hover:text-red-600 transition-colors text-xl
-                      ${activeSection === item.href.substring(1) ? 'text-red-600 font-medium' : ''}`}
-                  >
-                    {item.label}
-                  </a>
-                ))}
-                <div className="text-gray-700 hover:text-red-600 transition-colors text-xl">
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      toggleResources();
-                    }}
-                    className="flex items-center w-full justify-center focus:outline-none"
-                  >
-                    Resources <ChevronDown size={16} className="ml-1" />
-                  </button>
-                  {isResourcesOpen && (
-                    <div className="mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg">
+
+                <div className="h-full overflow-y-auto py-20">
+                  <div className="flex flex-col items-center space-y-6 w-full px-4">
+                    {menuItems.map((item) => (
                       <a
-                        href="https://www.npmjs.com/package/keychain-sdk"
-                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                        key={item.href}
+                        href={item.href}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          scrollToSection(e, item.href);
+                          closeMenu();
+                        }}
+                        className={`text-gray-700 hover:text-red-600 transition-colors text-xl
+                          ${activeSection === item.href.substring(1) ? 'text-red-600 font-medium' : ''}`}
                       >
-                        Keychain SDK
+                        {item.label}
                       </a>
-                      <a
-                        href="https://play.hive-keychain.com/"
-                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                    ))}
+
+                    <div className="relative w-full max-w-xs">
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          toggleResources();
+                        }}
+                        className="flex items-center justify-center w-full text-gray-700 hover:text-red-600 transition-colors text-xl focus:outline-none"
                       >
-                        Keychain playground
-                      </a>
-                      <a
-                        href="https://github.com/hive-keychain"
-                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                        Resources 
+                        <ChevronDown 
+                          size={16} 
+                          className={`ml-1 transform transition-transform duration-200 ${isResourcesOpen ? 'rotate-180' : ''}`} 
+                        />
+                      </button>
+
+                      <div
+                        className={`w-full bg-gray-50 rounded-lg mt-2 overflow-hidden transition-all duration-300 ${
+                          isResourcesOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                        }`}
+                        onClick={(e) => e.stopPropagation()}
                       >
-                        Github
-                      </a>
-                      <a
-                        href="https://multisig-doc.hive-keychain.com/"
-                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                      >
-                        Hive Multisig
-                      </a>
-                      <a
-                        href="https://qr.hive-keychain.com/"
-                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                      >
-                        Hive QR Code Generator
-                      </a>
+                        {resourceItems.map((item) => (
+                          <a
+                            key={item.href}
+                            href={item.href}
+                            className="block px-4 py-3 text-gray-700 hover:bg-red-100 text-center border-b border-gray-100 last:border-b-0"
+                          >
+                            {item.label}
+                          </a>
+                        ))}
+                      </div>
                     </div>
-                  )}
-                </div>
-                <div onClick={(e) => e.stopPropagation()}>
-                  <LanguageSelector />
+
+                    <div onClick={(e) => e.stopPropagation()}>
+                      <LanguageSelector />
+                    </div>
+                  </div>
                 </div>
               </div>
             )}
