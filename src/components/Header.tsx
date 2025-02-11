@@ -42,19 +42,21 @@ const Header = () => {
   };
 
   const scrollToSection = (event: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
-    event.preventDefault();
-    const targetElement = document.querySelector(targetId);
-    if (targetElement) {
-      const offset = 80;
-      const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
-      const offsetPosition = elementPosition - offset;
+  event.preventDefault();
+  const targetElement = document.querySelector(targetId);
+  const headerElement = document.querySelector('header');
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth',
-      });
-    }
-  };
+  if (targetElement && headerElement) {
+    const offset = headerElement.clientHeight;
+    const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+    const offsetPosition = elementPosition - offset;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth',
+    });
+  }
+};
 
   const closeMenu = () => {
     setIsMenuOpen(false);
