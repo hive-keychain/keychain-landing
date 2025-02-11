@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Download, Menu, X, ChevronDown } from 'lucide-react';
 import { LanguageSelector } from '../context/LanguageContext';
 import { useActiveSection } from '../hooks/useActiveSection';
@@ -9,6 +9,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const activeSection = useActiveSection();
   const location = useLocation();
+  const resourcesRef = useRef<HTMLDivElement>(null);
 
   const menuItems = [
     { href: '#why', label: 'Why' },
@@ -27,6 +28,19 @@ const Header = () => {
   ];
 
   useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (resourcesRef.current && !resourcesRef.current.contains(event.target as Node)) {
+        setIsResourcesOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  useEffect(() => {
     if (isMenuOpen) {
       document.body.style.overflow = 'hidden';
     } else {
@@ -42,21 +56,21 @@ const Header = () => {
   };
 
   const scrollToSection = (event: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
-  event.preventDefault();
-  const targetElement = document.querySelector(targetId);
-  const headerElement = document.querySelector('header');
+    event.preventDefault();
+    const targetElement = document.querySelector(targetId);
+    const headerElement = document.querySelector('header');
 
-  if (targetElement && headerElement) {
-    const offset = headerElement.clientHeight;
-    const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
-    const offsetPosition = elementPosition - offset;
+    if (targetElement && headerElement) {
+      const offset = headerElement.clientHeight;
+      const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - offset;
 
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: 'smooth',
-    });
-  }
-};
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
+    }
+  };
 
   const closeMenu = () => {
     setIsMenuOpen(false);
@@ -96,7 +110,7 @@ const Header = () => {
                 </a>
               ))}
 
-              <div className="relative">
+              <div className="relative" ref={resourcesRef}>
                 <button
                   onClick={toggleResources}
                   className="flex items-center text-gray-700 hover:text-red-600 transition-colors focus:outline-none"
