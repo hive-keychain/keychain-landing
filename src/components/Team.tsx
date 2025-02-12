@@ -34,29 +34,32 @@ const Team = () => {
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
           Meet the team
         </h2>
-        <div className="grid md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-8">
           {team.map((member, index) => (
             <div
-              key={index}
-              className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
-            >
-              <img
-                src={member.image}
-                alt={member.name}
-                className="w-full h-64 object-cover object-top"
-              />
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-1">{member.name}</h3>
-                <p className="text-gray-600 mb-2">{member.role}</p>
-                <a
-                  href={`https://peakd.com/${member.hiveUsername}`}
-                  className="text-red-600 hover:text-red-700 transition-colors"
-                  target="_blank"
-                >
-                  {member.hiveUsername}
-                </a>
-              </div>
-            </div>
+  key={index}
+  className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+>
+  <div className="relative w-full aspect-w-1 aspect-h-1">
+    <img
+      src={member.image}
+      alt={member.name}
+      className="w-full h-full object-cover object-center"
+    />
+  </div>
+  <div className="p-6">
+    <h3 className="text-xl font-semibold mb-1">{member.name}</h3>
+    <p className="text-gray-600 mb-2">{member.role}</p>
+    <a
+      href={`https://peakd.com/${member.hiveUsername}`}
+      className="text-red-600 hover:text-red-700 transition-colors"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      {member.hiveUsername}
+    </a>
+  </div>
+</div>
           ))}
         </div>
       </div>
