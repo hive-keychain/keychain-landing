@@ -1,4 +1,14 @@
 {
   "nav.home": "Home",
-  "nav.download": "Download"
+  "nav.download": "Download",
+  "nav.why": "Why",
+  "nav.ecosystem": "Ecosystem",
+  "nav.team": "Team",
+  "nav.contact": "Contact",
+  "nav.resources": "Resources",
+  "nav.download_now": "Download Now",
+  "hero.title": "Your gateway to the Hive ecosystem",
+  "hero.subtitle": "Secure. Simple. Powerful.",
+  "hero.description": "Available on iOS, Android, Chrome, Brave, and Firefox",
+  "hero.scroll_indicator": "Scroll down"
 }

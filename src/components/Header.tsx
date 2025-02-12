@@ -3,8 +3,10 @@ import { Download, Menu, X, ChevronDown } from 'lucide-react';
 import { LanguageSelector } from '../context/LanguageContext';
 import { useActiveSection } from '../hooks/useActiveSection';
 import { useLocation } from 'react-router-dom';
+import { useLanguage } from '../context/LanguageContext';
 
 const Header = () => {
+  const { t } = useLanguage();
   const [isResourcesOpen, setIsResourcesOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const activeSection = useActiveSection();
@@ -12,11 +14,11 @@ const Header = () => {
   const resourcesRef = useRef<HTMLDivElement>(null);
 
   const menuItems = [
-    { href: '#why', label: 'Why' },
-    { href: '#download', label: 'Download' },
-    { href: '#ecosystem', label: 'Ecosystem' },
-    { href: '#team', label: 'Team' },
-    { href: '#contact', label: 'Contact' },
+    { href: '#why', label: t('nav.why') },
+    { href: '#download', label: t('nav.download') },
+    { href: '#ecosystem', label: t('nav.ecosystem') },
+    { href: '#team', label: t('nav.team') },
+    { href: '#contact', label: t('nav.contact') },
   ];
 
   const resourceItems = [
@@ -115,7 +117,7 @@ const Header = () => {
                   onClick={toggleResources}
                   className="flex items-center text-gray-700 hover:text-red-600 transition-colors focus:outline-none"
                 >
-                  Resources <ChevronDown size={16} className={`ml-1 transform transition-transform duration-200 ${isResourcesOpen ? 'rotate-180' : ''}`} />
+                  {t('nav.resources')} <ChevronDown size={16} className={`ml-1 transform transition-transform duration-200 ${isResourcesOpen ? 'rotate-180' : ''}`} />
                 </button>
 
                 {isResourcesOpen && (
@@ -175,7 +177,7 @@ const Header = () => {
                         }}
                         className="flex items-center justify-center w-full text-gray-700 hover:text-red-600 transition-colors text-xl focus:outline-none"
                       >
-                        Resources 
+                        {t('nav.resources')} 
                         <ChevronDown 
                           size={16} 
                           className={`ml-1 transform transition-transform duration-200 ${isResourcesOpen ? 'rotate-180' : ''}`} 
@@ -218,7 +220,7 @@ const Header = () => {
             className="bg-red-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-red-700 transition-colors"
           >
             <Download size={20} />
-            <span>Download Now</span>
+            <span>{ t('nav.download_now') }</span>
           </a>
         </div>
       </nav>

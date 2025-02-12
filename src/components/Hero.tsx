@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { useLanguage } from '../context/LanguageContext';
 import { AnimatedSection } from './AnimatedSection';
 import { FloatingImage } from './FloatingImage';
 
 const Hero = () => {
+  const { t } = useLanguage();
   const [showScrollIndicator, setShowScrollIndicator] = useState(true);
 
   useEffect(() => {
@@ -34,19 +36,19 @@ const Hero = () => {
         <div className="flex flex-col md:flex-row items-center gap-0 md:gap-12">
           <AnimatedSection direction="left" className="flex-1 md:text-left text-center">
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 !leading-tight">
-              Your gateway to the Hive ecosystem
+              {t('hero.title')} {/* Traducción del título */}
             </h1>
             <h2 className="text-xl md:text-2xl text-gray-600 mb-1">
-              Secure. Simple. Powerful.
+              {t('hero.subtitle')} {/* Traducción del subtítulo */}
             </h2>
             <p className="text-gray-600">
-              Available on iOS, Android, Chrome, Brave, and Firefox
+              {t('hero.description')} {/* Traducción de la descripción */}
             </p>
           </AnimatedSection>
           <AnimatedSection direction="right" className="flex-1">
             <FloatingImage
               src="/heroimage.svg"
-              alt="Hive Keychain Mobile App"
+              alt={t('hero.title')} // Traducción para el atributo alt
               className="max-w-full mx-auto"
             />
           </AnimatedSection>

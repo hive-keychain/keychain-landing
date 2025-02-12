@@ -1,10 +1,13 @@
 // src/context/LanguageContext.tsx
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
+import en from '../translations/en.json';
+import es from '../translations/es.json';
 
 
 // Definición de tipos
 type Language = 'es' | 'en';
+const translations = { en, es };
 
 interface LanguageContextType {
   language: Language;
@@ -35,8 +38,9 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   }, []);
 
   const t = (key: string): string => {
-    return key;
-  };
+  const translation = translations[language][key];
+  return translation || key; // Devuelve la traducción o la clave si no existe
+};
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage, t }}>
