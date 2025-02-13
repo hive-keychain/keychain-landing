@@ -136,6 +136,18 @@ const Header = () => {
               </div>
             </div>
 
+            <div className="hidden md:flex items-center space-x-4">
+          <LanguageSelector />
+          <a
+            href="#download"
+            onClick={(e) => scrollToSection(e, '#download')}
+            className="bg-red-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-red-700 transition-colors"
+          >
+            <Download size={20} />
+            <span>{ t('nav.download_now') }</span>
+          </a>
+        </div>
+
             {isMenuOpen && (
               <div
                 className="fixed inset-0 bg-white z-50"
@@ -212,7 +224,7 @@ const Header = () => {
           </>
         )}
 
-        <div className="hidden md:flex items-center space-x-4">
+        {/* <div className="hidden md:flex items-center space-x-4">
           <LanguageSelector />
           <a
             href="#download"
@@ -222,7 +234,7 @@ const Header = () => {
             <Download size={20} />
             <span>{ t('nav.download_now') }</span>
           </a>
-        </div>
+        </div> */}
       </nav>
     </header>
   );
