@@ -3,11 +3,13 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
 import en from '../translations/en.json';
 import es from '../translations/es.json';
+import fr from '../translations/fr.json';
+import zh from '../translations/zh.json';
 
 
 // Definición de tipos
-type Language = 'es' | 'en';
-const translations = { en, es };
+type Language = 'es' | 'en' | 'fr' | 'zh';
+const translations = { en, es, fr, zh };
 
 interface LanguageContextType {
   language: Language;
@@ -26,7 +28,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       // Obtener el idioma del navegador y limpiarlo
       const browserLang = navigator.language.toLowerCase().split('-')[0];
       // Verificar si el idioma está entre los soportados
-      return (browserLang === 'es' || browserLang === 'en') ? browserLang as Language : 'en';
+      return (browserLang === 'es' || browserLang === 'en' || browserLang === 'fr' || browserLang === 'zh') ? browserLang as Language : 'en';
     }
     return 'en'; // Valor por defecto si no estamos en el navegador
   });
@@ -65,7 +67,9 @@ export const LanguageSelector: React.FC = () => {
 
   const flags = {
     en: '🇺🇸',
-    es: '🇪🇸'
+    es: '🇪🇸',
+    fr: '🇫🇷',
+    zh: '🇨🇳'
   };
 
   return (
