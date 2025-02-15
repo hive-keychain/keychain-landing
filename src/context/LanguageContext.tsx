@@ -6,7 +6,6 @@ import es from '../translations/es.json';
 import fr from '../translations/fr.json';
 import zh from '../translations/zh.json';
 
-
 // Definición de tipos
 type Language = 'es' | 'en' | 'fr' | 'zh';
 const translations = { en, es, fr, zh };
@@ -33,16 +32,10 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     return 'en'; // Valor por defecto si no estamos en el navegador
   });
 
-  // Podemos añadir un useEffect para debugging
-  useEffect(() => {
-    console.log('Browser language:', navigator.language);
-    console.log('Selected language:', language);
-  }, []);
-
   const t = (key: string): string => {
-  const translation = translations[language][key];
-  return translation || key; // Devuelve la traducción o la clave si no existe
-};
+    const translation = translations[language][key];
+    return translation || key; // Devuelve la traducción o la clave si no existe
+  };
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage, t }}>
@@ -72,27 +65,29 @@ export const LanguageSelector: React.FC = () => {
     zh: '🇨🇳'
   };
 
+  // Filtrar los idiomas disponibles excluyendo el idioma actual
+  const availableLanguages = Object.entries(flags).filter(([lang]) => lang !== language);
+
   return (
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center space-x-1 text-gray-700 hover:text-red-600 transition-colors"
       >
-        {!isOpen && <span className="text-2xl">{flags[language]}</span>}
+        <span className="text-2xl">{flags[language]}</span>
         <ChevronDown size={16} className={`transition-transform ${isOpen ? 'rotate-180' : ''}`} />
       </button>
 
       {isOpen && (
         <div className="absolute right-0 mt-2 py-2 w-12 bg-white rounded-lg shadow-xl border border-gray-100">
-          {Object.entries(flags).map(([lang, flag]) => (
+          {availableLanguages.map(([lang, flag]) => (
             <button
               key={lang}
               onClick={() => {
                 setLanguage(lang as Language);
                 setIsOpen(false);
               }}
-              className={`flex justify-center w-full px-2 py-2 hover:bg-gray-50 text-2xl
-                ${lang === language ? 'text-red-600' : ''}`}
+              className={`flex justify-center w-full px-2 py-2 hover:bg-gray-50 text-2xl`}
             >
               {flag}
             </button>

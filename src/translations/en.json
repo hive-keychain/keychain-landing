@@ -7,8 +7,55 @@
   "nav.contact": "Contact",
   "nav.resources": "Resources",
   "nav.download_now": "Download Now",
+
   "hero.title": "Your gateway to the Hive ecosystem",
   "hero.subtitle": "Secure. Simple. Powerful.",
   "hero.description": "Available on iOS, Android, Chrome, Brave, and Firefox",
-  "hero.scroll_indicator": "Scroll down"
+  "hero.scroll_indicator": "Scroll down",
+
+  "features.title": "Why choose Hive Keychain?",
+  "features.secure.title": "Secure",
+  "features.secure.description": "State-of-the-art security features like 2FA and Multisig.",
+  "features.user_friendly.title": "User-Friendly",
+  "features.user_friendly.description": "Designed for seamless interaction with the Hive ecosystem and use by 100,000+ users.",
+  "features.cross_platform.title": "Cross-Platform",
+  "features.cross_platform.description": "Available on mobile and browser extensions for ultimate flexibility.",
+
+  "download.title": "Start with Keychain now!",
+  "download.mobile_apps": "Mobile Apps",
+  "download.browser_extensions": "Browser Extensions",
+  "download.cta": "Start managing your Hive accounts securely today!",
+
+  "ecosystem.title": "Hive ecosystem",
+  "ecosystem.subtitle": "Discover the powerful applications that integrate with Hive Keychain",
+  "ecosystem.loading": "Loading Ecosystem...",
+  "ecosystem.error": "Error loading ecosystem. Please try again later.",
+  "ecosystem.social": "Social",
+  "ecosystem.games": "Games",
+  "ecosystem.finance": "Finance",
+  "ecosystem.tools": "Tools",
+  "ecosystem.other": "Others",
+
+  "team.title": "Meet the Team",
+  "team.quentin.text": "Founder / Witness",
+  "team.cedric.text": "Lead Developer / Full-stack Dev",
+  "team.manu.text": "Community Manager | Witness",
+  "team.matt.text": "Advisor / Witness",
+
+  "contact.title": "Get in Touch",
+  "contact.discord.title": "Join Our Discord",
+  "contact.discord.description": "Connect with our community",
+  "contact.email.title": "Email Us",
+  "contact.email.description": "contact@hive-keychain.com",
+  "contact.cta": "Any questions? We're here to help!",
+
+  "footer.description": "Your secure gateway to the Hive ecosystem",
+  "footer.links.privacy": "Privacy Policy",
+  "footer.links.terms": "Terms of Service",
+  "footer.links.fees": "Fees",
+  "footer.resources.sdk": "Keychain SDK",
+  "footer.resources.playground": "Keychain Playground",
+  "footer.resources.multisig": "Hive Multisig",
+  "footer.resources.qr": "Hive QR Code Generator",
+  "footer.copyright": "© {year} Hive Keychain. All rights reserved."
 }
