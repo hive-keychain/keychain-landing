@@ -1,5 +1,6 @@
 import React from 'react';
 import { AppCategory } from './EcosystemData';
+import { useLanguage } from '../../context/LanguageContext';
 
 interface CategoryFilterProps {
   categories: AppCategory[];
@@ -12,6 +13,24 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({
   selectedCategory,
   onSelectCategory,
 }) => {
+  const { t } = useLanguage();
+
+  // Función para traducir categorías
+  const translateCategory = (category: AppCategory): string => {
+    if (category === 'Social') {
+      return t('ecosystem.social');
+    } else if (category === 'Gaming') {
+      return t('ecosystem.games');
+    } else if (category === 'NFT') {
+      return t('ecosystem.nft');
+    } else if (category === 'Finance') {
+      return t('ecosystem.finance');
+    } else if (category === 'Tool') {
+      return t('ecosystem.tools');
+    }
+    return category; // Retorna el valor original si no hay traducción
+  };
+
   return (
     <div className="flex flex-wrap justify-center gap-4 mb-8">
       {categories.map((category) => (
@@ -24,7 +43,7 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({
               : 'bg-white text-gray-600 hover:bg-gray-100'
           }`}
         >
-          {category}
+          {translateCategory(category)}
         </button>
       ))}
     </div>

@@ -34,7 +34,7 @@
   "ecosystem.games": "Games",
   "ecosystem.finance": "Finance",
   "ecosystem.tools": "Tools",
-  "ecosystem.other": "Others",
+  "ecosystem.nft": "NFTs",
 
   "team.title": "Meet the Team",
   "team.quentin.text": "Founder / Witness",
@@ -49,13 +49,17 @@
   "contact.email.description": "contact@hive-keychain.com",
   "contact.cta": "Any questions? We're here to help!",
 
+  "footer.title": "Hive Keychain",
   "footer.description": "Your secure gateway to the Hive ecosystem",
+  "footer.links.title": "Important Links",
   "footer.links.privacy": "Privacy Policy",
   "footer.links.terms": "Terms of Service",
   "footer.links.fees": "Fees",
+  "footer.resources.title": "Resources",
   "footer.resources.sdk": "Keychain SDK",
   "footer.resources.playground": "Keychain Playground",
   "footer.resources.multisig": "Hive Multisig",
   "footer.resources.qr": "Hive QR Code Generator",
-  "footer.copyright": "© {year} Hive Keychain. All rights reserved."
+  "footer.socials": "Socials",
+  "footer.copyright": "Hive Keychain. All rights reserved."
 }

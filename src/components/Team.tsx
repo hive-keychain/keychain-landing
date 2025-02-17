@@ -1,28 +1,30 @@
 import React from 'react';
+import { useLanguage } from '../context/LanguageContext';
 
 const Team = () => {
+  const { t } = useLanguage();
   const team = [
     {
       name: 'Quentin',
-      role: 'Founder / Witness',
+      role: t('team.quentin.text'),
       hiveUsername: '@stoodkev',
       image: 'https://files.peakd.com/file/peakd-hive/stoodkev/273162954_469718881301752_2563467209379192939_n.png',
     },
     {
       name: 'Cédric',
-      role: 'Lead Developer / Full-stack Dev',
+      role: t('team.cedric.text'),
       hiveUsername: '@cedricguillas',
       image: 'https://files.peakd.com/file/peakd-hive/cedricguillas/285053246_1250941865310987_7996652080792882831_n.jpg',
     },
     {
       name: 'Manu',
-      role: 'Community Manager | Witness',
+      role: t('team.manu.text'),
       hiveUsername: '@manuphotos',
       image: 'https://files.peakd.com/file/peakd-hive/manuphotos/IMG_5767.jpeg',
     },
     {
       name: 'Matt',
-      role: 'Advisor / Witness',
+      role: t('team.matt.text'),
       hiveUsername: '@yabapmatt',
       image: 'https://cdn.steemitimages.com/DQmaj4WmfPgxL2iGkDLUVxiAySQmptZtkJoBxnS4DDNPtDY/profile_yabapmatt_800.jpg',
     },
@@ -32,7 +34,7 @@ const Team = () => {
     <section id="team" className="py-16 bg-[#E5EDF5]">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-          Meet the team
+          {t('team.title')}
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-8">
           {team.map((member, index) => (

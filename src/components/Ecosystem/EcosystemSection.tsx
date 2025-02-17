@@ -3,10 +3,13 @@ import EcosystemCard from './EcosystemCard';
 import CategoryFilter from './CategoryFilter';
 import EcosystemCarousel from './EcosystemCarousel';
 import { AppCategory, EcosystemApp, CategoryResponse } from './EcosystemData';
+import { useLanguage } from '../../context/LanguageContext';
 
-const categories: AppCategory[] = ['social', 'finance', 'games', 'tools', 'other']; // Example categories
+
+const categories: AppCategory[] = ['social', 'finance', 'gaming', 'tool', 'nft']; // Example categories
 
 const EcosystemSection = () => {
+  const { t } = useLanguage();
   const [selectedCategory, setSelectedCategory] = useState<AppCategory>('social');
   const [apps, setApps] = useState<EcosystemApp[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
@@ -69,10 +72,10 @@ const EcosystemSection = () => {
     <section id="ecosystem" className="py-16 bg-white">
       <div className="container mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
-          Hive ecosystem
+          {t('ecosystem.title')}
         </h2>
         <p className="text-gray-600 text-center mb-8 max-w-2xl mx-auto px-4">
-          Discover the powerful applications that integrate with Hive Keychain
+          {t('ecosystem.subtitle')}
         </p>
         <CategoryFilter
           categories={categories}
