@@ -17,15 +17,15 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({
 
   // Función para traducir categorías
   const translateCategory = (category: AppCategory): string => {
-    if (category === 'Social') {
+    if (category === 'social') {
       return t('ecosystem.social');
-    } else if (category === 'Gaming') {
+    } else if (category === 'gaming') {
       return t('ecosystem.games');
-    } else if (category === 'NFT') {
+    } else if (category === 'nft') {
       return t('ecosystem.nft');
-    } else if (category === 'Finance') {
+    } else if (category === 'finance') {
       return t('ecosystem.finance');
-    } else if (category === 'Tool') {
+    } else if (category === 'tools') {
       return t('ecosystem.tools');
     }
     return category; // Retorna el valor original si no hay traducción

@@ -1,23 +1,25 @@
 import React from 'react';
 import { Shield, UserCheck, Laptop } from 'lucide-react';
 import { AnimatedSection } from './AnimatedSection';
+import { useLanguage } from '../context/LanguageContext';
 
 const Features = () => {
+  const { t } = useLanguage();
   const features = [
     {
       icon: Shield,
-      title: 'Secure',
-      description: 'State-of-the-art security features like 2FA and Multisig.',
+      title: t('features.secure.title'),
+      description: t('features.secure.description'),
     },
     {
       icon: UserCheck,
-      title: 'User-Friendly',
-      description: 'Designed for seamless interaction with the Hive ecosystem and use by 100,000+ users.',
+      title: t('features.user_friendly.title'),
+      description: t('features.user_friendly.description'),
     },
     {
       icon: Laptop,
-      title: 'Cross-Platform',
-      description: 'Available on mobile and browser extensions for ultimate flexibility.',
+      title: t('features.cross_platform.title'),
+      description: t('features.cross_platform.description'),
     },
   ];
 

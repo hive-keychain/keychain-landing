@@ -1,17 +1,19 @@
 import React from 'react';
 import { Apple, Chrome, Download } from 'lucide-react';
 import { FaBrain, FaChrome, FaFirefoxBrowser } from 'react-icons/fa'; // Importamos los iconos necesarios
+import { useLanguage } from '../context/LanguageContext';
 
 const DownloadSection = () => {
+  const { t } = useLanguage();
   return (
     <section id="download" className="py-16 bg-[#E5EDF5]">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-          Start with Keychain now!
+          {t('download.title')}
         </h2>
         <div className="grid md:grid-cols-2 gap-8 mx-auto">
           <div className="space-y-4">
-            <h3 className="text-xl text-center font-semibold mb-6">Mobile Apps</h3>
+            <h3 className="text-xl text-center font-semibold mb-6">{t('download.mobile_apps')}</h3>
             {/* Cambio aquí: de flex a grid en móvil */}
             <div className="flex flex-col md:flex-row justify-center md:justify-evenly gap-4 md:gap-0 items-center">
               <a
@@ -31,7 +33,7 @@ const DownloadSection = () => {
             </div>
           </div>
           <div className="space-y-4">
-            <h3 className="text-xl text-center font-semibold mb-6">Browser Extensions</h3>
+            <h3 className="text-xl text-center font-semibold mb-6">{t('download.browser_extensions')}</h3>
             <div className="grid grid-cols-2 md:flex md:flex-row justify-center gap-4 md:gap-0 md:justify-evenly items-center md:items-start">
               <a
                 href="https://chrome.google.com/webstore/detail/hive-keychain/jcacnejopjdphbnjgfaaobbfafkihpep?hl=en"
@@ -72,7 +74,7 @@ const DownloadSection = () => {
           </div>
         </div>
         <p className="text-center mt-8 text-gray-600">
-          Start managing your Hive accounts securely today!
+          {t('download.cta')}
         </p>
       </div>
     </section>
