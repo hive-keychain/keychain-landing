@@ -6,6 +6,7 @@ import Features from './components/Features';
 import Download from './components/Download';
 import EcosystemSection from './components/Ecosystem/EcosystemSection';
 import Team from './components/Team';
+import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import TermsOfService from './components/Pages/TermsOfService';
@@ -71,6 +72,7 @@ function App() {
                   <Download />
                   <EcosystemSection />
                   <Team />
+                  <Testimonials />
                   <Contact />
                 </main>
               }
