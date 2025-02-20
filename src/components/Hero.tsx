@@ -25,10 +25,18 @@ const Hero = () => {
   const handleScrollToWhy = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     event.preventDefault();
     const section = document.getElementById('why');
+    const headerOffset = 65; // Ajusta este valor según la altura de tu header
     if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
+      const elementPosition = section.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
     }
   };
+
 
   return (
     <section className="pt-24 pb-16 bg-gradient-to-b from-white to-[#E5EDF5] relative h-auto md:h-screen">
