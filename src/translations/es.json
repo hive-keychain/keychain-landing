@@ -1,7 +1,7 @@
 {
   "nav.home": "Inicio",
   "nav.download": "Descargar",
-  "nav.why": "Nosotros",
+  "nav.why": "¿Por qué?",
   "nav.ecosystem": "Ecosistema",
   "nav.team": "Equipo",
   "nav.contact": "Contacto",
@@ -10,6 +10,56 @@
 
   "hero.title": "Tu puerta de entrada al ecosistema Hive",
   "hero.subtitle": "Seguro. Simple. Potente.",
-  "hero.description": "Disponible en iOS, Android, Chrome, Brave y Firefox",
-  "hero.scroll_indicator": "Desplázate hacia abajo"
+  "hero.description": "Disponible en iOS, Android, Chromium y Firefox",
+  "hero.scroll_indicator": "Desplázate hacia abajo",
+
+  "features.title": "¿Por qué elegir Keychain?",
+  "features.secure.title": "Seguro",
+  "features.secure.description": "Mantén tus claves seguras utilizando encriptación de última generación. Ve más allá con multisig y 2FA.",
+  "features.user_friendly.title": "Fácil de usar",
+  "features.user_friendly.description": "Más de 100,000 usuarios disfrutan de una interacción fluida con el ecosistema Hive a través de Keychain.",
+  "features.cross_platform.title": "Multiplataforma",
+  "features.cross_platform.description": "Ya sea en tu portátil o en tu móvil, ¡Keychain está para ti!",
+
+  "download.title": "¡Empieza con Keychain ahora!",
+  "download.mobile_apps": "Aplicaciones móviles",
+  "download.browser_extensions": "Extensiones del navegador",
+  "download.cta": "¡Protege tus cuentas Hive con Keychain hoy mismo!",
+
+  "ecosystem.title": "Ecosistema Hive",
+  "ecosystem.subtitle": "Descubre los numerosos juegos, herramientas y otras aplicaciones a las que puedes acceder a través de Keychain.",
+  "ecosystem.loading": "Cargando Ecosistema...",
+  "ecosystem.error": "Error al cargar el ecosistema. Por favor, inténtalo de nuevo más tarde.",
+  "ecosystem.social": "Social",
+  "ecosystem.games": "Juegos",
+  "ecosystem.finance": "Finanzas",
+  "ecosystem.tools": "Herramientas",
+  "ecosystem.nft": "NFTs",
+
+  "team.title": "Conoce al equipo",
+  "team.quentin.text": "Fundador / Testigo",
+  "team.cedric.text": "Desarrollador principal / Desarrollador Full-stack",
+  "team.manu.text": "Community Manager | Testigo",
+  "team.matt.text": "Asesor / Testigo",
+
+  "contact.title": "Ponte en contacto",
+  "contact.discord.title": "Únete a nuestro Discord",
+  "contact.discord.description": "Conéctate con nuestra comunidad",
+  "contact.email.title": "Envíanos un correo",
+  "contact.email.description": "contact@hive-keychain.com",
+  "contact.cta": "¿Tienes preguntas? ¡Estamos aquí para ayudarte!",
+
+  "footer.title": "Hive Keychain",
+  "footer.description": "Tu puerta de entrada segura al ecosistema Hive",
+  "footer.links.title": "Enlaces importantes",
+  "footer.links.privacy": "Política de privacidad",
+  "footer.links.terms": "Términos de servicio",
+  "footer.links.fees": "Tarifas",
+  "footer.resources.title": "Recursos",
+  "footer.resources.sdk": "Keychain SDK",
+  "footer.resources.playground": "Keychain Playground",
+  "footer.resources.multisig": "Hive Multisig",
+  "footer.resources.qr": "Generador de códigos QR de Hive",
+  "footer.socials": "Redes sociales",
+  "footer.copyright": "Hive Keychain. Todos los derechos reservados."
 }

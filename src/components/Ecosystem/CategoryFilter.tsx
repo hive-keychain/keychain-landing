@@ -25,7 +25,7 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({
       return t('ecosystem.nft');
     } else if (category === 'finance') {
       return t('ecosystem.finance');
-    } else if (category === 'tools') {
+    } else if (category === 'tool') {
       return t('ecosystem.tools');
     }
     return category; // Retorna el valor original si no hay traducción
