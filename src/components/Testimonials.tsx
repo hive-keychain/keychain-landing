@@ -6,40 +6,22 @@ import { Autoplay } from 'swiper/modules';
 
 const testimonials = [
   {
-    text: "Hive Keychain has revolutionized the way I interact with the Hive ecosystem. It's secure and easy to use!",
-    name: "Alice Johnson",
-    role: "Blockchain Enthusiast",
-    image: "https://files.peakd.com/file/peakd-hive/manuphotos/IMG_5767.jpeg",
+    text: "Hive Keychain is the best Hive wallet and the easiest way to interact with the Hive ecosystem both on desktop and mobile.",
+    name: "Asgarth",
+    role: "Co-founder of Peakd and Peakmonsters",
+    image: "https://images.hive.blog/u/asgarth/avatar",
   },
   {
     text: "The cross-platform support is fantastic. I can access my accounts from anywhere!",
-    name: "Bob Smith",
-    role: "Crypto Trader",
-    image: "https://files.peakd.com/file/peakd-hive/manuphotos/IMG_5767.jpeg",
+    name: "Starkerz",
+    role: "Founder of 3Speaktv",
+    image: "https://images.hive.blog/u/starkerz/avatar",
   },
   {
-    text: "I love the user-friendly interface. It's perfect for both beginners and experts.",
-    name: "Charlie Brown",
-    role: "Tech Blogger",
-    image: "https://files.peakd.com/file/peakd-hive/manuphotos/IMG_5767.jpeg",
-  },
-  {
-    text: "The security features are top-notch. I feel safe using Hive Keychain for all my transactions.",
-    name: "Diana Prince",
-    role: "Security Analyst",
-    image: "https://files.peakd.com/file/peakd-hive/manuphotos/IMG_5767.jpeg",
-  },
-  {
-    text: "Hive Keychain's user experience is unmatched. It's intuitive and easy to navigate.",
-    name: "Ethan Hunt",
-    role: "UX Designer",
-    image: "https://files.peakd.com/file/peakd-hive/manuphotos/IMG_5767.jpeg",
-  },
-  {
-    text: "I appreciate the constant updates and improvements. The team is doing a great job!",
-    name: "Fiona Gallagher",
-    role: "Product Manager",
-    image: "https://files.peakd.com/file/peakd-hive/manuphotos/IMG_5767.jpeg",
+    text: "I use Keychain daily to interact with the chain! It's the best out there.",
+    name: "Howo",
+    role: "Core dev of Hive blockchain",
+    image: "https://images.hive.blog/u/howo/avatar",
   },
 ];
 
@@ -59,6 +41,9 @@ const TestimonialsCarousel = () => {
           speed={3000}
           loop={true}
           breakpoints={{
+            320: {
+              slidesPerView: 1,
+            },
             640: {
               slidesPerView: 1,
             },
@@ -73,7 +58,7 @@ const TestimonialsCarousel = () => {
           {testimonials.map((testimonial, index) => (
             <SwiperSlide key={index}>
               <div className="bg-white border border-red-300 border-opacity-25 p-8 rounded-lg shadow-blue-100 shadow-xl text-left max-w-xs mx-auto transform transition-transform hover:scale-105">
-                <p className="mb-8 text-medium">{testimonial.text}</p>
+                <p className="mb-8 text-xl">{testimonial.text}</p>
                 <div className="flex items-center justify-start mt-6">
                   <img
                     src={testimonial.image}

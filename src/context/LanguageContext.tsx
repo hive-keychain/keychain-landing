@@ -1,4 +1,3 @@
-// src/context/LanguageContext.tsx
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
 import en from '../translations/en.json';
@@ -22,19 +21,16 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 // Proveedor del contexto de idioma
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [language, setLanguage] = useState<Language>(() => {
-    // Asegurarnos de que estamos en el navegador
     if (typeof window !== 'undefined') {
-      // Obtener el idioma del navegador y limpiarlo
       const browserLang = navigator.language.toLowerCase().split('-')[0];
-      // Verificar si el idioma está entre los soportados
       return (browserLang === 'es' || browserLang === 'en' || browserLang === 'fr' || browserLang === 'zh') ? browserLang as Language : 'en';
     }
-    return 'en'; // Valor por defecto si no estamos en el navegador
+    return 'en';
   });
 
   const t = (key: string): string => {
     const translation = translations[language][key];
-    return translation || key; // Devuelve la traducción o la clave si no existe
+    return translation || key;
   };
 
   return (
@@ -53,10 +49,14 @@ export const useLanguage = () => {
   return context;
 };
 
+interface LanguageSelectorProps {
+  isOpen?: boolean;
+  onToggle?: (e: React.MouseEvent) => void;
+}
+
 // Componente selector de idioma
-export const LanguageSelector: React.FC = () => {
+export const LanguageSelector: React.FC<LanguageSelectorProps> = ({ isOpen = false, onToggle }) => {
   const { language, setLanguage } = useLanguage();
-  const [isOpen, setIsOpen] = useState(false);
 
   const flags = {
     en: '🇺🇸',
@@ -65,13 +65,18 @@ export const LanguageSelector: React.FC = () => {
     zh: '🇨🇳'
   };
 
-  // Filtrar los idiomas disponibles excluyendo el idioma actual
   const availableLanguages = Object.entries(flags).filter(([lang]) => lang !== language);
+
+  const handleLanguageChange = (lang: Language, e: React.MouseEvent) => {
+    e.stopPropagation();
+    setLanguage(lang);
+    if (onToggle) onToggle(e);
+  };
 
   return (
     <div className="relative">
       <button
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={onToggle}
         className="flex items-center space-x-1 text-gray-700 hover:text-red-600 transition-colors"
       >
         <span className="text-2xl">{flags[language]}</span>
@@ -83,11 +88,8 @@ export const LanguageSelector: React.FC = () => {
           {availableLanguages.map(([lang, flag]) => (
             <button
               key={lang}
-              onClick={() => {
-                setLanguage(lang as Language);
-                setIsOpen(false);
-              }}
-              className={`flex justify-center w-full px-2 py-2 hover:bg-gray-50 text-2xl`}
+              onClick={(e) => handleLanguageChange(lang as Language, e)}
+              className="flex justify-center w-full px-2 py-2 hover:bg-gray-50 text-2xl"
             >
               {flag}
             </button>
