@@ -33,17 +33,6 @@ import React, { useState, useRef } from 'react';
       { href: 'https://qr.hive-keychain.com/', label: 'Hive QR Code Generator' },
     ];
 
-    useEffect(() => {
-    if (isMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
-    return () => {
-      document.body.style.overflow = 'auto';
-    };
-  }, [isMenuOpen]);
-
     const toggleResources = (e?: React.MouseEvent) => {
       e?.stopPropagation();
       setIsResourcesOpen(prev => !prev);
