@@ -5,6 +5,7 @@
   "nav.ecosystem": "生态系统",
   "nav.team": "团队",
   "nav.contact": "联系我们",
+  "nav.testimonial": "推荐语",
   "nav.resources": "资源",
   "nav.download_now": "立即下载",
 
@@ -41,6 +42,8 @@
   "team.cedric.text": "首席开发者 / 全栈开发",
   "team.manu.text": "社区经理 | 见证人",
   "team.matt.text": "顾问 / 见证人",
+
+  "testimonials.title": "人们怎么说",
 
   "contact.title": "联系我们",
   "contact.discord.title": "加入我们的 Discord",

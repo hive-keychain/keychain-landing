@@ -1,12 +1,13 @@
 {
   "nav.home": "Accueil",
   "nav.download": "Télécharger",
-  "nav.why": "Pourquoi Keychain ?",
+  "nav.why": "Pourquoi?",
   "nav.ecosystem": "Écosystème",
   "nav.team": "Équipe",
   "nav.contact": "Contact",
+  "nav.testimonial": "Témoignages",
   "nav.resources": "Ressources",
-  "nav.download_now": "Téléchargez maintenant",
+  "nav.download_now": "Téléchargez",
 
   "hero.title": "Votre passerelle vers l'écosystème Hive",
   "hero.subtitle": "Sûr. Simple. Puissant.",
@@ -41,6 +42,8 @@
   "team.cedric.text": "Développeur principal / Développeur Full-stack",
   "team.manu.text": "Community Manager | Témoin",
   "team.matt.text": "Conseiller / Témoin",
+
+  "testimonials.title": "Ce que les gens disent",
 
   "contact.title": "Contactez-nous",
   "contact.discord.title": "Rejoignez notre Discord",

@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/autoplay';
 import { Autoplay } from 'swiper/modules';
+import { useLanguage } from "../context/LanguageContext"
 
 const testimonials = [
   {
@@ -26,11 +27,14 @@ const testimonials = [
 ];
 
 const TestimonialsCarousel = () => {
+
+  const { t } = useLanguage()
+
   return (
     <section id="testimonials" className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-          What People Are Saying
+          { t("testimonials.title") }
         </h2>
         <Swiper
           className='pb-12 pt-6'
