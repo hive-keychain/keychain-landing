@@ -18,18 +18,32 @@ const Header = () => {
   const resourcesRef = useRef<HTMLDivElement>(null)
   const languageDropdownRef = useRef<HTMLDivElement>(null)
   const mobileMenuContentRef = useRef<HTMLDivElement>(null)
+  const mobileResourcesRef = useRef<HTMLDivElement>(null) // Nueva referencia para el dropdown de Resources en móvil
 
   // Añadir este useEffect para manejar clics fuera de los dropdowns
+  // Modificar el useEffect para manejar los clics fuera
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      // Cerrar dropdown de Resources si se hace clic fuera
-      if (resourcesRef.current && !resourcesRef.current.contains(event.target as Node)) {
+      // Primero verificamos si el clic fue dentro del menú móvil
+      if (mobileMenuContentRef.current?.contains(event.target as Node)) {
+        return // Si el clic fue dentro del menú móvil, no hacemos nada
+      }
+
+      // Manejamos los dropdowns
+      if (
+        !resourcesRef.current?.contains(event.target as Node) &&
+        !mobileResourcesRef.current?.contains(event.target as Node)
+      ) {
         setIsResourcesOpen(false)
       }
 
-      // Cerrar dropdown de Language si se hace clic fuera
-      if (languageDropdownRef.current && !languageDropdownRef.current.contains(event.target as Node)) {
+      if (!languageDropdownRef.current?.contains(event.target as Node)) {
         setIsLanguageDropdownOpen(false)
+      }
+
+      // Si estamos en móvil y los dropdowns están cerrados, cerramos el menú
+      if (window.innerWidth < 768 && !isResourcesOpen && !isLanguageDropdownOpen) {
+        setIsMenuOpen(false)
       }
     }
 
@@ -37,7 +51,7 @@ const Header = () => {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside)
     }
-  }, [])
+  }, [isResourcesOpen, isLanguageDropdownOpen])
 
   // Añadir este useEffect para controlar el scroll cuando el menú móvil está abierto
   useEffect(() => {
@@ -118,6 +132,15 @@ const Header = () => {
     setIsLanguageDropdownOpen(false)
   }
 
+  // Modificar el manejador de clics del menú móvil
+  // Modificar el manejador del menú móvil para evitar propagación innecesaria
+  const handleMobileMenuClick = (e: React.MouseEvent) => {
+    // Evitamos que el clic se propague si fue dentro del contenido del menú
+    if (mobileMenuContentRef.current?.contains(e.target as Node)) {
+      e.stopPropagation()
+    }
+  }
+
   const hideMenu = ["/privacy", "/terms", "/fees"].includes(location.pathname)
 
   return (
@@ -195,7 +218,7 @@ const Header = () => {
             </div>
 
             {isMenuOpen && (
-              <div className="fixed inset-0 bg-white z-50">
+              <div className="fixed inset-0 bg-white z-50" onClick={handleMobileMenuClick}>
                 <button
                   onClick={closeMenu}
                   className="absolute top-4 right-4 text-gray-700 hover:text-red-600 transition-colors focus:outline-none"
@@ -203,6 +226,7 @@ const Header = () => {
                   <X size={24} />
                 </button>
 
+                {/* En el JSX del menú móvil, modificar el div del contenido */}
                 <div
                   ref={mobileMenuContentRef}
                   className="h-full overflow-y-auto my-20 mx-16"
@@ -225,9 +249,14 @@ const Header = () => {
                       </a>
                     ))}
 
-                    <div className="relative w-full max-w-xs" ref={resourcesRef}>
+                    <div className="relative w-full max-w-xs" ref={mobileResourcesRef}>
+                      {/* En el botón de Resources en móvil, modificar el onClick */}
                       <button
-                        onClick={toggleResources}
+                        onClick={(e) => {
+                          e.preventDefault()
+                          e.stopPropagation()
+                          toggleResources()
+                        }}
                         className="flex items-center justify-center w-full text-gray-700 hover:text-red-600 transition-colors text-xl focus:outline-none"
                       >
                         {t("nav.resources")}
@@ -237,17 +266,25 @@ const Header = () => {
                         />
                       </button>
 
+                      {/* En el contenedor del dropdown de Resources en móvil, modificar el onClick */}
                       <div
                         className={`w-full bg-gray-50 rounded-lg mt-2 overflow-hidden transition-all duration-300 ${
                           isResourcesOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
                         }`}
+                        onClick={(e) => {
+                          e.preventDefault()
+                          e.stopPropagation()
+                        }}
                       >
                         {resourceItems.map((item) => (
                           <a
                             key={item.href}
                             href={item.href}
                             className="block px-4 py-3 text-gray-700 hover:bg-red-100 text-center border-b border-gray-100 last:border-b-0"
-                            onClick={() => setIsResourcesOpen(false)}
+                            onClick={(e) => {
+                              e.stopPropagation()
+                              setIsResourcesOpen(false)
+                            }}
                           >
                             {item.label}
                           </a>
