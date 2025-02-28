@@ -13,7 +13,7 @@ const testimonials = [
     image: "https://images.hive.blog/u/asgarth/avatar",
   },
   {
-    text: "The cross-platform support is fantastic. I can access my accounts from anywhere!",
+    text: "From secure blockchain signatures, payments, using their in wallet browser to get cash back on purchases & quickly signing up & adding account data to the blockchain for posting content with my BTC account, Hive Keychain is one of our recommended go to apps in the Hive ecosystem!",
     name: "Starkerz",
     role: "Founder of 3Speaktv",
     image: "https://images.hive.blog/u/starkerz/avatar",
@@ -61,8 +61,8 @@ const TestimonialsCarousel = () => {
         >
           {testimonials.map((testimonial, index) => (
             <SwiperSlide key={index}>
-              <div className="bg-white border border-red-300 border-opacity-25 p-8 rounded-lg shadow-blue-100 shadow-xl text-left max-w-xs mx-auto transform transition-transform hover:scale-105">
-                <p className="mb-8 text-xl">{testimonial.text}</p>
+              <div className="bg-white border border-red-300 border-opacity-25 p-8 rounded-lg shadow-blue-100 shadow-xl text-left max-w-[500px] mx-auto transform transition-transform hover:scale-105">
+                <p className="mb-8 text-lg">{testimonial.text}</p>
                 <div className="flex items-center justify-start mt-6">
                   <img
                     src={testimonial.image}
@@ -71,7 +71,7 @@ const TestimonialsCarousel = () => {
                   />
                   <div>
                     <h3 className="font-bold">{testimonial.name}</h3>
-                    <p className="text-gray-600">{testimonial.role}</p>
+                    <p className="text-gray-600 text-sm">{testimonial.role}</p>
                   </div>
                 </div>
               </div>
