@@ -64,7 +64,7 @@ const Hero = () => {
           </AnimatedSection>
           <AnimatedSection direction="right" className="flex-1">
             <FloatingImage
-              src="/heroimage.svg"
+              src="/hero.png"
               alt={t('hero.title')} // Traducción para el atributo alt
               className="max-w-full mx-auto"
             />
