@@ -24,6 +24,12 @@ const testimonials = [
     role: "Core dev of Hive blockchain",
     image: "https://images.hive.blog/u/howo/avatar",
   },
+  {
+    text: "Hive Keychain is probably the most important tool in the entire Hive ecosystem. Hive is made to power web3 applications and Keychain is what allows users to easily and securely interact with those apps on both desktop and mobile. Without it, the user experience for Splinterlands and all Hive applications would be considerably worse and I don't think we would have had nearly the level of success that we have had.",
+    name: "Yabapmatt",
+    role: "CEO of Splinterlands",
+    image: "https://images.hive.blog/u/yabapmatt/avatar",
+  },
 ];
 
 const TestimonialsCarousel = () => {
