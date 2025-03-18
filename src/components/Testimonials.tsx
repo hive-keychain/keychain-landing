@@ -25,6 +25,12 @@ const testimonials = [
     image: "https://images.hive.blog/u/howo/avatar",
   },
   {
+    text: "Keychain is the ultimate wallet interface for the hive Blockchain. We look forward  to working on bringing the world of cross chain to Hive",
+    name: "vaultec",
+    role: "Founder of VSC Network",
+    image: "https://images.hive.blog/u/vaultec/avatar",
+  },
+  {
     text: "Hive Keychain is probably the most important tool in the entire Hive ecosystem. Hive is made to power web3 applications and Keychain is what allows users to easily and securely interact with those apps on both desktop and mobile. Without it, the user experience for Splinterlands and all Hive applications would be considerably worse and I don't think we would have had nearly the level of success that we have had.",
     name: "Yabapmatt",
     role: "CEO of Splinterlands",
@@ -47,7 +53,11 @@ const TestimonialsCarousel = () => {
           modules={[Autoplay]}
           spaceBetween={30}
           slidesPerView={3}
-          autoplay={{ delay: 0, disableOnInteraction: false }}
+          autoplay={{
+            delay: 0,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true, // Pausa el autoplay cuando el mouse está sobre el slider
+          }}
           speed={3000}
           loop={true}
           breakpoints={{
