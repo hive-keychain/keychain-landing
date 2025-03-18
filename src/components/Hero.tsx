@@ -41,9 +41,9 @@ const Hero = () => {
 
   return (
     <section className="pt-24 pb-16 bg-gradient-to-b from-white to-[#E5EDF5] relative h-auto md:h-screen">
-      <div className='top-1/4' style={{ width: '100%', height: '400px', position: 'absolute' }}>
+      <div style={{ width: '100%', height: '450px', position: 'absolute', bottom: '70px' }}>
         <Threads
-          amplitude={3}
+          amplitude={2}
           distance={0.3}
           enableMouseInteraction={true}
           color={[255,0,0]}
