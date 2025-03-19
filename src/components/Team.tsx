@@ -23,6 +23,12 @@ const Team = () => {
       image: 'https://files.peakd.com/file/peakd-hive/manuphotos/IMG_5767.jpeg',
     },
     {
+      name: 'Carlo',
+      role: t('team.carlo.text'),
+      hiveUsername: '@krios.003',
+      image: 'https://files.peakd.com/file/peakd-hive/manuphotos/IMG_5767.jpeg',
+    },
+    {
       name: 'Matt',
       role: t('team.matt.text'),
       hiveUsername: '@yabapmatt',
@@ -32,11 +38,11 @@ const Team = () => {
 
   return (
     <section id="team" className="py-16 bg-[#E5EDF5]">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
           {t('team.title')}
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 lg:grid-cols-5 gap-8 md:gap-4">
           {team.map((member, index) => (
             <div
   key={index}

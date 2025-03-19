@@ -41,14 +41,14 @@ const Hero = () => {
 
   return (
     <section className="pt-24 pb-16 bg-gradient-to-b from-white to-[#E5EDF5] relative h-auto md:h-screen">
-      <div style={{ width: '100%', height: '450px', position: 'absolute', bottom: '70px' }}>
+      {/* <div style={{ width: '100%', height: '450px', position: 'absolute', bottom: '70px' }}>
         <Threads
           amplitude={2}
           distance={0.3}
           enableMouseInteraction={true}
           color={[255,0,0]}
         />
-      </div>
+      </div> */}
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center gap-0 md:gap-12">
           <AnimatedSection direction="left" className="flex-1 md:text-left text-center">

@@ -19,15 +19,13 @@ function App() {
   const [userInteracted, setUserInteracted] = useState(false);
 
   useEffect(() => {
-    // Marcar que la carga inicial se ha completado
+
     setInitialLoadComplete(true);
 
-    // Detectar interacción del usuario con clics
     const handleUserInteraction = () => {
       setUserInteracted(true);
     };
 
-    // Escuchar clics para detectar interacción del usuario
     document.addEventListener('click', handleUserInteraction);
 
     return () => {
@@ -36,21 +34,19 @@ function App() {
   }, []);
 
   useEffect(() => {
-    // Solo ejecutar en la carga inicial y si no hay hash en la URL
+
     if (initialLoadComplete && !userInteracted && !window.location.hash) {
       let scrollTimeout: NodeJS.Timeout | null = null;
       let scrolled = false;
 
       const handleScroll = () => {
-        // Evitar múltiples activaciones durante el scroll
+
         if (scrollTimeout || scrolled) return;
 
         scrollTimeout = setTimeout(() => {
-          // Solo activar si el usuario ha hecho un pequeño scroll desde el inicio
           if (window.scrollY > 50 && window.scrollY < 300 && !scrolled) {
             scrolled = true;
             
-            // Obtener la sección Features
             const featuresSection = document.querySelector('section#why');
             if (featuresSection) {
               const headerHeight = document.querySelector('header')?.clientHeight || 0;
@@ -62,7 +58,6 @@ function App() {
               });
             }
             
-            // Eliminar el listener después de activar el scroll automático
             window.removeEventListener('scroll', handleScroll);
           }
           
@@ -70,7 +65,6 @@ function App() {
         }, 100);
       };
 
-      // Añadir el listener de scroll solo si estamos en la página principal
       if (window.location.pathname === '/') {
         window.addEventListener('scroll', handleScroll);
       }
