@@ -26,7 +26,7 @@ const Team = () => {
       name: 'Carlo',
       role: t('team.carlo.text'),
       hiveUsername: '@krios.003',
-      image: 'https://files.peakd.com/file/peakd-hive/manuphotos/IMG_5767.jpeg',
+      image: 'https://files.peakd.com/file/peakd-hive/krios003/118886.jpg',
     },
     {
       name: 'Matt',

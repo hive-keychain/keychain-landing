@@ -26,7 +26,7 @@ const testimonials = [
   },
   {
     text: "Keychain is the ultimate wallet interface for the hive Blockchain. We look forward  to working on bringing the world of cross chain to Hive",
-    name: "vaultec",
+    name: "Vaultec",
     role: "Founder of VSC Network",
     image: "https://images.hive.blog/u/vaultec/avatar",
   },
@@ -77,7 +77,7 @@ const TestimonialsCarousel = () => {
         >
           {testimonials.map((testimonial, index) => (
             <SwiperSlide key={index}>
-              <div className="bg-white border border-red-300 border-opacity-25 p-8 rounded-lg shadow-blue-100 shadow-xl text-left max-w-[500px] mx-auto transform transition-transform hover:scale-105">
+              <div className="bg-white border border-gray-300 border-opacity-25 p-8 rounded-lg shadow-blue-100 shadow-xl text-left max-w-[500px] mx-auto transform transition-transform hover:scale-105">
                 <p className="mb-8 text-lg">{testimonial.text}</p>
                 <div className="flex items-center justify-start mt-6">
                   <img

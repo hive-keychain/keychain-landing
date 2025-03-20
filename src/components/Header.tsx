@@ -190,7 +190,7 @@ const Header = () => {
                       <a
                         key={item.href}
                         href={item.href}
-                        className="block px-4 py-2 text-gray-700 hover:bg-red-100"
+                        className="block px-4 py-2 text-gray-700 hover:bg-gray-50"
                         onClick={() => setIsResourcesOpen(false)}
                       >
                         {item.label}
@@ -278,7 +278,7 @@ const Header = () => {
                           <a
                             key={item.href}
                             href={item.href}
-                            className="block px-4 py-3 text-gray-700 hover:bg-red-100 text-center border-b border-gray-100 last:border-b-0"
+                            className="block px-4 py-3 text-gray-700 hover:bg-gray-50 text-center border-b border-gray-100 last:border-b-0"
                             onClick={(e) => {
                               e.stopPropagation()
                               setIsResourcesOpen(false)
