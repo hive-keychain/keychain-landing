@@ -1,9 +1,10 @@
-import React from 'react';
+
+import React, { useState, useRef, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/autoplay';
 import { Autoplay } from 'swiper/modules';
-import { useLanguage } from "../context/LanguageContext"
+import { useLanguage } from "../context/LanguageContext";
 
 const testimonials = [
   {
@@ -39,26 +40,69 @@ const testimonials = [
 ];
 
 const TestimonialsCarousel = () => {
+  const { t } = useLanguage();
+  const swiperRef = useRef(null);
+  const [isMobileDevice, setIsMobileDevice] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
+  const pauseTimerRef = useRef(null);
+  
+  // Duración de la pausa en milisegundos (5 segundos)
+  const PAUSE_DURATION = 5000;
 
-  const { t } = useLanguage()
+  // Detectar si es dispositivo móvil al cargar el componente
+  useEffect(() => {
+    const checkMobile = () => {
+      return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    };
+    setIsMobileDevice(checkMobile());
+  }, []);
+
+  // Limpiar el temporizador al desmontar el componente
+  useEffect(() => {
+    return () => {
+      if (pauseTimerRef.current) {
+        clearTimeout(pauseTimerRef.current);
+      }
+    };
+  }, []);
+
+  // Función para pausar temporalmente el slider en móvil
+  const handleTemporaryPause = () => {
+    if (!isMobileDevice) return;
+    
+    // Pausar el slider
+    setIsPaused(true);
+    
+    // Limpiar cualquier temporizador existente
+    if (pauseTimerRef.current) {
+      clearTimeout(pauseTimerRef.current);
+    }
+    
+    // Configurar un nuevo temporizador para reanudar después de PAUSE_DURATION
+    pauseTimerRef.current = setTimeout(() => {
+      setIsPaused(false);
+      pauseTimerRef.current = null;
+    }, PAUSE_DURATION);
+  };
 
   return (
     <section id="testimonials" className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-          { t("testimonials.title") }
+          {t("testimonials.title")}
         </h2>
         <Swiper
+          ref={swiperRef}
           className='pb-12 pt-6'
           modules={[Autoplay]}
           spaceBetween={30}
           slidesPerView={3}
-          autoplay={{
-            delay: 0,
+          autoplay={!isPaused ? {
+            delay: 3000,
             disableOnInteraction: false,
-            pauseOnMouseEnter: true, // Pausa el autoplay cuando el mouse está sobre el slider
-          }}
-          speed={3000}
+            pauseOnMouseEnter: !isMobileDevice, // Solo activar en desktop
+          } : false}
+          speed={1000}
           loop={true}
           breakpoints={{
             320: {
@@ -77,7 +121,10 @@ const TestimonialsCarousel = () => {
         >
           {testimonials.map((testimonial, index) => (
             <SwiperSlide key={index}>
-              <div className="bg-white border border-gray-300 border-opacity-25 p-8 rounded-lg shadow-blue-100 shadow-xl text-left max-w-[500px] mx-auto transform transition-transform hover:scale-105">
+              <div 
+                className="bg-white border border-gray-300 border-opacity-25 p-8 rounded-lg shadow-blue-100 shadow-xl text-left max-w-[500px] mx-auto transform transition-transform hover:scale-105"
+                onClick={handleTemporaryPause}
+              >
                 <p className="mb-8 text-lg">{testimonial.text}</p>
                 <div className="flex items-center justify-start mt-6">
                   <img
@@ -90,6 +137,11 @@ const TestimonialsCarousel = () => {
                     <p className="text-gray-600 text-sm">{testimonial.role}</p>
                   </div>
                 </div>
+                {isMobileDevice && isPaused && (
+                  <div className="absolute top-2 right-2 bg-blue-500 text-white text-xs px-2 py-1 rounded-full">
+                    {t("testimonials.paused") || "Paused"}
+                  </div>
+                )}
               </div>
             </SwiperSlide>
           ))}
