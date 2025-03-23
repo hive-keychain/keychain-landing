@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { AnimatedSection } from './AnimatedSection';
 import { FloatingImage } from './FloatingImage';
-import WaveBackground from './services/BluesWave';
+import WaveBackground from './services/RedWavesBackground';
 
 const Hero = () => {
   const { t } = useLanguage();
@@ -41,7 +41,7 @@ const Hero = () => {
 
   return (
     <section className="pt-24 pb-16 bg-gradient-to-b from-white to-[#E5EDF5] relative h-auto md:h-screen">
-      <div style={{ width: '100%', height: '450px', position: 'absolute', bottom: '0' }}>
+      <div className="opacity-75" style={{ width: '100%', height: '450px', position: 'absolute', bottom: '0' }}>
         <WaveBackground />
       </div>
       <div className="container mx-auto px-4">
@@ -67,7 +67,7 @@ const Hero = () => {
         </div>
       </div>
       {showScrollIndicator && (
-        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-red-600 pb-0 md:pb-20">
+        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white pb-0 md:pb-20">
           <a href="#why" onClick={handleScrollToWhy}>
             <AnimatedSection direction="up" className="animate-float">
               <svg
