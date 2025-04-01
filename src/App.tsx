@@ -12,35 +12,41 @@ import Footer from './components/Footer';
 import TermsOfService from './components/Pages/TermsOfService';
 import Fees from './components/Pages/Fees';
 import Privacy from './components/Pages/Privacy';
+import Invoice from './components/Pages/Invoice';
+
 import { LanguageProvider } from './context/LanguageContext';
 
 function App() {
   const [initialLoadComplete, setInitialLoadComplete] = useState(false);
   const [userInteracted, setUserInteracted] = useState(false);
+  const [currentHash, setCurrentHash] = useState(window.location.hash);
 
   useEffect(() => {
-
     setInitialLoadComplete(true);
 
     const handleUserInteraction = () => {
       setUserInteracted(true);
     };
 
+    const handleHashChange = () => {
+      setCurrentHash(window.location.hash);
+    };
+
     document.addEventListener('click', handleUserInteraction);
+    window.addEventListener('hashchange', handleHashChange);
 
     return () => {
       document.removeEventListener('click', handleUserInteraction);
+      window.removeEventListener('hashchange', handleHashChange);
     };
   }, []);
 
   useEffect(() => {
-
     if (initialLoadComplete && !userInteracted && !window.location.hash) {
       let scrollTimeout: NodeJS.Timeout | null = null;
       let scrolled = false;
 
       const handleScroll = () => {
-
         if (scrollTimeout || scrolled) return;
 
         scrollTimeout = setTimeout(() => {
@@ -76,30 +82,37 @@ function App() {
     }
   }, [initialLoadComplete, userInteracted]);
 
+  // Check if the current URL is an invoice URL
+  const isInvoicePage = currentHash.startsWith('#invoice/');
+
   return (
     <LanguageProvider>
       <Router>
         <div className="min-h-screen bg-white">
           <Header />
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <main>
-                  <Hero />
-                  <Features />
-                  <Download />
-                  <EcosystemSection />
-                  <Team />
-                  <Testimonials />
-                  <Contact />
-                </main>
-              }
-            />
-            <Route path="/terms" element={<TermsOfService />} />
-            <Route path="/privacy" element={<Privacy />} />
-            <Route path="/fees" element={<Fees />} />
-          </Routes>
+          {isInvoicePage ? (
+            <Invoice />
+          ) : (
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <main>
+                    <Hero />
+                    <Features />
+                    <Download />
+                    <EcosystemSection />
+                    <Team />
+                    <Testimonials />
+                    <Contact />
+                  </main>
+                }
+              />
+              <Route path="/terms" element={<TermsOfService />} />
+              <Route path="/privacy" element={<Privacy />} />
+              <Route path="/fees" element={<Fees />} />
+            </Routes>
+          )}
           <Footer />
         </div>
       </Router>
