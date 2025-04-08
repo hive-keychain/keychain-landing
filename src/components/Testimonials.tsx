@@ -32,6 +32,12 @@ const testimonials = [
     image: "https://images.hive.blog/u/vaultec/avatar",
   },
   {
+    text: "I use Hive keychain everyday. I started using their mobile browser as well more and more, it makes hiving better. It does so much, and it just works. First step to hiving is downloading Hive keychain.",
+    name: "Dan",
+    role: "Co-Founder 3Speaktv",
+    image: "https://images.hive.blog/u/theycallmedan/avatar",
+  },
+  {
     text: "Hive Keychain is probably the most important tool in the entire Hive ecosystem. Hive is made to power web3 applications and Keychain is what allows users to easily and securely interact with those apps on both desktop and mobile. Without it, the user experience for Splinterlands and all Hive applications would be considerably worse and I don't think we would have had nearly the level of success that we have had.",
     name: "Yabapmatt",
     role: "CEO of Splinterlands",
