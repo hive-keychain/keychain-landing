@@ -18,7 +18,7 @@
   "features.secure.title": "Sécurisé",
   "features.secure.description": "Gardez vos clés en sécurité grâce à notre encryption de pointe. Allez plus loin avec le multisig et le 2FA.",
   "features.user_friendly.title": "Simple",
-  "features.user_friendly.description": "Plus de 100 000 utilisateurs utilisent Keychain pour une intéraction simple et fluide avec l'écosystème Hive.",
+  "features.user_friendly.description": "Plus de 100 000 personnes utilisent Keychain pour une intéraction simple et fluide avec l'écosystème Hive.",
   "features.cross_platform.title": "Multi-plateforme",
   "features.cross_platform.description": "Que vous soyez sur votre ordinateur ou votre téléphone, il y a un Keychain pour vous !",
 
@@ -42,7 +42,7 @@
   "team.cedric.text": "Lead Développeur",
   "team.manu.text": "CM / Witness",
   "team.carlo.text": "Développeur Full-stack",
-  "team.matt.text": "Advisor / Witness",
+  "team.matt.text": "Conseiller / Witness",
 
   "testimonials.title": "Ce que les utilisateurs disent de Keychain",
 
