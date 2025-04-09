@@ -16,7 +16,7 @@
 
   "features.title": "Why choose Keychain?",
   "features.secure.title": "Secure",
-  "features.secure.description": "Keep your keys safe using state of the art encryption. Go further with multisig and 2FA.",
+  "features.secure.description": "Keep your keys safe using state-of-the-art encryption. Go further with multisig and 2FA.",
   "features.user_friendly.title": "User-Friendly",
   "features.user_friendly.description": "Over 100,000 users enjoy seamless interaction with the Hive ecosystem through Keychain.",
   "features.cross_platform.title": "Cross-Platform",
@@ -28,9 +28,9 @@
   "download.cta": "Secure your Hive accounts with Keychain today!",
 
   "ecosystem.title": "Hive ecosystem",
-  "ecosystem.subtitle": "Discover the many games, tools and other applications that you can access through Keychain.",
+  "ecosystem.subtitle": "Discover the many games, tools and other decentralized applications you can access through Keychain.",
   "ecosystem.loading": "Loading Ecosystem...",
-  "ecosystem.error": "Error loading ecosystem. Please try again later.",
+  "ecosystem.error": "Error loading the ecosystem. Please try again later.",
   "ecosystem.social": "Social",
   "ecosystem.games": "Games",
   "ecosystem.finance": "Finance",
@@ -39,8 +39,8 @@
 
   "team.title": "Meet the Team",
   "team.quentin.text": "Founder / Witness",
-  "team.cedric.text": "Lead Developer / Full-stack Dev",
-  "team.manu.text": "Community Manager / Witness",
+  "team.cedric.text": "Lead Developer",
+  "team.manu.text": "CM / Witness",
   "team.carlo.text": "Full-stack Developer",
   "team.matt.text": "Advisor / Witness",
 

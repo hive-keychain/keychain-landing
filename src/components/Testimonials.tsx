@@ -1,12 +1,17 @@
 
-import React, { useState, useRef, useEffect } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { useEffect, useRef, useState } from 'react';
 import 'swiper/css';
 import 'swiper/css/autoplay';
 import { Autoplay } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { useLanguage } from "../context/LanguageContext";
 
-const testimonials = [
+const testimonials = [ {
+  text: "Hive Keychain is probably the most important tool in the entire Hive ecosystem. Hive is made to power web3 applications and Keychain is what allows users to easily and securely interact with those apps on both desktop and mobile. Without it, the user experience for Splinterlands and all Hive applications would be considerably worse and I don't think we would have had nearly the level of success that we have had.",
+  name: "Yabapmatt",
+  role: "CEO of Splinterlands",
+  image: "https://images.hive.blog/u/yabapmatt/avatar",
+},
   {
     text: "Hive Keychain is the best Hive wallet and the easiest way to interact with the Hive ecosystem both on desktop and mobile.",
     name: "Asgarth",
@@ -37,11 +42,11 @@ const testimonials = [
     role: "Co-Founder 3Speaktv",
     image: "https://images.hive.blog/u/theycallmedan/avatar",
   },
-  {
-    text: "Hive Keychain is probably the most important tool in the entire Hive ecosystem. Hive is made to power web3 applications and Keychain is what allows users to easily and securely interact with those apps on both desktop and mobile. Without it, the user experience for Splinterlands and all Hive applications would be considerably worse and I don't think we would have had nearly the level of success that we have had.",
-    name: "Yabapmatt",
-    role: "CEO of Splinterlands",
-    image: "https://images.hive.blog/u/yabapmatt/avatar",
+ {
+    text: "I've been using Hive Keychain for years now, and I can confidently say it’s one of the most secure and user-friendly tools in the blockchain space. The integration of the HiveAuth protocol was game-changer enabling the most secure and seamless way to authenticate and sign transactions on mobiles apps.  If you’re serious about blockchain and want a tool that’s both cutting-edge and rock-solid, Hive Keychain is the gold standard.",
+    name: "Arcange",
+    role: "Creator of HiveBuzz, HiveSQL, HiveAuth, Engage and more",
+    image: "https://images.hive.blog/u/arcange/avatar",
   },
 ];
 
