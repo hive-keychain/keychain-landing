@@ -9,7 +9,7 @@
   "nav.resources": "Ressources",
   "nav.download_now": "Télécharger",
 
-  "hero.title": "Votre point d'accès vers Hive",
+  "hero.title":  "Votre porte d'entrée vers Hive",
   "hero.subtitle": "Sécurisé. Simple. Puissant.",
   "hero.description": "Disponible sur iOS, Android, Chromium et Firefox",
   "hero.scroll_indicator": "Défiler vers le bas",
@@ -54,7 +54,7 @@
   "contact.cta": "Des questions? Nous sommes là pour vous aider!",
 
   "footer.title": "Hive Keychain",
-  "footer.description": "Votre point d'accès vers Hive",
+  "footer.description": "Votre porte d'entrée vers Hive",
   "footer.links.title": "Liens importants",
   "footer.links.privacy": "Politique de confidentialité",
   "footer.links.terms": "Conditions d'utilisation",

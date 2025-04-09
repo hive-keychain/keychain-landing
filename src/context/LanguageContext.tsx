@@ -1,13 +1,14 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
-import { ChevronDown } from 'lucide-react';
-import en from '../translations/en.json';
-import es from '../translations/es.json';
-import fr from '../translations/fr.json';
-import zh from '../translations/zh.json';
+import { ChevronDown } from "lucide-react";
+import React, { createContext, useContext, useState } from "react";
+import en from "../translations/en.json";
+import es from "../translations/es.json";
+import fr from "../translations/fr.json";
+import tw from "../translations/tw.json";
+import zh from "../translations/zh.json";
 
 // Definición de tipos
-type Language = 'es' | 'en' | 'fr' | 'zh';
-const translations = { en, es, fr, zh };
+type Language = "es" | "en" | "fr" | "zh";
+const translations = { en, es, fr, tw, zh };
 
 interface LanguageContextType {
   language: Language;
@@ -16,16 +17,26 @@ interface LanguageContextType {
 }
 
 // Creación del contexto
-const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+const LanguageContext = createContext<LanguageContextType | undefined>(
+  undefined
+);
 
 // Proveedor del contexto de idioma
-export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
   const [language, setLanguage] = useState<Language>(() => {
-    if (typeof window !== 'undefined') {
-      const browserLang = navigator.language.toLowerCase().split('-')[0];
-      return (browserLang === 'es' || browserLang === 'en' || browserLang === 'fr' || browserLang === 'zh') ? browserLang as Language : 'en';
+    if (typeof window !== "undefined") {
+      const browserLang = navigator.language.toLowerCase().split("-")[0];
+      return browserLang === "es" ||
+        browserLang === "en" ||
+        browserLang === "fr" ||
+        browserLang === "tw" ||
+        browserLang === "zh"
+        ? (browserLang as Language)
+        : "en";
     }
-    return 'en';
+    return "en";
   });
 
   const t = (key: string): string => {
@@ -44,7 +55,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
 export const useLanguage = () => {
   const context = useContext(LanguageContext);
   if (!context) {
-    throw new Error('useLanguage debe usarse dentro de un LanguageProvider');
+    throw new Error("useLanguage debe usarse dentro de un LanguageProvider");
   }
   return context;
 };
@@ -55,17 +66,23 @@ interface LanguageSelectorProps {
 }
 
 // Componente selector de idioma
-export const LanguageSelector: React.FC<LanguageSelectorProps> = ({ isOpen = false, onToggle }) => {
+export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
+  isOpen = false,
+  onToggle,
+}) => {
   const { language, setLanguage } = useLanguage();
 
   const flags = {
-    en: '🇺🇸',
-    es: '🇪🇸',
-    fr: '🇫🇷',
-    zh: '🇨🇳'
+    en: "🇺🇸",
+    es: "🇪🇸",
+    fr: "🇫🇷",
+    tw: "🇹🇼",
+    zh: "🇨🇳",
   };
 
-  const availableLanguages = Object.entries(flags).filter(([lang]) => lang !== language);
+  const availableLanguages = Object.entries(flags).filter(
+    ([lang]) => lang !== language
+  );
 
   const handleLanguageChange = (lang: Language, e: React.MouseEvent) => {
     e.stopPropagation();
@@ -80,7 +97,10 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({ isOpen = fal
         className="flex items-center space-x-1 text-gray-700 hover:text-red-600 transition-colors"
       >
         <span className="text-2xl">{flags[language]}</span>
-        <ChevronDown size={16} className={`transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+        <ChevronDown
+          size={16}
+          className={`transition-transform ${isOpen ? "rotate-180" : ""}`}
+        />
       </button>
 
       {isOpen && (
