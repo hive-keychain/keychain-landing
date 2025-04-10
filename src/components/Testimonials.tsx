@@ -1,4 +1,3 @@
-
 import { useEffect, useRef, useState } from 'react';
 import 'swiper/css';
 import 'swiper/css/autoplay';
@@ -52,7 +51,7 @@ const testimonials = [
   ];
 
 const TestimonialsCarousel = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const swiperRef = useRef(null);
   const [isMobileDevice, setIsMobileDevice] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
@@ -97,6 +96,9 @@ const TestimonialsCarousel = () => {
     }, PAUSE_DURATION);
   };
 
+  // Check if current language is not English
+  const showTranslationBadge = language !== 'en';
+
   return (
     <section id="testimonials" className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
@@ -134,10 +136,18 @@ const TestimonialsCarousel = () => {
           {testimonials.map((testimonial, index) => (
             <SwiperSlide key={index}>
               <div 
-                className="bg-white border border-gray-300 border-opacity-25 p-8 rounded-lg shadow-blue-100 shadow-xl text-left max-w-[500px] mx-auto transform transition-transform hover:scale-105"
+                className="bg-white border border-gray-300 border-opacity-25 p-8 rounded-lg shadow-blue-100 shadow-xl text-left max-w-[500px] mx-auto transform transition-transform hover:scale-105 relative"
                 onClick={handleTemporaryPause}
               >
-                <p className="mb-8 text-lg">{t(testimonial.textKey)}</p>
+                {showTranslationBadge && (
+                  <div className="absolute top-2 right-2 mb-2 bg-red-100 text-gray-700 text-xs px-2 py-1 rounded-md flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+                    </svg>
+                    {t("testimonials.translatedFrom") || "Translated from English"}
+                  </div>
+                )}
+                <p className="mb-8 text-lg mt-2">{t(testimonial.textKey)}</p>
                 <div className="flex items-center justify-start mt-6">
                   <img
                     src={testimonial.image}
@@ -150,7 +160,7 @@ const TestimonialsCarousel = () => {
                   </div>
                 </div>
                 {isMobileDevice && isPaused && (
-                  <div className="absolute top-2 right-2 bg-blue-500 text-white text-xs px-2 py-1 rounded-full">
+                  <div className="absolute top-2 left-2 bg-blue-500 text-white text-xs px-2 py-1 rounded-full">
                     {t("testimonials.paused") || "Paused"}
                   </div>
                 )}
