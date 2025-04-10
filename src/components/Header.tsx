@@ -160,7 +160,7 @@ const Header = () => {
               </button>
             </div>
 
-            <div className="hidden md:flex space-x-6">
+            <div className="hidden md:flex space-x-3">
               {menuItems.map((item) => (
                 <a
                   key={item.href}

@@ -45,6 +45,22 @@
   "team.matt.text": "Asesor / Testigo",
 
   "testimonials.title": "¿Qué se habla de Keychain?",
+  "testimonials.paused": "Pausado",
+
+  "testimonials.asgarth.text": "Hive Keychain es la mejor billetera de Hive y la forma más fácil de interactuar con el ecosistema Hive tanto en escritorio como en móvil.",
+  "testimonials.asgarth.role": "Co-fundador de Peakd y Peakmonsters",
+  "testimonials.starkerz.text": "Desde firmas seguras en blockchain, pagos, usar su navegador integrado para obtener reembolsos en compras, hasta registrarse rápidamente y agregar datos de cuenta a la blockchain para publicar contenido con mi cuenta BTC, Hive Keychain es una de nuestras aplicaciones recomendadas en el ecosistema Hive.",
+  "testimonials.starkerz.role": "Fundador de 3Speaktv",
+  "testimonials.howo.text": "¡Uso Keychain diariamente para interactuar con la cadena! Es el mejor que existe.",
+  "testimonials.howo.role": "Desarrollador principal de la blockchain Hive",
+  "testimonials.vaultec.text": "Keychain es la interfaz definitiva de billetera para la blockchain de Hive. Esperamos trabajar en llevar el mundo del cross chain a Hive.",
+  "testimonials.vaultec.role": "Fundador de VSC Network",
+  "testimonials.dan.text": "Uso Hive Keychain todos los días. También he comenzado a usar cada vez más su navegador móvil, hace que usar Hive sea mejor. Hace tantas cosas, y simplemente funciona. El primer paso para usar Hive es descargar Hive Keychain.",
+  "testimonials.dan.role": "Co-fundador de 3Speaktv",
+  "testimonials.yabapmatt.text": "Hive Keychain es probablemente la herramienta más importante en todo el ecosistema Hive. Hive está diseñado para impulsar aplicaciones web3, y Keychain permite a los usuarios interactuar de manera fácil y segura con esas aplicaciones tanto en escritorio como en móvil. Sin él, la experiencia del usuario en Splinterlands y todas las aplicaciones de Hive sería considerablemente peor, y creo que no habríamos alcanzado el nivel de éxito que hemos tenido.",
+  "testimonials.yabapmatt.role": "CEO de Splinterlands",
+  "testimonials.arcange.text": "He estado usando Hive Keychain durante años, y puedo decir con confianza que es una de las herramientas más seguras y fáciles de usar en el espacio blockchain. La integración del protocolo HiveAuth fue un cambio radical, permitiendo la forma más segura y fluida de autenticar y firmar transacciones en aplicaciones móviles. Si te tomas en serio el blockchain y quieres una herramienta que sea tanto innovadora como sólida, Hive Keychain es el estándar de oro.",
+  "testimonials.arcange.role": "Creador de HiveBuzz, HiveSQL, HiveAuth, Engage y más",
 
   "contact.title": "Ponte en contacto",
   "contact.discord.title": "Únete a nuestro Discord",
