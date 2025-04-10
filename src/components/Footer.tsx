@@ -98,6 +98,15 @@ const Footer = () => {
                   {t("footer.resources.qr")}
                 </a>
               </li>
+              <li>
+                <a
+                  href="https://stores.hive-keychain.com/"
+                  className="text-gray-400 hover:text-white transition-colors"
+                  target="_blank"
+                >
+                  {t("footer.resources.map")}
+                </a>
+              </li>
             </ul>
           </div>
           <div>

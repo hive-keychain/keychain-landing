@@ -62,8 +62,10 @@
     "footer.resources.title": "資源",
     "footer.resources.sdk": "Keychain SDK",
     "footer.resources.playground": "Keychain Playground",
-    "footer.resources.multisig": "Hive 多重簽名",
+    "footer.resources.multisig": "Hive Multisig",
     "footer.resources.qr": "Hive QR 碼產生器",
+    "footer.resources.map": "Keychain Store 的地圖",
+
     "footer.socials": "社交媒體",
     "footer.copyright": "Hive Keychain。版權所有。"
    }
