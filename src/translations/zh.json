@@ -45,7 +45,21 @@
   "team.matt.text": "顾问/见證人",
  
   "testimonials.title": "使用者评价",
-
+  "testimonials.asgarth.text": "Hive Keychain 是最好的 Hive 钱包，也是在桌面和行动装置上与 Hive 生态系统互动的最简单方式。",
+  "testimonials.asgarth.role": "Peakd 和 Peakmonsters 的共同创办人",
+  "testimonials.starkerz.text": "从安全的区块链签名、支付，到使用钱包浏览器获取购物回馈，和快速註册并将帐户资料添加到Keychain以便使用我的 BTC 帐户发佈内容，Hive Keychain 是我们推荐的 Hive 生态系统中的应用程式之一！",
+  "testimonials.starkerz.role": "3Speaktv 创办人",
+  "testimonials.howo.text": "我每天都用 Keychain 来与区块链互动！这是目前最好的。",
+  "testimonials.howo.role": "Hive 区块链的核心开发者",
+  "testimonials.vaultec.text": "Keychain 是 Hive 区块链的终极钱包介面。我们期待将跨链世界引入 Hive",
+  "testimonials.vaultec.role": "VSC 网路创办人",
+  "testimonials.dan.text": "我每天都使用 Hive Keychain。也开始越来越频繁地使用他们的行动浏览器，它让 Hive 变得更好用。Hive Keychain功能强大，而且运作良好。使用 Hive 的第一步是下载 Hive Keychain。",
+  "testimonials.dan.role": "3Speaktv 共同创办人",
+  "testimonials.yabapmatt.text": "Hive Keychain 可能是整个 Hive 生态系统中最重要的工具。Hive 旨在支持 Web3 应用，而 Keychain 则让用户能够轻松安全地在桌面和行动设备上与这些应用互动。如果没有使用Hive Keychain，Splinterlands 和所有 Hive 应用程式的使用者将会有非常糟糕的体验，且我们不可能取得如今的成功",
+  "testimonials.yabapmatt.role": "Splinterlands 执行长",
+  "testimonials.arcange.text": "我已经使用 Hive Keychain 多年了，我可以自信地说这是区块链领域最安全、最用户友好的工具之一。HiveAuth 协议的整合改变了遊戏规则，实现了在行动应用程式上以最安全、最无缝的方式验證和签署交易。  如果您很认真地看待区块链，并且想要一个既尖端又坚如磐石的工具，那麽 Hive Keychain 就是此黄金标準。",
+  "testimonials.arcange.role": "HiveBuzz、HiveSQL、HiveAuth、Engage 等产品的创建者",
+  
   "contact.title": "联络我们",
   "contact.discord.title": "加入我们的Discord",
   "contact.discord.description": "与我们的团队和社群建立联繫",
