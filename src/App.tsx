@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
-import Hero from './components/Hero';
-import Features from './components/Features';
-import Download from './components/Download';
-import EcosystemSection from './components/Ecosystem/EcosystemSection';
-import Team from './components/Team';
-import Testimonials from './components/Testimonials';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
-import TermsOfService from './components/Pages/TermsOfService';
-import Fees from './components/Pages/Fees';
-import Privacy from './components/Pages/Privacy';
-import Invoice from './components/Pages/Invoice';
+import { useEffect, useState } from "react";
+import { Route, HashRouter as Router, Routes } from "react-router-dom";
+import Contact from "./components/Contact";
+import Download from "./components/Download";
+import EcosystemSection from "./components/Ecosystem/EcosystemSection";
+import Features from "./components/Features";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import Hero from "./components/Hero";
+import Fees from "./components/Pages/Fees";
+import Invoice from "./components/Pages/Invoice";
+import Privacy from "./components/Pages/Privacy";
+import TermsOfService from "./components/Pages/TermsOfService";
+import Team from "./components/Team";
+import Testimonials from "./components/Testimonials";
 
-import { LanguageProvider } from './context/LanguageContext';
+import { LanguageProvider } from "./context/LanguageContext";
 
 function App() {
   const [initialLoadComplete, setInitialLoadComplete] = useState(false);
@@ -32,12 +32,12 @@ function App() {
       setCurrentHash(window.location.hash);
     };
 
-    document.addEventListener('click', handleUserInteraction);
-    window.addEventListener('hashchange', handleHashChange);
+    document.addEventListener("click", handleUserInteraction);
+    window.addEventListener("hashchange", handleHashChange);
 
     return () => {
-      document.removeEventListener('click', handleUserInteraction);
-      window.removeEventListener('hashchange', handleHashChange);
+      document.removeEventListener("click", handleUserInteraction);
+      window.removeEventListener("hashchange", handleHashChange);
     };
   }, []);
 
@@ -52,38 +52,42 @@ function App() {
         scrollTimeout = setTimeout(() => {
           if (window.scrollY > 50 && window.scrollY < 300 && !scrolled) {
             scrolled = true;
-            
-            const featuresSection = document.querySelector('section#why');
+
+            const featuresSection = document.querySelector("section#why");
             if (featuresSection) {
-              const headerHeight = document.querySelector('header')?.clientHeight || 0;
-              const topPosition = featuresSection.getBoundingClientRect().top + window.scrollY - headerHeight;
-              
+              const headerHeight =
+                document.querySelector("header")?.clientHeight || 0;
+              const topPosition =
+                featuresSection.getBoundingClientRect().top +
+                window.scrollY -
+                headerHeight;
+
               window.scrollTo({
                 top: topPosition,
-                behavior: 'smooth',
+                behavior: "smooth",
               });
             }
-            
-            window.removeEventListener('scroll', handleScroll);
+
+            window.removeEventListener("scroll", handleScroll);
           }
-          
+
           scrollTimeout = null;
         }, 100);
       };
 
-      if (window.location.pathname === '/') {
-        window.addEventListener('scroll', handleScroll);
+      if (window.location.pathname === "/") {
+        window.addEventListener("scroll", handleScroll);
       }
 
       return () => {
         if (scrollTimeout) clearTimeout(scrollTimeout);
-        window.removeEventListener('scroll', handleScroll);
+        window.removeEventListener("scroll", handleScroll);
       };
     }
   }, [initialLoadComplete, userInteracted]);
 
   // Check if the current URL is an invoice URL
-  const isInvoicePage = currentHash.startsWith('#invoice/');
+  const isInvoicePage = currentHash.startsWith("#invoice/");
 
   return (
     <LanguageProvider>
