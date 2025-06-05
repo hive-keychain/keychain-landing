@@ -9,7 +9,7 @@
   "nav.resources": "Ressources",
   "nav.download_now": "Télécharger",
 
-  "hero.title":  "Votre porte d'entrée vers Hive",
+  "hero.title": "Votre porte d'entrée vers Hive",
   "hero.subtitle": "Sécurisé. Simple. Puissant.",
   "hero.description": "Disponible sur iOS, Android, Chromium et Firefox",
   "hero.scroll_indicator": "Défiler vers le bas",
@@ -40,7 +40,7 @@
   "team.title": "Rencontrez l'équipe",
   "team.quentin.text": "Fondateur / Witness",
   "team.cedric.text": "Lead Développeur",
-  "team.manu.text": "CM / Witness",
+  "team.manu.text": "Responsable de la Croissance de l'Écosystème",
   "team.carlo.text": "Développeur Full-stack",
   "team.matt.text": "Conseiller / Witness",
 

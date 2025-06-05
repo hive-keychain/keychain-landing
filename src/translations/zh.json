@@ -8,7 +8,7 @@
   "nav.contact": "联繫我们",
   "nav.resources": "资源",
   "nav.download_now": "立即下载",
- 
+
   "hero.title": "连接 Hive 生态系统的门户",
   "hero.subtitle": "安全。简单。强大。",
   "hero.description": "适用於 iOS、Android、Chromium 和 Firefox",
@@ -21,12 +21,12 @@
   "features.user_friendly.description": "超过100,000名用户透过Keychain与Hive生态系统无缝连接。",
   "features.cross_platform.title": "跨平台",
   "features.cross_platform.description": "无论您使用的是笔记型电脑还是手机，都有适合您的Keychain！",
- 
+
   "download.title": "立即开始使用Keychain！",
   "download.mobile_apps": "行动应用程式",
   "download.browser_extensions": "浏览器扩充",
   "download.cta": "立即使用 Keychain 保护您的 Hive 帐户！",
- 
+
   "ecosystem.title": "Hive 生态系统",
   "ecosystem.subtitle": "探索透过 Keychain 存取的众多遊戏、工具和其他应用程式。",
   "ecosystem.loading": "正在载入生态系统...",
@@ -36,14 +36,14 @@
   "ecosystem.finance": "金融",
   "ecosystem.tools": "工具",
   "ecosystem.nft": "NFTs",
- 
+
   "team.title": "认识团队",
   "team.quentin.text": "创办人/见證人",
   "team.carlo.text": "全端开发人员",
   "team.cedric.text": "首席开发人 / 全端开发",
-  "team.manu.text": "社群经理 |见證人",
+  "team.manu.text": "生态系统增长负责人",
   "team.matt.text": "顾问/见證人",
- 
+
   "testimonials.title": "使用者评价",
   "testimonials.asgarth.text": "Hive Keychain 是最好的 Hive 钱包，也是在桌面和行动装置上与 Hive 生态系统互动的最简单方式。",
   "testimonials.asgarth.role": "Peakd 和 Peakmonsters 的共同创办人",
@@ -59,14 +59,14 @@
   "testimonials.yabapmatt.role": "Splinterlands 执行长",
   "testimonials.arcange.text": "我已经使用 Hive Keychain 多年了，我可以自信地说这是区块链领域最安全、最用户友好的工具之一。HiveAuth 协议的整合改变了遊戏规则，实现了在行动应用程式上以最安全、最无缝的方式验證和签署交易。  如果您很认真地看待区块链，并且想要一个既尖端又坚如磐石的工具，那麽 Hive Keychain 就是此黄金标準。",
   "testimonials.arcange.role": "HiveBuzz、HiveSQL、HiveAuth、Engage 等产品的创建者",
-  
+
   "contact.title": "联络我们",
   "contact.discord.title": "加入我们的Discord",
   "contact.discord.description": "与我们的团队和社群建立联繫",
   "contact.email.title": "发送电子邮件给我们",
   "contact.email.description": "contact@hive-keychain.com",
   "contact.cta": "还有其他问题吗？我们随时为您提供帮助！",
- 
+
   "footer.title": "Hive Keychain",
   "footer.description": "连接 Hive 生态系统的安全门户",
   "footer.links.title": "重要连结",
@@ -77,8 +77,8 @@
   "footer.resources.sdk": "Keychain SDK",
   "footer.resources.playground": "Keychain Playground",
   "footer.resources.multisig": "Hive Multisig",
-  "footer.resources.qr": "Hive QR 码产生器",    
+  "footer.resources.qr": "Hive QR 码产生器",
   "footer.resources.map": "Keychain Store 的地图",
   "footer.socials": "社交媒体",
   "footer.copyright": "Hive Keychain。版权所有。"
- }
+}
