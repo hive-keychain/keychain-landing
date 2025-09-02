@@ -1,5 +1,6 @@
 import { ChevronDown } from "lucide-react";
 import React, { createContext, useContext, useState } from "react";
+import de from "../translations/de.json";
 import en from "../translations/en.json";
 import es from "../translations/es.json";
 import fr from "../translations/fr.json";
@@ -7,8 +8,8 @@ import tw from "../translations/tw.json";
 import zh from "../translations/zh.json";
 
 // Definición de tipos
-type Language = "es" | "en" | "fr" | "zh";
-const translations = { en, es, fr, tw, zh };
+type Language = "es" | "en" | "fr" | "zh" | "de";
+const translations = { en, es, fr, tw, zh, de };
 
 interface LanguageContextType {
   language: Language;
@@ -32,6 +33,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({
         browserLang === "en" ||
         browserLang === "fr" ||
         browserLang === "tw" ||
+        browserLang === "de" ||
         browserLang === "zh"
         ? (browserLang as Language)
         : "en";
@@ -78,6 +80,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     fr: "🇫🇷",
     tw: "🇹🇼",
     zh: "🇨🇳",
+    de: "🇩🇪",
   };
 
   const availableLanguages = Object.entries(flags).filter(
