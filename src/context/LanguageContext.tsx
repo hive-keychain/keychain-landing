@@ -107,16 +107,32 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
       </button>
 
       {isOpen && (
-        <div className="absolute right-0 mt-2 py-2 w-12 bg-white rounded-lg shadow-xl border border-gray-100">
-          {availableLanguages.map(([lang, flag]) => (
-            <button
-              key={lang}
-              onClick={(e) => handleLanguageChange(lang as Language, e)}
-              className="flex justify-center w-full px-2 py-2 hover:bg-gray-50 text-2xl"
-            >
-              {flag}
-            </button>
-          ))}
+        <div className="absolute right-0 mt-2 py-2 bg-white rounded-lg shadow-xl border border-gray-100">
+          {/* Mobile: Horizontal layout */}
+          <div className="flex flex-row gap-1 px-2 xl:hidden">
+            {availableLanguages.map(([lang, flag]) => (
+              <button
+                key={lang}
+                onClick={(e) => handleLanguageChange(lang as Language, e)}
+                className="flex justify-center p-2 hover:bg-gray-50 text-2xl rounded transition-colors"
+              >
+                {flag}
+              </button>
+            ))}
+          </div>
+
+          {/* Desktop: Vertical layout */}
+          <div className="hidden xl:flex flex-col gap-1 px-2">
+            {availableLanguages.map(([lang, flag]) => (
+              <button
+                key={lang}
+                onClick={(e) => handleLanguageChange(lang as Language, e)}
+                className="flex justify-center p-2 hover:bg-gray-50 text-2xl rounded transition-colors"
+              >
+                {flag}
+              </button>
+            ))}
+          </div>
         </div>
       )}
     </div>
