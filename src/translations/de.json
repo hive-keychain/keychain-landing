@@ -1,7 +1,7 @@
 {
      "nav.home": "Home",
      "nav.download": "Download",
-     "nav.why": "Warum?",
+     "nav.why": "Sicherheit",
      "nav.ecosystem": "Ökosystem",
      "nav.team": "Team",
      "nav.testimonial": "Testimonials",
@@ -21,6 +21,17 @@
      "features.user_friendly.description": "Über 100.000 Benutzer genießen nahtlose Interaktionen mit dem Hive Ökosystem über Keychain.",
      "features.cross_platform.title": "Plattformübergreifend",
      "features.cross_platform.description": "Egal, ob Sie auf Ihrem Laptop oder Ihrem Mobiltelefon sind, es gibt eine Keychain für Sie!",
+
+     "security.title": "Sicherheit und Kontrolle, von Grund auf",
+     "security.intro": "Keychain ist für Selbstverwahrung entwickelt, damit Sie die Kontrolle über Ihre Schlüssel behalten, während Sie Transaktionen sicher signieren und sich auf Mobilgeräten und per Browser-Erweiterung mit Web3-Apps verbinden.",
+     "security.self_custody.title": "Selbstverwahrung",
+     "security.self_custody.description": "Ihre Schlüssel bleiben unter Ihrer Kontrolle.",
+     "security.secure_signing.title": "Sicheres Signieren",
+     "security.secure_signing.description": "Prüfen und bestätigen Sie Aktionen, bevor Transaktionen signiert werden.",
+     "security.transparent_permissions.title": "Transparente Berechtigungen",
+     "security.transparent_permissions.description": "Sehen Sie, was Apps anfordern, bevor Sie eine Verbindung herstellen oder zustimmen.",
+     "security.mobile_extension.title": "Mobil + Erweiterung",
+     "security.mobile_extension.description": "Verwenden Sie Keychain sicher geräteübergreifend mit einer vertrauten Benutzererfahrung.",
    
      "download.title": "Starten Sie jetzt mit Keychain!",
      "download.mobile_apps": "Mobile Apps",

@@ -1,7 +1,7 @@
 {
   "nav.home": "首页",
   "nav.download": "下载",
-  "nav.why": "为什麽选择 Keychain?",
+  "nav.why": "安全",
   "nav.ecosystem": "生态系统",
   "nav.testimonial": "评价",
   "nav.team": "团队",
@@ -21,6 +21,17 @@
   "features.user_friendly.description": "超过100,000名用户透过Keychain与Hive生态系统无缝连接。",
   "features.cross_platform.title": "跨平台",
   "features.cross_platform.description": "无论您使用的是笔记型电脑还是手机，都有适合您的Keychain！",
+
+  "security.title": "安全与掌控，内建其中",
+  "security.intro": "Keychain 为自托管而构建，让你在手机和浏览器扩展中安全签署交易、连接 Web3 应用的同时，始终掌控自己的密钥。",
+  "security.self_custody.title": "自托管",
+  "security.self_custody.description": "你的密钥始终由你掌控。",
+  "security.secure_signing.title": "安全签名",
+  "security.secure_signing.description": "在交易签署前先查看并批准操作。",
+  "security.transparent_permissions.title": "权限透明",
+  "security.transparent_permissions.description": "在连接或批准前，先看清应用在请求什么。",
+  "security.mobile_extension.title": "手机 + 扩展",
+  "security.mobile_extension.description": "在不同设备上安全使用 Keychain，并获得一致熟悉的体验。",
 
   "download.title": "立即开始使用Keychain！",
   "download.mobile_apps": "行动应用程式",

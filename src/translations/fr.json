@@ -1,7 +1,7 @@
 {
   "nav.home": "Accueil",
   "nav.download": "Télécharger",
-  "nav.why": "Pourquoi Keychain?",
+  "nav.why": "Sécurité",
   "nav.ecosystem": "Écosystème",
   "nav.team": "Équipe",
   "nav.contact": "Contact",
@@ -21,6 +21,17 @@
   "features.user_friendly.description": "Plus de 100 000 personnes utilisent Keychain pour une intéraction simple et fluide avec l'écosystème Hive.",
   "features.cross_platform.title": "Multi-plateforme",
   "features.cross_platform.description": "Que vous soyez sur votre ordinateur ou votre téléphone, il y a un Keychain pour vous !",
+
+  "security.title": "Sécurité et contrôle, par conception",
+  "security.intro": "Keychain est conçu pour l'auto-garde, afin que vous gardiez le contrôle de vos clés tout en signant des transactions en toute sécurité et en vous connectant à des apps Web3 sur mobile et via l'extension navigateur.",
+  "security.self_custody.title": "Auto-garde",
+  "security.self_custody.description": "Vos clés restent sous votre contrôle.",
+  "security.secure_signing.title": "Signature sécurisée",
+  "security.secure_signing.description": "Examinez et approuvez les actions avant que les transactions soient signées.",
+  "security.transparent_permissions.title": "Permissions transparentes",
+  "security.transparent_permissions.description": "Voyez ce que les apps demandent avant de vous connecter ou d'approuver.",
+  "security.mobile_extension.title": "Mobile + extension",
+  "security.mobile_extension.description": "Utilisez Keychain en toute sécurité sur plusieurs appareils avec une expérience familière.",
 
   "download.title": "Lancez vous sur Keychain !",
   "download.mobile_apps": "Applications mobiles",

@@ -3,13 +3,13 @@ import { Route, HashRouter as Router, Routes } from "react-router-dom";
 import Contact from "./components/Contact";
 import Download from "./components/Download";
 import EcosystemSection from "./components/Ecosystem/EcosystemSection";
-import Features from "./components/Features";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Fees from "./components/Pages/Fees";
 import Invoice from "./components/Pages/Invoice";
 import Privacy from "./components/Pages/Privacy";
+import SecuritySection from "./components/SecuritySection";
 import TermsOfService from "./components/Pages/TermsOfService";
 import Team from "./components/Team";
 import Testimonials from "./components/Testimonials";
@@ -103,7 +103,7 @@ function App() {
                 element={
                   <main>
                     <Hero />
-                    <Features />
+                    <SecuritySection />
                     <Download />
                     <EcosystemSection />
                     <Team />
