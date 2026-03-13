@@ -9,9 +9,9 @@
   "nav.resources": "资源",
   "nav.download_now": "立即下载",
 
-  "hero.title": "连接 Hive 生态系统的门户",
-  "hero.subtitle": "安全。简单。强大。",
-  "hero.description": "适用於 iOS、Android、Chromium 和 Firefox",
+  "hero.title": "适用于整个 Web3 的安全自托管钱包",
+  "hero.subtitle": "在手机和浏览器扩展上管理代币、投票、签署交易，并连接 Web3 dApps。",
+  "hero.description": "",
   "hero.scroll_indicator": "向下捲动",
 
   "features.title": "为什麽选择 Keychain?",

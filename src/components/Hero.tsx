@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { useLanguage } from '../context/LanguageContext';
-import { AnimatedSection } from './AnimatedSection';
-import { FloatingImage } from './FloatingImage';
-import WaveBackground from './services/WavesBackground';
+import React, { useEffect, useState } from "react";
+import { useLanguage } from "../context/LanguageContext";
+import { AnimatedSection } from "./AnimatedSection";
+import { FloatingImage } from "./FloatingImage";
+import WaveBackground from "./services/WavesBackground";
 
 const Hero = () => {
   const { t } = useLanguage();
@@ -17,50 +17,60 @@ const Hero = () => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
-  const handleScrollToWhy = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+  const handleScrollToWhy = (
+    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+  ) => {
     event.preventDefault();
-    const section = document.getElementById('why');
+    const section = document.getElementById("why");
     const headerOffset = 65; // Ajusta este valor según la altura de tu header
     if (section) {
-      const elementPosition = section.getBoundingClientRect().top + window.scrollY;
+      const elementPosition =
+        section.getBoundingClientRect().top + window.scrollY;
       const offsetPosition = elementPosition - headerOffset;
 
       window.scrollTo({
         top: offsetPosition,
-        behavior: 'smooth',
+        behavior: "smooth",
       });
     }
   };
 
-
   return (
     <section className="pt-24 pb-16 bg-gradient-to-b from-white to-[#E5EDF5] relative h-auto md:h-screen">
-      <div className="opacity-75" style={{ width: '100%', height: '350px', position: 'absolute', bottom: '0' }}>
+      <div
+        className="opacity-75"
+        style={{
+          width: "100%",
+          height: "350px",
+          position: "absolute",
+          bottom: "0",
+        }}
+      >
         <WaveBackground />
       </div>
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center gap-0 md:gap-12">
-          <AnimatedSection direction="left" className="flex-1 md:text-left text-center">
+          <AnimatedSection
+            direction="left"
+            className="flex-1 md:text-left text-center"
+          >
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 !leading-tight">
-              {t('hero.title')} {/* Traducción del título */}
+              {t("hero.title")} {/* Traducción del título */}
             </h1>
             <h2 className="text-xl md:text-2xl text-gray-600 mb-1">
-              {t('hero.subtitle')} {/* Traducción del subtítulo */}
+              {t("hero.subtitle")} {/* Traducción del subtítulo */}
             </h2>
-            <p className="text-gray-600">
-              {t('hero.description')} {/* Traducción de la descripción */}
-            </p>
           </AnimatedSection>
           <AnimatedSection direction="right" className="flex-1">
             <FloatingImage
               src="/hero.png"
-              alt={t('hero.title')} // Traducción para el atributo alt
+              alt={t("hero.title")} // Traducción para el atributo alt
               className="max-w-full mx-auto"
             />
           </AnimatedSection>
@@ -77,7 +87,12 @@ const Hero = () => {
                 stroke="currentColor"
                 className="w-20 h-20 mx-auto"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 9l-7 7-7-7"
+                />
               </svg>
             </AnimatedSection>
           </a>
@@ -88,7 +103,8 @@ const Hero = () => {
           animation: float 3s ease-in-out infinite;
         }
         @keyframes float {
-          0%, 100% {
+          0%,
+          100% {
             transform: translateY(0);
           }
           50% {

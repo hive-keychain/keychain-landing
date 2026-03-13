@@ -9,9 +9,9 @@
   "nav.resources": "Recursos",
   "nav.download_now": "Descargar ahora",
 
-  "hero.title": "Tu puerta de entrada al ecosistema Hive",
-  "hero.subtitle": "Seguro. Simple. Potente.",
-  "hero.description": "Disponible en iOS, Android, Chromium y Firefox",
+  "hero.title": "Tu billetera de autocustodia segura para todo Web3",
+  "hero.subtitle": "Gestiona tus tokens, vota, firma transacciones y conéctate a dApps de Web3 desde el móvil y la extensión del navegador.",
+  "hero.description": "",
   "hero.scroll_indicator": "Desplázate hacia abajo",
 
   "features.title": "¿Por qué elegir Keychain?",
