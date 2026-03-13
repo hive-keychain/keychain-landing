@@ -32,7 +32,20 @@
      "security.transparent_permissions.description": "Sehen Sie, was Apps anfordern, bevor Sie eine Verbindung herstellen oder zustimmen.",
      "security.mobile_extension.title": "Mobil + Erweiterung",
      "security.mobile_extension.description": "Verwenden Sie Keychain sicher geräteübergreifend mit einer vertrauten Benutzererfahrung.",
-   
+
+     "socialProof.title": "Vertrauen von Nutzern im gesamten Web3",
+     "socialProof.intro": "Keychain wird im gesamten Ökosystem genutzt, um sicher auf Apps zuzugreifen, Assets zu verwalten und Transaktionen auf Mobilgeräten und per Browser-Erweiterung zu signieren.",
+     "socialProof.users.value": "85k+ Nutzer",
+     "socialProof.users.label": "Etablierte Nutzerbasis",
+     "socialProof.dapps.value": "60+ dApps",
+     "socialProof.dapps.label": "Integrationen im App-Ökosystem",
+     "socialProof.years.value": "7+ Jahre live",
+     "socialProof.years.label": "Langfristige Zuverlässigkeit",
+     "socialProof.ios.value": "4.9/5 auf iOS",
+     "socialProof.ios.label": "Öffentliche iOS-Bewertungen",
+     "socialProof.firefox.value": "4.6/5 auf Firefox",
+     "socialProof.firefox.label": "Öffentliche Firefox-Bewertungen",
+
      "download.title": "Starten Sie jetzt mit Keychain!",
      "download.mobile_apps": "Mobile Apps",
      "download.browser_extensions": "Browsererweiterungen",

@@ -10,6 +10,7 @@ import Fees from "./components/Pages/Fees";
 import Invoice from "./components/Pages/Invoice";
 import Privacy from "./components/Pages/Privacy";
 import SecuritySection from "./components/SecuritySection";
+import SocialProofSection from "./components/SocialProofSection";
 import TermsOfService from "./components/Pages/TermsOfService";
 import Team from "./components/Team";
 import Testimonials from "./components/Testimonials";
@@ -104,6 +105,7 @@ function App() {
                   <main>
                     <Hero />
                     <SecuritySection />
+                    <SocialProofSection />
                     <Download />
                     <EcosystemSection />
                     <Team />
