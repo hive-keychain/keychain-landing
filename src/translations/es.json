@@ -33,6 +33,11 @@
   "security.mobile_extension.title": "Móvil + extensión",
   "security.mobile_extension.description": "Usa Keychain de forma segura en distintos dispositivos con una experiencia familiar.",
 
+  "supportedNetworks.title": "Una sola billetera para Hive y las principales cadenas EVM",
+  "supportedNetworks.intro": "Usa Keychain en Hive y en las principales redes EVM desde móvil y extensión del navegador.",
+  "supportedNetworks.testnets": "+ testnets",
+  "supportedNetworks.moreSoon": "+ más redes pronto",
+
   "socialProof.title": "Con la confianza de usuarios de todo Web3",
   "socialProof.intro": "Keychain cuenta con la confianza de usuarios de todo el ecosistema para acceder de forma segura a apps, gestionar activos y firmar transacciones en móvil y extensión del navegador.",
   "socialProof.users.value": "85k+ usuarios",

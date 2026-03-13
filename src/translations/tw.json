@@ -33,6 +33,11 @@
   "security.mobile_extension.title": "手機 + 擴充功能",
   "security.mobile_extension.description": "在不同裝置上安全使用 Keychain，並獲得一致熟悉的體驗。",
 
+  "supportedNetworks.title": "一個錢包支援 Hive 與主流 EVM 鏈",
+  "supportedNetworks.intro": "在手機和瀏覽器擴充功能上，透過 Keychain 使用 Hive 與主流 EVM 網路。",
+  "supportedNetworks.testnets": "+ 測試網",
+  "supportedNetworks.moreSoon": "+ 更多即將支援",
+
   "socialProof.title": "受到整個 Web3 生態用戶的信賴",
   "socialProof.intro": "Keychain 受到整個生態用戶的信賴，可在手機和瀏覽器擴充功能上安全存取應用、管理資產並簽署交易。",
   "socialProof.users.value": "85k+ 用戶",
