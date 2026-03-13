@@ -38,6 +38,17 @@
   "supportedNetworks.testnets": "+ 测试网",
   "supportedNetworks.moreSoon": "+ 更多即将支持",
 
+  "useCases.title": "为日常 Web3 使用而打造",
+  "useCases.intro": "在手机和浏览器扩展上，通过 Keychain 连接应用、管理资产，并在 Hive 与受支持的 EVM 链上批准交易。",
+  "useCases.connect.title": "连接应用",
+  "useCases.connect.description": "登录并与不断增长的 Web3 应用生态进行交互。",
+  "useCases.approve.title": "放心批准",
+  "useCases.approve.description": "通过清晰、安全的批准流程审查并签署操作。",
+  "useCases.assets.title": "管理资产",
+  "useCases.assets.description": "让你的账户和资产在受支持的网络上保持可访问。",
+  "useCases.ecosystems.title": "一个钱包跨越多个生态",
+  "useCases.ecosystems.description": "在 Hive 与兼容 EVM 的网络之间切换时，无需更换工具。",
+
   "socialProof.title": "受到整个 Web3 生态用户的信赖",
   "socialProof.intro": "Keychain 受到整个生态用户的信赖，可在手机和浏览器扩展上安全访问应用、管理资产并签署交易。",
   "socialProof.users.value": "85k+ 用户",

@@ -37,6 +37,17 @@
   "supportedNetworks.testnets": "+ testnets",
   "supportedNetworks.moreSoon": "+ more soon",
 
+  "useCases.title": "Built for everyday Web3 use",
+  "useCases.intro": "Connect to apps, manage assets, and approve transactions across Hive and supported EVM chains on mobile and browser extension.",
+  "useCases.connect.title": "Connect to apps",
+  "useCases.connect.description": "Log in and interact with a growing ecosystem of Web3 apps.",
+  "useCases.approve.title": "Approve with confidence",
+  "useCases.approve.description": "Review and sign actions with a clear, secure approval flow.",
+  "useCases.assets.title": "Manage assets",
+  "useCases.assets.description": "Keep your accounts and assets accessible across supported networks.",
+  "useCases.ecosystems.title": "One wallet across ecosystems",
+  "useCases.ecosystems.description": "Move between Hive and EVM-compatible networks without switching tools.",
+
   "socialProof.title": "Trusted by users across Web3",
   "socialProof.intro": "Keychain is trusted by users across the ecosystem to securely access apps, manage assets, and sign transactions on mobile and the browser extension.",
   "socialProof.users.value": "85k+ users",

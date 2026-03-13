@@ -15,6 +15,7 @@ import SupportedNetworksSection from "./components/SupportedNetworksSection";
 import TermsOfService from "./components/Pages/TermsOfService";
 import Team from "./components/Team";
 import Testimonials from "./components/Testimonials";
+import UseCasesSection from "./components/UseCasesSection";
 
 import { LanguageProvider } from "./context/LanguageContext";
 
@@ -107,6 +108,7 @@ function App() {
                     <Hero />
                     <SecuritySection />
                     <SupportedNetworksSection />
+                    <UseCasesSection />
                     <SocialProofSection />
                     <Download />
                     <EcosystemSection />

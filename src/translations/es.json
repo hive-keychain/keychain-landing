@@ -38,6 +38,17 @@
   "supportedNetworks.testnets": "+ testnets",
   "supportedNetworks.moreSoon": "+ más redes pronto",
 
+  "useCases.title": "Creado para el uso diario de Web3",
+  "useCases.intro": "Conéctate a apps, gestiona activos y aprueba transacciones en Hive y cadenas EVM compatibles desde móvil y extensión del navegador.",
+  "useCases.connect.title": "Conéctate a apps",
+  "useCases.connect.description": "Inicia sesión e interactúa con un ecosistema creciente de apps Web3.",
+  "useCases.approve.title": "Aprueba con confianza",
+  "useCases.approve.description": "Revisa y firma acciones con un flujo de aprobación claro y seguro.",
+  "useCases.assets.title": "Gestiona activos",
+  "useCases.assets.description": "Mantén tus cuentas y activos accesibles en redes compatibles.",
+  "useCases.ecosystems.title": "Una sola billetera entre ecosistemas",
+  "useCases.ecosystems.description": "Muévete entre Hive y redes compatibles con EVM sin cambiar de herramienta.",
+
   "socialProof.title": "Con la confianza de usuarios de todo Web3",
   "socialProof.intro": "Keychain cuenta con la confianza de usuarios de todo el ecosistema para acceder de forma segura a apps, gestionar activos y firmar transacciones en móvil y extensión del navegador.",
   "socialProof.users.value": "85k+ usuarios",
