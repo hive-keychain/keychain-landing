@@ -3,6 +3,7 @@ import { Route, HashRouter as Router, Routes } from "react-router-dom";
 import Contact from "./components/Contact";
 import Download from "./components/Download";
 import EcosystemSection from "./components/Ecosystem/EcosystemSection";
+import FaqSection from "./components/FaqSection";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
@@ -114,6 +115,7 @@ function App() {
                     <EcosystemSection />
                     <Team />
                     <Testimonials />
+                    <FaqSection />
                     <Contact />
                   </main>
                 }
