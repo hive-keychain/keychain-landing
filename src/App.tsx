@@ -10,14 +10,17 @@ import Hero from "./components/Hero";
 import Fees from "./components/Pages/Fees";
 import Invoice from "./components/Pages/Invoice";
 import Privacy from "./components/Pages/Privacy";
+import TermsOfService from "./components/Pages/TermsOfService";
 import SecuritySection from "./components/SecuritySection";
 import SocialProofSection from "./components/SocialProofSection";
 import SupportedNetworksSection from "./components/SupportedNetworksSection";
-import TermsOfService from "./components/Pages/TermsOfService";
 import Team from "./components/Team";
 import Testimonials from "./components/Testimonials";
 import UseCasesSection from "./components/UseCasesSection";
 
+import BetaFees from "./components/Pages/BetaFees";
+import BetaPrivacy from "./components/Pages/BetaPrivacy";
+import BetaTermsOfService from "./components/Pages/BetaTermsOfService";
 import { LanguageProvider } from "./context/LanguageContext";
 
 function App() {
@@ -123,6 +126,9 @@ function App() {
               <Route path="/terms" element={<TermsOfService />} />
               <Route path="/privacy" element={<Privacy />} />
               <Route path="/fees" element={<Fees />} />
+              <Route path="/terms-beta" element={<BetaTermsOfService />} />
+              <Route path="/privacy-beta" element={<BetaPrivacy />} />
+              <Route path="/fees-beta" element={<BetaFees />} />
             </Routes>
           )}
           <Footer />
