@@ -67,7 +67,7 @@
   "faq.intro": "Everything you need to know to get started with Keychain.",
   "faq.whatIs.question": "What is Keychain?",
   "faq.whatIs.answer": "Keychain is a self-custody Web3 wallet that helps you manage assets, connect to dApps, and approve transactions across mobile and browser extension.",
-  "faq.selfCustody.question": "Is Keychain self-custody?",
+  "faq.selfCustody.question": "Is Keychain self-custodial?",
   "faq.selfCustody.answer": "Yes. Keychain is built for self-custody, so you keep control of your keys and approve actions directly from your wallet.",
   "faq.networks.question": "Which networks does Keychain support?",
   "faq.networks.answer": "Keychain supports Hive and leading EVM chains, with supported testnets included and more networks coming over time.",
