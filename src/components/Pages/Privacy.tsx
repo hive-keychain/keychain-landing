@@ -7,7 +7,7 @@ const Privacy = () => {
         <h1 className="text-3xl font-bold mb-8 text-center">Privacy Policy</h1>
         <div className="prose max-w-none px-60">
           <h2 className="text-xl font-semibold mt-6 mb-2 text-center">Hive Keychain, INC.</h2>
-          <h3 className="text-l font-semibold mt-6 mb-2 text-center">Effective Date: November 29th, 2022</h3>
+          <h3 className="text-l font-semibold mt-6 mb-2 text-center">Effective Date: July 8th, 2026</h3>
           <p className="text-gray-700 mb-4">
             Hive Keychain Ltd. ("us", "we", or "our") provides and operates the Hive Keychain Browser Extensions and mobile Apps (the "Services").
           </p>

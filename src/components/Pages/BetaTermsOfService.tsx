@@ -10,7 +10,7 @@ const BetaTermsOfService = () => {
             Hive Keychain Ltd.
           </h2>
           <p className="text-gray-700 mb-4 text-center font-semibold">
-            Effective Date: June 15th, 2026
+            Effective Date: July 8th, 2026
           </p>
 
           <p className="text-gray-700 mb-4">

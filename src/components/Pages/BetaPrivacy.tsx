@@ -7,7 +7,7 @@ const BetaPrivacy = () => {
         <h1 className="text-3xl font-bold mb-8 text-center">Hive Keychain Beta Privacy Policy</h1>
         <div className="prose max-w-none px-60">
           <h2 className="text-xl font-semibold mt-6 mb-2 text-center">Hive Keychain Ltd.</h2>
-          <p className="text-gray-700 mb-4 text-center font-semibold">Effective Date: June 15th, 2026</p>
+          <p className="text-gray-700 mb-4 text-center font-semibold">Effective Date: July 8th, 2026</p>
 
           <p className="text-gray-700 mb-4">
             This Privacy Policy explains how information is handled when you use Hive Keychain Beta and the services made available through it (the "Services"). The Services are provided by Hive Keychain Ltd. ("Hive Keychain", "we", "us", or "our"), a company incorporated in Hong Kong.

@@ -10,7 +10,7 @@ const TermsOfService = () => {
             Hive Keychain, Ltd.
           </h2>
           <p className="text-gray-700 mb-4 text-center font-semibold">
-            Effective Date: May 21st, 2024
+            Effective Date: July 8th, 2026
           </p>
           <p className="text-gray-700 mb-4">
             Hive Keychain Ltd. ("Hive Keychain", the "Company", "we", "us" or
