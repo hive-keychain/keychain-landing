@@ -36,6 +36,8 @@
   "supportedNetworks.intro": "Use Keychain across Hive and major EVM networks on mobile and browser extension.",
   "supportedNetworks.testnets": "+ testnets",
   "supportedNetworks.moreSoon": "+ more coming soon",
+  "supportedNetworks.availableNow": "Available now",
+  "supportedNetworks.evmComingSoon": "EVM chains (coming soon)",
 
   "useCases.title": "Built for everyday Web3 use",
   "useCases.intro": "Connect to dApps, manage assets, and approve transactions across Hive and supported EVM chains on mobile and browser extension.",

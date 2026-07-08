@@ -62,11 +62,24 @@ const ArbitrumIcon = ({ className = "" }: NetworkIconProps) => (
   </svg>
 );
 
-const networks = [
+interface Network {
+  name: string;
+  icon: React.ReactNode;
+}
+
+const hiveNetworks: Network[] = [
   {
     name: "Hive",
-    icon: <SiHiveBlockchain className="h-7 w-7 text-[#E31337]" aria-hidden="true" />,
+    icon: (
+      <SiHiveBlockchain
+        className="h-7 w-7 text-[#E31337]"
+        aria-hidden="true"
+      />
+    ),
   },
+];
+
+const evmNetworks: Network[] = [
   {
     name: "Ethereum",
     icon: <SiEthereum className="h-7 w-7 text-[#627EEA]" aria-hidden="true" />,
@@ -97,6 +110,44 @@ const networks = [
   },
 ];
 
+interface NetworkGridProps {
+  networks: Network[];
+  comingSoon?: boolean;
+}
+
+const NetworkGrid = ({ networks, comingSoon = false }: NetworkGridProps) => (
+  <ul
+    className={`grid gap-4 ${
+      comingSoon
+        ? "grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7"
+        : "max-w-xs mx-auto grid-cols-1"
+    }`}
+  >
+    {networks.map((network, index) => (
+      <li key={network.name} className="list-none">
+        <AnimatedSection
+          direction="up"
+          delay={index * 75}
+          className={`flex h-full flex-col items-center rounded-lg border border-white/70 bg-white p-5 text-center shadow-sm transition-shadow ${
+            comingSoon ? "opacity-70" : "hover:shadow-lg"
+          }`}
+        >
+          <div
+            role="img"
+            aria-label={network.name}
+            className={`mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#F8FBFF] ${
+              comingSoon ? "grayscale-[35%]" : ""
+            }`}
+          >
+            {network.icon}
+          </div>
+          <p className="text-sm font-semibold text-gray-900">{network.name}</p>
+        </AnimatedSection>
+      </li>
+    ))}
+  </ul>
+);
+
 const SupportedNetworksSection = () => {
   const { t } = useLanguage();
 
@@ -117,41 +168,21 @@ const SupportedNetworksSection = () => {
           <p className="mt-4 text-gray-600">{t("supportedNetworks.intro")}</p>
         </AnimatedSection>
 
-        <ul className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-8">
-          {networks.map((network, index) => (
-            <li key={network.name} className="list-none">
-              <AnimatedSection
-                direction="up"
-                delay={index * 75}
-                className="flex h-full flex-col items-center rounded-lg border border-white/70 bg-white p-5 text-center shadow-sm transition-shadow hover:shadow-lg"
-              >
-                <div
-                  role="img"
-                  aria-label={network.name}
-                  className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#F8FBFF]"
-                >
-                  {network.icon}
-                </div>
-                <p className="text-sm font-semibold text-gray-900">
-                  {network.name}
-                </p>
-              </AnimatedSection>
-            </li>
-          ))}
-        </ul>
+        <div className="space-y-10">
+          <div>
+            <h3 className="mb-4 text-center text-sm font-semibold uppercase tracking-wide text-gray-700">
+              {t("supportedNetworks.availableNow")}
+            </h3>
+            <NetworkGrid networks={hiveNetworks} />
+          </div>
 
-        <AnimatedSection
-          direction="up"
-          delay={150}
-          className="mt-6 flex flex-wrap justify-center gap-3"
-        >
-          <span className="rounded-full border border-white/70 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm">
-            {t("supportedNetworks.testnets")}
-          </span>
-          <span className="rounded-full border border-white/70 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm">
-            {t("supportedNetworks.moreSoon")}
-          </span>
-        </AnimatedSection>
+          <div>
+            <h3 className="mb-4 text-center text-sm font-semibold uppercase tracking-wide text-gray-500">
+              {t("supportedNetworks.evmComingSoon")}
+            </h3>
+            <NetworkGrid networks={evmNetworks} comingSoon />
+          </div>
+        </div>
       </div>
     </section>
   );
