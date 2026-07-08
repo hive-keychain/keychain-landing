@@ -147,7 +147,7 @@ const Footer = () => {
                   className="flex justify-start items-center text-gray-400 hover:text-white transition-colors"
                   target="_blank"
                 >
-                  <FaGithub className="mr-2" size={18} /> Github
+                  <FaGithub className="mr-2" size={18} /> GitHub
                 </a>
               </li>
             </ul>

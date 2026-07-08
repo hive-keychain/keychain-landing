@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 
 interface CarouselProps {
   children: React.ReactNode[];
@@ -7,6 +8,7 @@ interface CarouselProps {
 }
 
 const EcosystemCarousel: React.FC<CarouselProps> = ({ children, itemsPerSlide }) => {
+  const { t } = useLanguage();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [touchStart, setTouchStart] = useState(0);
   const [dynamicItemsPerSlide, setDynamicItemsPerSlide] = useState(itemsPerSlide);
@@ -59,7 +61,7 @@ const EcosystemCarousel: React.FC<CarouselProps> = ({ children, itemsPerSlide })
   if (children.length === 0) {
     return (
       <div className="text-center py-8 text-gray-500">
-        No applications found in this category
+        {t('ecosystem.noResults')}
       </div>
     );
   }
