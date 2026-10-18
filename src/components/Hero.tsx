@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
 import { AnimatedSection } from "./AnimatedSection";
 import { FloatingImage } from "./FloatingImage";
@@ -23,26 +24,8 @@ const Hero = () => {
     };
   }, []);
 
-  const handleScrollToWhy = (
-    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
-  ) => {
-    event.preventDefault();
-    const section = document.getElementById("why");
-    const headerOffset = 65; // Ajusta este valor según la altura de tu header
-    if (section) {
-      const elementPosition =
-        section.getBoundingClientRect().top + window.scrollY;
-      const offsetPosition = elementPosition - headerOffset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-    }
-  };
-
   return (
-    <section className="pt-24 pb-16 bg-gradient-to-b from-white to-[#E5EDF5] relative h-auto md:h-screen">
+    <section id="home" className="pt-24 pb-16 bg-gradient-to-b from-white to-[#E5EDF5] relative h-auto md:h-screen">
       <div
         className="opacity-75"
         style={{
@@ -78,7 +61,7 @@ const Hero = () => {
       </div>
       {showScrollIndicator && (
         <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white pb-0 md:pb-20">
-          <a href="#why" onClick={handleScrollToWhy}>
+          <Link to="/?section=why">
             <AnimatedSection direction="up" className="animate-float">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -95,7 +78,7 @@ const Hero = () => {
                 />
               </svg>
             </AnimatedSection>
-          </a>
+          </Link>
         </div>
       )}
       <style jsx>{`

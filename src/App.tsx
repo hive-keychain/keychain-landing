@@ -12,6 +12,7 @@ import Invoice from "./components/Pages/Invoice";
 import Privacy from "./components/Pages/Privacy";
 import TermsOfService from "./components/Pages/TermsOfService";
 import SecuritySection from "./components/SecuritySection";
+import SectionNavigation from "./components/SectionNavigation";
 import SocialProofSection from "./components/SocialProofSection";
 import SupportedNetworksSection from "./components/SupportedNetworksSection";
 import Team from "./components/Team";
@@ -99,6 +100,7 @@ function App() {
   return (
     <LanguageProvider>
       <Router>
+        <SectionNavigation />
         <div className="min-h-screen bg-white">
           <Header />
           {isInvoicePage ? (

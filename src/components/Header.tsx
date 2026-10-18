@@ -1,7 +1,7 @@
 import { ChevronDown, Download, Menu, X } from "lucide-react";
 import type React from "react";
 import { useEffect, useRef, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { LanguageSelector, useLanguage } from "../context/LanguageContext";
 import { useActiveSection } from "../hooks/useActiveSection";
 
@@ -84,12 +84,12 @@ const Header = () => {
   }, [isMenuOpen]);
 
   const menuItems = [
-    { href: "#why", label: t("nav.why") },
-    { href: "#download", label: t("nav.download") },
-    { href: "#ecosystem", label: t("nav.ecosystem") },
-    { href: "#team", label: t("nav.team") },
-    { href: "#testimonials", label: t("nav.testimonial") },
-    { href: "#contact", label: t("nav.contact") },
+    { section: "why", label: t("nav.why") },
+    { section: "download", label: t("nav.download") },
+    { section: "ecosystem", label: t("nav.ecosystem") },
+    { section: "team", label: t("nav.team") },
+    { section: "testimonials", label: t("nav.testimonial") },
+    { section: "contact", label: t("nav.contact") },
   ];
 
   const resourceItems = [
@@ -121,27 +121,6 @@ const Header = () => {
   const toggleLanguageDropdown = (e?: React.MouseEvent) => {
     e?.stopPropagation();
     setIsLanguageDropdownOpen((prev) => !prev);
-  };
-
-  const scrollToSection = (
-    event: React.MouseEvent<HTMLAnchorElement>,
-    targetId: string
-  ) => {
-    event.preventDefault();
-    const targetElement = document.querySelector(targetId);
-    const headerElement = document.querySelector("header");
-
-    if (targetElement && headerElement) {
-      const offset = headerElement.clientHeight;
-      const elementPosition =
-        targetElement.getBoundingClientRect().top + window.scrollY;
-      const offsetPosition = elementPosition - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-    }
   };
 
   const closeMenu = () => {
@@ -183,19 +162,18 @@ const Header = () => {
 
             <div className="hidden md:flex space-x-3">
               {menuItems.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  onClick={(e) => scrollToSection(e, item.href)}
+                <Link
+                  key={item.section}
+                  to={`/?section=${item.section}`}
                   className={`text-gray-700 hover:text-red-600 transition-colors
                       ${
-                        activeSection === item.href.substring(1)
+                        activeSection === item.section
                           ? "text-red-600 font-medium"
                           : ""
                       }`}
                 >
                   {item.label}
-                </a>
+                </Link>
               ))}
 
               <div className="relative" ref={resourcesRef}>
@@ -236,14 +214,13 @@ const Header = () => {
                   onToggle={toggleLanguageDropdown}
                 />
               </div>
-              <a
-                href="#download"
-                onClick={(e) => scrollToSection(e, "#download")}
+              <Link
+                to="/?section=download"
                 className="bg-red-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-red-700 transition-colors"
               >
                 <Download size={20} />
                 <span>{t("nav.download_now")}</span>
-              </a>
+              </Link>
             </div>
 
             {isMenuOpen && (
@@ -266,23 +243,22 @@ const Header = () => {
                 >
                   <div className="flex flex-col items-center space-y-6 w-full px-4">
                     {menuItems.map((item) => (
-                      <a
-                        key={item.href}
-                        href={item.href}
+                      <Link
+                        key={item.section}
+                        to={`/?section=${item.section}`}
                         onClick={(e) => {
                           e.stopPropagation();
-                          scrollToSection(e, item.href);
                           closeMenu();
                         }}
                         className={`text-gray-700 hover:text-red-600 transition-colors text-xl
                             ${
-                              activeSection === item.href.substring(1)
+                              activeSection === item.section
                                 ? "text-red-600 font-medium"
                                 : ""
                             }`}
                       >
                         {item.label}
-                      </a>
+                      </Link>
                     ))}
 
                     <div

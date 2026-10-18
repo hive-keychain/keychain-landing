@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 export const useActiveSection = () => {
   const [activeSection, setActiveSection] = useState<string>('');
+  const { pathname } = useLocation();
 
   useEffect(() => {
     const options = {
@@ -29,7 +31,7 @@ export const useActiveSection = () => {
     return () => {
       sections.forEach(section => observer.unobserve(section));
     };
-  }, []);
+  }, [pathname]);
 
   return activeSection;
 };
