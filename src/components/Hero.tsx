@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
+import { scrollToLandingSection } from "../scrollToLandingSection";
 import { AnimatedSection } from "./AnimatedSection";
 import { FloatingImage } from "./FloatingImage";
 import WaveBackground from "./services/WavesBackground";
@@ -61,7 +61,12 @@ const Hero = () => {
       </div>
       {showScrollIndicator && (
         <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white pb-0 md:pb-20">
-          <Link to="/?section=why">
+          <button
+            type="button"
+            onClick={() => scrollToLandingSection("why")}
+            className="text-white"
+            aria-label={t("nav.why")}
+          >
             <AnimatedSection direction="up" className="animate-float">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -78,7 +83,7 @@ const Hero = () => {
                 />
               </svg>
             </AnimatedSection>
-          </Link>
+          </button>
         </div>
       )}
       <style jsx>{`

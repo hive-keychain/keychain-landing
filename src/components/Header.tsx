@@ -1,9 +1,10 @@
 import { ChevronDown, Download, Menu, X } from "lucide-react";
 import type React from "react";
 import { useEffect, useRef, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { LanguageSelector, useLanguage } from "../context/LanguageContext";
 import { useActiveSection } from "../hooks/useActiveSection";
+import { scrollToLandingSection } from "../scrollToLandingSection";
 
 const Header = () => {
   const { t } = useLanguage();
@@ -162,9 +163,10 @@ const Header = () => {
 
             <div className="hidden md:flex space-x-3">
               {menuItems.map((item) => (
-                <Link
+                <button
                   key={item.section}
-                  to={`/?section=${item.section}`}
+                  type="button"
+                  onClick={() => scrollToLandingSection(item.section)}
                   className={`text-gray-700 hover:text-red-600 transition-colors
                       ${
                         activeSection === item.section
@@ -173,7 +175,7 @@ const Header = () => {
                       }`}
                 >
                   {item.label}
-                </Link>
+                </button>
               ))}
 
               <div className="relative" ref={resourcesRef}>
@@ -214,13 +216,14 @@ const Header = () => {
                   onToggle={toggleLanguageDropdown}
                 />
               </div>
-              <Link
-                to="/?section=download"
+              <button
+                type="button"
+                onClick={() => scrollToLandingSection("download")}
                 className="bg-red-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-red-700 transition-colors"
               >
                 <Download size={20} />
                 <span>{t("nav.download_now")}</span>
-              </Link>
+              </button>
             </div>
 
             {isMenuOpen && (
@@ -243,12 +246,13 @@ const Header = () => {
                 >
                   <div className="flex flex-col items-center space-y-6 w-full px-4">
                     {menuItems.map((item) => (
-                      <Link
+                      <button
                         key={item.section}
-                        to={`/?section=${item.section}`}
+                        type="button"
                         onClick={(e) => {
                           e.stopPropagation();
                           closeMenu();
+                          scrollToLandingSection(item.section);
                         }}
                         className={`text-gray-700 hover:text-red-600 transition-colors text-xl
                             ${
@@ -258,7 +262,7 @@ const Header = () => {
                             }`}
                       >
                         {item.label}
-                      </Link>
+                      </button>
                     ))}
 
                     <div
