@@ -140,8 +140,9 @@ const Header = () => {
   };
 
   const hideMenu =
-    ["/privacy", "/terms", "/fees"].includes(location.pathname) ||
-    location.hash.startsWith("#invoice/");
+    ["/privacy", "/terms", "/fees", "/privacy-beta", "/terms-beta", "/fees-beta"].includes(
+      location.pathname,
+    ) || location.hash.startsWith("#invoice/");
 
   return (
     <header className="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">

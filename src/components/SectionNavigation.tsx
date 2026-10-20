@@ -1,10 +1,10 @@
 import { useEffect } from "react";
-import { useLocation, useNavigate, useNavigationType } from "react-router-dom";
+import { useLocation, useNavigationType } from "react-router-dom";
+import { consumeLandingSection } from "../normalizeLegacyUrl";
 import { scrollToLandingSection } from "../scrollToLandingSection";
 
 const SectionNavigation = () => {
   const location = useLocation();
-  const navigate = useNavigate();
   const navigationType = useNavigationType();
 
   useEffect(() => {
@@ -12,9 +12,7 @@ const SectionNavigation = () => {
       return;
     }
 
-    // Old links used /#/?section=contact. Honor them, then drop the query so it does not stay in the address bar.
-    const params = new URLSearchParams(location.search);
-    const sectionId = params.get("section");
+    const sectionId = consumeLandingSection();
     if (!sectionId) return;
 
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -22,14 +20,7 @@ const SectionNavigation = () => {
       sectionId,
       navigationType === "POP" || reducedMotion.matches ? "instant" : "smooth",
     );
-
-    params.delete("section");
-    const search = params.toString();
-    navigate(
-      { pathname: location.pathname, search: search ? `?${search}` : "" },
-      { replace: true },
-    );
-  }, [location.pathname, location.search, navigate, navigationType]);
+  }, [location.pathname, navigationType]);
 
   return null;
 };

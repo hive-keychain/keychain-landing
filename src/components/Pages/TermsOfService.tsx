@@ -274,7 +274,7 @@ const TermsOfService = () => {
             amount of fees we will charge you for the applicable Service at the
             time that you access the Service. You may view the fees currently
             charged for our Services{" "}
-            <a href="https://hive-keychain.com/#/fees" className="text-red-700">
+            <a href="https://hive-keychain.com/fees" className="text-red-700">
               here
             </a>
             .
@@ -420,7 +420,7 @@ const TermsOfService = () => {
           <p className="text-gray-700 mb-4">
             By using this Service, you acknowledge that (i) the use of the Swap
             feature may incure fees, as disclosed in the{" "}
-            <a href="https://hive-keychain.com/#/fees" className="text-red-700">
+            <a href="https://hive-keychain.com/fees" className="text-red-700">
               fees page
             </a>{" "}
             and/or while using the Service, (ii) the output token amount is an

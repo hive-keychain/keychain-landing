@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Route, HashRouter as Router, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Contact from "./components/Contact";
 import Download from "./components/Download";
 import EcosystemSection from "./components/Ecosystem/EcosystemSection";
