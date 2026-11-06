@@ -1,28 +1,30 @@
 import { useEffect } from "react";
-import { useLocation, useNavigationType } from "react-router-dom";
 import { consumeLandingSection } from "../normalizeLegacyUrl";
 import { scrollToLandingSection } from "../scrollToLandingSection";
 
-const SectionNavigation = () => {
-  const location = useLocation();
-  const navigationType = useNavigationType();
-
+/**
+ * Consumes a stored ?section= target once the home page is shown and
+ * scrolls to it. Adapted from the current landing's SectionNavigation
+ * (which reads the router location; this app routes by hash, so the
+ * parent passes whether the home page is active).
+ */
+export default function SectionNavigation({ active }: { active: boolean }) {
   useEffect(() => {
-    if (location.pathname !== "/" || window.location.hash.startsWith("#invoice/")) {
+    if (!active || window.location.hash.startsWith("#invoice/")) {
       return;
     }
 
     const sectionId = consumeLandingSection();
     if (!sectionId) return;
 
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    );
     scrollToLandingSection(
       sectionId,
-      navigationType === "POP" || reducedMotion.matches ? "instant" : "smooth",
+      reducedMotion.matches ? "instant" : "smooth",
     );
-  }, [location.pathname, navigationType]);
+  }, [active]);
 
   return null;
-};
-
-export default SectionNavigation;
+}

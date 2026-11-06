@@ -1,5 +1,5 @@
 import { ChevronDown } from "lucide-react";
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import de from "../translations/de.json";
 import en from "../translations/en.json";
 import es from "../translations/es.json";
@@ -7,9 +7,58 @@ import fr from "../translations/fr.json";
 import tw from "../translations/tw.json";
 import zh from "../translations/zh.json";
 
-// Definición de tipos
-type Language = "es" | "en" | "fr" | "zh" | "de";
-const translations = { en, es, fr, tw, zh, de };
+// Localization scaffolding, following the current landing's pattern
+// (hive-keychain/keychain-landing, src/context/LanguageContext.tsx):
+// flat dot-namespaced keys in one JSON per language under
+// src/translations/, a context provider, a t() lookup and a flag
+// selector. Same six languages as the current landing: en, es, fr,
+// de, zh (Simplified Chinese) and tw (Traditional Chinese).
+//
+// Differences from the current landing, both deliberate:
+// - "tw" is part of the Language type (theirs omits it by mistake,
+//   although tw.json and its flag exist there).
+// - t() falls back to English before falling back to the raw key,
+//   so a partially translated file never shows key names to users.
+
+export type Language = "en" | "es" | "fr" | "de" | "zh" | "tw";
+
+type Dictionary = Record<string, string>;
+
+const translations: Record<Language, Dictionary> = {
+  en: en as Dictionary,
+  es: es as Dictionary,
+  fr: fr as Dictionary,
+  de: de as Dictionary,
+  zh: zh as Dictionary,
+  tw: tw as Dictionary,
+};
+
+export const LANGUAGES: { code: Language; flag: string; name: string }[] = [
+  { code: "en", flag: "🇺🇸", name: "English" },
+  { code: "es", flag: "🇪🇸", name: "Español" },
+  { code: "fr", flag: "🇫🇷", name: "Français" },
+  { code: "de", flag: "🇩🇪", name: "Deutsch" },
+  { code: "zh", flag: "🇨🇳", name: "中文 (简体)" },
+  { code: "tw", flag: "🇹🇼", name: "中文 (繁體)" },
+];
+
+function detectLanguage(): Language {
+  if (typeof window === "undefined") return "en";
+  const raw = navigator.language.toLowerCase();
+  if (raw.startsWith("zh")) {
+    // zh-TW / zh-HK / zh-MO use Traditional Chinese in this project.
+    return /-(tw|hk|mo)\b/.test(raw) || raw.includes("hant")
+      ? "tw"
+      : "zh";
+  }
+  const primary = raw.split("-")[0];
+  return primary === "es" ||
+    primary === "fr" ||
+    primary === "de" ||
+    primary === "en"
+    ? (primary as Language)
+    : "en";
+}
 
 interface LanguageContextType {
   language: Language;
@@ -17,33 +66,26 @@ interface LanguageContextType {
   t: (key: string) => string;
 }
 
-// Creación del contexto
 const LanguageContext = createContext<LanguageContextType | undefined>(
-  undefined
+  undefined,
 );
 
-// Proveedor del contexto de idioma
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [language, setLanguage] = useState<Language>(() => {
-    if (typeof window !== "undefined") {
-      const browserLang = navigator.language.toLowerCase().split("-")[0];
-      return browserLang === "es" ||
-        browserLang === "en" ||
-        browserLang === "fr" ||
-        browserLang === "tw" ||
-        browserLang === "de" ||
-        browserLang === "zh"
-        ? (browserLang as Language)
-        : "en";
-    }
-    return "en";
-  });
+  const [language, setLanguageState] = useState<Language>(detectLanguage);
+
+  const setLanguage = (lang: Language) => {
+    setLanguageState(lang);
+  };
+
+  useEffect(() => {
+    document.documentElement.lang =
+      language === "tw" ? "zh-TW" : language === "zh" ? "zh-CN" : language;
+  }, [language]);
 
   const t = (key: string): string => {
-    const translation = translations[language][key];
-    return translation || key;
+    return translations[language][key] ?? translations.en[key] ?? key;
   };
 
   return (
@@ -53,86 +95,74 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({
   );
 };
 
-// Hook personalizado para usar el contexto
 export const useLanguage = () => {
   const context = useContext(LanguageContext);
   if (!context) {
-    throw new Error("useLanguage debe usarse dentro de un LanguageProvider");
+    throw new Error("useLanguage must be used within a LanguageProvider");
   }
   return context;
 };
 
-interface LanguageSelectorProps {
-  isOpen?: boolean;
-  onToggle?: (e: React.MouseEvent) => void;
-}
-
-// Componente selector de idioma
-export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
-  isOpen = false,
-  onToggle,
-}) => {
+// Language selector: flag dropdown, styled with this landing's own
+// design tokens (.lang-* rules in src/index.css, so it follows the
+// site theme, dark scheme included) rather than generic utilities.
+export const LanguageSelector: React.FC = () => {
   const { language, setLanguage } = useLanguage();
+  const [isOpen, setIsOpen] = useState(false);
+  const rootRef = React.useRef<HTMLDivElement>(null);
 
-  const flags = {
-    en: "🇺🇸",
-    es: "🇪🇸",
-    fr: "🇫🇷",
-    tw: "🇹🇼",
-    zh: "🇨🇳",
-    de: "🇩🇪",
-  };
+  const current = LANGUAGES.find((l) => l.code === language) ?? LANGUAGES[0];
+  const availableLanguages = LANGUAGES.filter((l) => l.code !== language);
 
-  const availableLanguages = Object.entries(flags).filter(
-    ([lang]) => lang !== language
-  );
+  useEffect(() => {
+    if (!isOpen) return;
+    const onPointerDown = (event: MouseEvent) => {
+      if (!rootRef.current?.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setIsOpen(false);
+    };
+    document.addEventListener("mousedown", onPointerDown);
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("mousedown", onPointerDown);
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [isOpen]);
 
-  const handleLanguageChange = (lang: Language, e: React.MouseEvent) => {
-    e.stopPropagation();
+  const handleLanguageChange = (lang: Language) => {
     setLanguage(lang);
-    if (onToggle) onToggle(e);
+    setIsOpen(false);
   };
 
   return (
-    <div className="relative">
+    <div className="lang" ref={rootRef}>
       <button
-        onClick={onToggle}
-        className="flex items-center space-x-1 text-gray-700 hover:text-red-600 transition-colors"
+        onClick={() => setIsOpen((open) => !open)}
+        className="lang-btn"
+        aria-label="Select language"
+        aria-expanded={isOpen}
+        aria-haspopup="true"
       >
-        <span className="text-2xl">{flags[language]}</span>
-        <ChevronDown
-          size={16}
-          className={`transition-transform ${isOpen ? "rotate-180" : ""}`}
-        />
+        <span className="lang-flag">{current.flag}</span>
+        <ChevronDown size={16} className="chev" />
       </button>
 
       {isOpen && (
-        <div className="absolute right-0 mt-2 py-2 bg-white rounded-lg shadow-xl border border-gray-100">
-          {/* Mobile: Horizontal layout */}
-          <div className="flex flex-row gap-1 px-2 xl:hidden">
-            {availableLanguages.map(([lang, flag]) => (
-              <button
-                key={lang}
-                onClick={(e) => handleLanguageChange(lang as Language, e)}
-                className="flex justify-center p-2 hover:bg-gray-50 text-2xl rounded transition-colors"
-              >
-                {flag}
-              </button>
-            ))}
-          </div>
-
-          {/* Desktop: Vertical layout */}
-          <div className="hidden xl:flex flex-col gap-1 px-2">
-            {availableLanguages.map(([lang, flag]) => (
-              <button
-                key={lang}
-                onClick={(e) => handleLanguageChange(lang as Language, e)}
-                className="flex justify-center p-2 hover:bg-gray-50 text-2xl rounded transition-colors"
-              >
-                {flag}
-              </button>
-            ))}
-          </div>
+        <div className="lang-menu" role="menu">
+          {availableLanguages.map(({ code, flag, name }) => (
+            <button
+              key={code}
+              onClick={() => handleLanguageChange(code)}
+              className="lang-item"
+              role="menuitem"
+            >
+              <span className="lang-flag">{flag}</span>
+              <span>{name}</span>
+            </button>
+          ))}
         </div>
       )}
     </div>

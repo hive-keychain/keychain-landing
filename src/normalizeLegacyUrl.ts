@@ -1,61 +1,75 @@
-const PAGE_PATHS = new Set([
-  "terms",
-  "privacy",
-  "fees",
-  "terms-beta",
-  "privacy-beta",
-  "fees-beta",
-]);
-
-const LANDING_SECTION_KEY = "keychain:landing-section";
+export const LANDING_SECTION_KEY = "keychain:landing-section";
 
 /**
- * Rewrite old HashRouter URLs before the app boots.
- * /#/fees -> /fees, /#/?section=contact -> / (scroll happens after render).
- * Invoice hashes (#invoice/...) stay untouched.
+ * Section deep links, adapted from the current landing
+ * (hive-keychain/keychain-landing, normalizeLegacyUrl.ts).
+ *
+ * External sites (a blog post, for example) link to a section with
+ *   https://hive-keychain.com/?section=download
+ * Before the app boots, the section id is stored in sessionStorage
+ * and the parameter is stripped from the address bar;
+ * SectionNavigation then consumes it once the home page has rendered
+ * and scrolls to the section. The legacy hash form
+ * (#/?section=download) is accepted too.
+ *
+ * Invoice hashes (#invoice/...) stay untouched, like the current
+ * landing. This app routes by hash (#/terms, ...), so unlike the
+ * current landing there are no hash page routes to rewrite here.
  */
 export function normalizeLegacyUrl() {
   const url = new URL(window.location.href);
   if (url.hash.startsWith("#invoice/")) return;
 
-  const sectionFromSearch = url.searchParams.get("section");
-  let section = sectionFromSearch;
-  let nextPath: string | null = null;
+  let section = url.searchParams.get("section");
 
-  if (url.hash === "#" || url.hash.startsWith("#/")) {
-    const raw = url.hash.startsWith("#/") ? url.hash.slice(2) : "";
-    const queryIndex = raw.indexOf("?");
-    const path = (queryIndex === -1 ? raw : raw.slice(0, queryIndex)).replace(/\/+$/, "");
-    const hashParams = new URLSearchParams(queryIndex === -1 ? "" : raw.slice(queryIndex + 1));
-    section = section || hashParams.get("section");
-    nextPath = path && PAGE_PATHS.has(path) ? `/${path}` : "/";
-  } else if (sectionFromSearch && url.pathname === "/") {
-    nextPath = "/";
+  if (!section && url.hash.includes("?")) {
+    const hashParams = new URLSearchParams(
+      url.hash.slice(url.hash.indexOf("?") + 1),
+    );
+    section = hashParams.get("section");
   }
 
-  if (section && (nextPath ?? url.pathname) === "/") {
-    sessionStorage.setItem(LANDING_SECTION_KEY, section);
-  }
-
-  if (nextPath !== null && `${url.pathname}${url.search}${url.hash}` !== nextPath) {
-    window.history.replaceState(window.history.state, "", nextPath);
+  if (section) {
+    try {
+      sessionStorage.setItem(LANDING_SECTION_KEY, section);
+    } catch {
+      // sessionStorage can be unavailable (privacy modes); the link
+      // then simply lands on the home page, like a plain visit.
+    }
+    if (url.searchParams.has("section")) {
+      url.searchParams.delete("section");
+      window.history.replaceState(
+        window.history.state,
+        "",
+        url.pathname + url.search + url.hash,
+      );
+    }
   }
 }
 
-/** Hash-only visits (already on the site, then /#/fees) do not reload, so rewrite those too. */
+/** Keep accepting section links that arrive through hash changes too. */
 export function installLegacyUrlNormalizer() {
   normalizeLegacyUrl();
   window.addEventListener("hashchange", () => {
-    const before = window.location.href;
     normalizeLegacyUrl();
-    if (window.location.href !== before) {
-      window.location.replace(window.location.pathname + window.location.search);
-    }
   });
 }
 
 export function consumeLandingSection() {
-  const section = sessionStorage.getItem(LANDING_SECTION_KEY);
-  if (section) sessionStorage.removeItem(LANDING_SECTION_KEY);
-  return section;
+  try {
+    const section = sessionStorage.getItem(LANDING_SECTION_KEY);
+    if (section) sessionStorage.removeItem(LANDING_SECTION_KEY);
+    return section;
+  } catch {
+    return null;
+  }
+}
+
+/** Peek without consuming, so the router does not fight the scroll. */
+export function pendingLandingSection() {
+  try {
+    return sessionStorage.getItem(LANDING_SECTION_KEY);
+  } catch {
+    return null;
+  }
 }

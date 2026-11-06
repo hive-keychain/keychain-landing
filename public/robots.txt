@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://hive-keychain.com/sitemap.xml

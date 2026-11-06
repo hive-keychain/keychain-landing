@@ -1,143 +1,121 @@
-import { useEffect, useState } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Contact from "./components/Contact";
-import Download from "./components/Download";
-import EcosystemSection from "./components/Ecosystem/EcosystemSection";
-import FaqSection from "./components/FaqSection";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import Hero from "./components/Hero";
-import Fees from "./components/Pages/Fees";
-import Invoice from "./components/Pages/Invoice";
-import Privacy from "./components/Pages/Privacy";
-import TermsOfService from "./components/Pages/TermsOfService";
-import SecuritySection from "./components/SecuritySection";
-import SectionNavigation from "./components/SectionNavigation";
-import SocialProofSection from "./components/SocialProofSection";
-import SupportedNetworksSection from "./components/SupportedNetworksSection";
-import Team from "./components/Team";
-import Testimonials from "./components/Testimonials";
-import UseCasesSection from "./components/UseCasesSection";
+import { useEffect, useState } from 'react';
+import Header from './components/Header';
+import Hero from './components/Hero';
+import Chains from './components/Chains';
+import ProductDemo from './components/ProductDemo';
+import Security from './components/Security';
+import Stats from './components/Stats';
+import DappsSection from './components/DappsSection';
+import Reviews from './components/Reviews';
+import Faq from './components/Faq';
+import Download from './components/Download';
+import Footer from './components/Footer';
+import TermsPage from './pages/TermsPage';
+import FeesPage from './pages/FeesPage';
+import PrivacyPage from './pages/PrivacyPage';
+import InvoicePage from './pages/InvoicePage';
+import SectionNavigation from './components/SectionNavigation';
+import { LanguageProvider } from './context/LanguageContext';
+import { pendingLandingSection } from './normalizeLegacyUrl';
+import { useReveal } from './hooks/useReveal';
 
-import BetaFees from "./components/Pages/BetaFees";
-import BetaPrivacy from "./components/Pages/BetaPrivacy";
-import BetaTermsOfService from "./components/Pages/BetaTermsOfService";
-import { LanguageProvider } from "./context/LanguageContext";
+// Internal hash router, ported from the original mockup: home by
+// default, #/terms, #/fees and #/privacy render the legal pages inside
+// the same page (the home markup stays mounted, only hidden, exactly
+// like the original, so demo and dApps state survive the trip).
+// Keychain Store invoice hashes (#invoice/...) take priority over
+// everything and render the invoice page, like the current landing.
+const LEGAL: Record<string, 'terms' | 'fees' | 'privacy'> = {
+  '/terms': 'terms',
+  '/fees': 'fees',
+  '/privacy': 'privacy',
+};
+const TITLES: Record<string, string> = {
+  '/terms': 'Hive Keychain Beta Terms',
+  '/fees': 'Hive Keychain Beta Fees',
+  '/privacy': 'Hive Keychain Beta Privacy Policy',
+};
+const HOME_TITLE = 'Keychain, the wallet for Hive and EVM';
 
-function App() {
-  const [initialLoadComplete, setInitialLoadComplete] = useState(false);
-  const [userInteracted, setUserInteracted] = useState(false);
-  const [currentHash, setCurrentHash] = useState(window.location.hash);
+function routeFromHash(): { legal: 'terms' | 'fees' | 'privacy' | null; key: string | null; invoice: boolean } {
+  const hash = window.location.hash || '';
+  // Invoice hashes (#invoice/...) take priority over every other
+  // route and are never rewritten, exactly like the current landing:
+  // its App special-cases them above its routes and its legacy URL
+  // normalizer leaves them untouched.
+  if (hash.startsWith('#invoice/')) {
+    return { legal: null, key: null, invoice: true };
+  }
+  const key = hash.indexOf('#/') === 0 ? hash.slice(1) : null;
+  return { legal: key && LEGAL[key] ? LEGAL[key] : null, key, invoice: false };
+}
+
+export default function App() {
+  const [route, setRoute] = useState(routeFromHash);
+  useReveal();
 
   useEffect(() => {
-    setInitialLoadComplete(true);
-
-    const handleUserInteraction = () => {
-      setUserInteracted(true);
-    };
-
-    const handleHashChange = () => {
-      setCurrentHash(window.location.hash);
-    };
-
-    document.addEventListener("click", handleUserInteraction);
-    window.addEventListener("hashchange", handleHashChange);
-
-    return () => {
-      document.removeEventListener("click", handleUserInteraction);
-      window.removeEventListener("hashchange", handleHashChange);
-    };
+    const onHash = () => setRoute(routeFromHash());
+    window.addEventListener('hashchange', onHash);
+    return () => window.removeEventListener('hashchange', onHash);
   }, []);
 
   useEffect(() => {
-    if (initialLoadComplete && !userInteracted && !window.location.hash) {
-      let scrollTimeout: NodeJS.Timeout | null = null;
-      let scrolled = false;
-
-      const handleScroll = () => {
-        if (scrollTimeout || scrolled) return;
-
-        scrollTimeout = setTimeout(() => {
-          if (window.scrollY > 50 && window.scrollY < 300 && !scrolled) {
-            scrolled = true;
-
-            const featuresSection = document.querySelector("section#why");
-            if (featuresSection) {
-              const headerHeight =
-                document.querySelector("header")?.clientHeight || 0;
-              const topPosition =
-                featuresSection.getBoundingClientRect().top +
-                window.scrollY -
-                headerHeight;
-
-              window.scrollTo({
-                top: topPosition,
-                behavior: "smooth",
-              });
-            }
-
-            window.removeEventListener("scroll", handleScroll);
-          }
-
-          scrollTimeout = null;
-        }, 100);
-      };
-
-      if (window.location.pathname === "/") {
-        window.addEventListener("scroll", handleScroll);
-      }
-
-      return () => {
-        if (scrollTimeout) clearTimeout(scrollTimeout);
-        window.removeEventListener("scroll", handleScroll);
-      };
+    const hash = window.location.hash || '';
+    if (route.invoice) {
+      document.title = 'Keychain Store Invoice · Keychain';
+      window.scrollTo(0, 0);
+      return;
     }
-  }, [initialLoadComplete, userInteracted]);
+    if (route.legal) {
+      document.title = TITLES[route.key!] + ' · Keychain';
+      window.scrollTo(0, 0);
+      return;
+    }
+    document.title = HOME_TITLE;
+    if (route.key === '/' || hash === '' || hash === '#') {
+      // A pending ?section= deep link owns the scroll position;
+      // SectionNavigation consumes it and scrolls to the section.
+      if (!pendingLandingSection()) {
+        window.scrollTo(0, 0);
+      }
+    } else if (hash.charAt(0) === '#') {
+      const target = document.getElementById(hash.slice(1));
+      if (target) target.scrollIntoView();
+    }
+  }, [route]);
 
-  // Check if the current URL is an invoice URL
-  const isInvoicePage = currentHash.startsWith("#invoice/");
+  const isLegal = route.legal !== null;
+  const isInvoice = route.invoice;
 
   return (
     <LanguageProvider>
-      <Router>
-        <SectionNavigation />
-        <div className="min-h-screen bg-white">
-          <Header />
-          {isInvoicePage ? (
-            <Invoice />
-          ) : (
-            <Routes>
-              <Route
-                path="/"
-                element={
-                  <main>
-                    <Hero />
-                    <SecuritySection />
-                    <SupportedNetworksSection />
-                    <UseCasesSection />
-                    <SocialProofSection />
-                    <Download />
-                    <EcosystemSection />
-                    <Team />
-                    <Testimonials />
-                    <FaqSection />
-                    <Contact />
-                  </main>
-                }
-              />
-              <Route path="/terms" element={<TermsOfService />} />
-              <Route path="/privacy" element={<Privacy />} />
-              <Route path="/fees" element={<Fees />} />
-              <Route path="/terms-beta" element={<BetaTermsOfService />} />
-              <Route path="/privacy-beta" element={<BetaPrivacy />} />
-              <Route path="/fees-beta" element={<BetaFees />} />
-            </Routes>
-          )}
-          <Footer />
+      <SectionNavigation active={!isLegal && !isInvoice} />
+      <Header showAnnounce={!isLegal && !isInvoice} />
+      <main id="homeMain" hidden={isLegal || isInvoice}>
+        <Hero />
+        <Chains />
+        <ProductDemo />
+        <Security />
+        <Stats />
+        <DappsSection />
+        <Reviews />
+        <Faq />
+        <Download />
+      </main>
+      <main className="legal-main" id="legalMain" hidden={!isLegal}>
+        <div className="wrap">
+          {route.legal === 'terms' && <TermsPage />}
+          {route.legal === 'fees' && <FeesPage />}
+          {route.legal === 'privacy' && <PrivacyPage />}
         </div>
-      </Router>
+      </main>
+      {isInvoice && (
+        <main id="invoiceMain">
+          <InvoicePage />
+        </main>
+      )}
+      <Footer />
     </LanguageProvider>
   );
 }
-
-export default App;

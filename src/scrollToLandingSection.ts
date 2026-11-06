@@ -1,6 +1,7 @@
 let cancelActiveScroll: (() => void) | null = null;
 
-/** Scroll a landing <section> into view under the fixed header, then keep it aligned while layout settles. */
+/** Scroll a landing <section> into view under the fixed header, then keep it aligned while layout settles.
+ * Ported from the current landing (hive-keychain/keychain-landing). */
 export function scrollToLandingSection(
   sectionId: string,
   behavior: ScrollBehavior = "smooth",

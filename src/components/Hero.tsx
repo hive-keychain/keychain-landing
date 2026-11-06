@@ -1,107 +1,29 @@
-import { useEffect, useState } from "react";
-import { useLanguage } from "../context/LanguageContext";
-import { scrollToLandingSection } from "../scrollToLandingSection";
-import { AnimatedSection } from "./AnimatedSection";
-import { FloatingImage } from "./FloatingImage";
-import WaveBackground from "./services/WavesBackground";
+import { useLanguage } from '../context/LanguageContext';
 
-const Hero = () => {
+export default function Hero() {
   const { t } = useLanguage();
-  const [showScrollIndicator, setShowScrollIndicator] = useState(true);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setShowScrollIndicator(false);
-      } else {
-        setShowScrollIndicator(true);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   return (
-    <section id="home" className="pt-24 pb-16 bg-gradient-to-b from-white to-[#E5EDF5] relative h-auto md:h-screen">
-      <div
-        className="opacity-75"
-        style={{
-          width: "100%",
-          height: "350px",
-          position: "absolute",
-          bottom: "0",
-        }}
-      >
-        <WaveBackground />
-      </div>
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row items-center gap-0 md:gap-12">
-          <AnimatedSection
-            direction="left"
-            className="flex-1 md:text-left text-center"
-          >
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 !leading-tight">
-              {t("hero.title")} {/* Traducción del título */}
-            </h1>
-            <h2 className="text-xl md:text-2xl text-gray-600 mb-1">
-              {t("hero.subtitle")} {/* Traducción del subtítulo */}
-            </h2>
-          </AnimatedSection>
-          <AnimatedSection direction="right" className="flex-1">
-            <FloatingImage
-              src="/hero.png"
-              alt={t("hero.title")} // Traducción para el atributo alt
-              className="max-w-full mx-auto"
-            />
-          </AnimatedSection>
+      <section className="hero">
+        <div className="wrap">
+          <div className="hero-grid">
+            <div>
+              <h1>{t('hero.title.before')} <span className="accent">Hive</span> {t('hero.title.after')}</h1>
+              <p className="sub">{t('hero.subtitle')}</p>
+              <div className="hero-ctas"><a className="btn btn-red" href="#download">{t('hero.cta.download')}</a><a className="btn btn-ghost" href="#demo">{t('hero.cta.demo')}</a></div>
+              <div className="hero-ratings" aria-label="App store ratings"><span className="stars" aria-hidden="true">★★★★★</span><span>4.8 · Chrome Web Store</span><span className="sep">·</span><span>4.7 · App Store & Google Play</span></div>
+              <div className="hero-meta"><span><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg> You hold your keys</span><span><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg> Hive plus 7 networks ready to use</span><span><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg> Free and open source</span></div>
+            </div>
+            <div className="ext-stage reveal">
+              <div className="hero-visual">
+                <div className="ext">
+                  <div className="browser-bar"><span className="b-dots"><i /><i /><i /></span><span className="b-url"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round"><rect x="4" y="10" width="16" height="10" rx="2" /><path d="M8 10V7a4 4 0 0 1 8 0v3" /></svg>peakd.com</span><span className="b-tool"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14.7 6.3a4.5 4.5 0 0 0-6 6L3 18l3 3 5.7-5.7a4.5 4.5 0 0 0 6-6L14 13l-3-3 3.7-3.7z" /></svg></span><span className="b-tool active"><img src="assets/keychain-logo.png" alt="" width="22" height="22" /></span></div>
+                  <figure className="ext-shot"><img src="assets/extension-accounts.jpg" alt="Hive Keychain browser extension with the Accounts panel open: the current account in the header, HIVE and EVM filters, and the list of Hive and EVM accounts with add account and export" width="866" height="1198" /></figure>
+                </div>
+                <figure className="phone-shot"><img src="assets/mobile-wallet.jpg" alt="Hive Keychain mobile app on the @keychain account: voting mana and resource credits at 100%, estimated account value $29,843, with HIVE, HBD and Hive Power balances" width="640" height="1385" loading="lazy" /></figure>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-      {showScrollIndicator && (
-        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white pb-0 md:pb-20">
-          <button
-            type="button"
-            onClick={() => scrollToLandingSection("why")}
-            className="text-white"
-            aria-label={t("nav.why")}
-          >
-            <AnimatedSection direction="up" className="animate-float">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                className="w-20 h-20 mx-auto"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-            </AnimatedSection>
-          </button>
-        </div>
-      )}
-      <style jsx>{`
-        .animate-float {
-          animation: float 3s ease-in-out infinite;
-        }
-        @keyframes float {
-          0%,
-          100% {
-            transform: translateY(0);
-          }
-          50% {
-            transform: translateY(-10px);
-          }
-        }
-      `}</style>
-    </section>
+      </section>
   );
-};
-
-export default Hero;
+}
