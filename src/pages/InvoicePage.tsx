@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { decode } from 'hive-uri';
 import HiveQRCode from 'hive-qrcode';
 
@@ -19,6 +19,43 @@ const InvoicePage = () => {
   const [invoiceUri, setInvoiceUri] = useState<string>('');
   const [decodedOp, setDecodedOp] = useState<any>(null);
   const [error, setError] = useState<string | null>(null);
+  const [copied, setCopied] = useState(false);
+  const copiedTimer = useRef<number | null>(null);
+
+  // The invoice link is a hive:// URI. On mobile the page often opens
+  // inside another app, where the address cannot be selected, so the
+  // copy control writes that URI to the clipboard directly.
+  const copyInvoiceLink = async () => {
+    if (!invoiceUri) return;
+    let ok = false;
+    try {
+      await navigator.clipboard.writeText(invoiceUri);
+      ok = true;
+    } catch {
+      const input = document.createElement('textarea');
+      input.value = invoiceUri;
+      input.setAttribute('readonly', '');
+      input.style.position = 'fixed';
+      input.style.left = '0';
+      input.style.top = '0';
+      input.style.opacity = '0';
+      document.body.appendChild(input);
+      input.focus();
+      input.select();
+      ok = document.execCommand('copy');
+      document.body.removeChild(input);
+    }
+    if (!ok) return;
+    setCopied(true);
+    if (copiedTimer.current) window.clearTimeout(copiedTimer.current);
+    copiedTimer.current = window.setTimeout(() => setCopied(false), 2000);
+  };
+
+  useEffect(() => {
+    return () => {
+      if (copiedTimer.current) window.clearTimeout(copiedTimer.current);
+    };
+  }, []);
 
   useEffect(() => {
     // Extract the invoice data from URL hash
@@ -85,9 +122,23 @@ const InvoicePage = () => {
               </div>
 
               {invoiceUri && (
-                <a href={invoiceUri} className="btn btn-red invoice-cta">
-                  Invoice link
-                </a>
+                <div className="invoice-link">
+                  <a href={invoiceUri} className="invoice-link-url" title={invoiceUri}>
+                    {invoiceUri}
+                  </a>
+                  <button
+                    type="button"
+                    className="invoice-copy"
+                    onClick={copyInvoiceLink}
+                    aria-label={copied ? 'Invoice link copied' : 'Copy invoice link'}
+                  >
+                    {copied ? (
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg>
+                    ) : (
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2" /><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /></svg>
+                    )}
+                  </button>
+                </div>
               )}
 
               <div className="invoice-help">
