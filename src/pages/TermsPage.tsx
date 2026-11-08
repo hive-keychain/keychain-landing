@@ -1,90 +1,450 @@
 export default function TermsPage() {
   return (
     <article className="legal-article" aria-label="Terms of Service">
-      <a className="legal-back" href="#/">← Back to home</a>
+      <a className="legal-back" href="#/">
+        ← Back to home
+      </a>
       <h1>Terms of Service</h1>
       <p className="legal-company">Hive Keychain Ltd.</p>
       <p className="legal-effective">Last updated: November 8, 2026</p>
-      <p>These Terms of Service (“Terms”) govern your use of the Hive Keychain browser extension, mobile application, websites, wallet interfaces, and related services (collectively, “Keychain” or the “Services”). They form an agreement between you and Hive Keychain Ltd., a company incorporated in Hong Kong (“Hive Keychain”, “we”, “us”, or “our”).</p>
-      <p>By using the Services, you agree to these Terms. Some features require you to confirm acceptance before proceeding. If you do not agree, do not use the affected Services. If you act for an organization, you confirm that you have authority to bind it. Our Privacy Policy describes how information is handled, and our Fees page explains applicable charges.</p>
+      <p>
+        These Terms of Service (“Terms”) govern your use of the Hive Keychain
+        browser extension, mobile application, websites, wallet interfaces, and
+        related services (collectively, “Keychain” or the “Services”). They form
+        an agreement between you and Hive Keychain Ltd., a company incorporated
+        in Hong Kong (“Hive Keychain”, “we”, “us”, or “our”).
+      </p>
+      <p>
+        By using the Services, you agree to these Terms. Some features require
+        you to confirm acceptance before proceeding. If you do not agree, do not
+        use the affected Services. If you act for an organization, you confirm
+        that you have authority to bind it. Our Privacy Policy describes how
+        information is handled, and our Fees page explains applicable charges.
+      </p>
       <h2>1. The Services</h2>
-      <p>Keychain is a self-custody wallet interface for supported blockchain networks. Features vary by platform and may include wallet and account management, signing and broadcasting transactions, dApp connections, Hive and Hive-Engine operations, pre-approved account-management actions, portfolio information, swaps, and bridges.</p>
-      <p>The browser extension supports Hive and EVM networks. The mobile app does not currently support EVM networks, and other features may differ between platforms. Supported networks, assets, providers, and routes may change. Availability of a feature or quote does not mean it is offered to every user or in every jurisdiction.</p>
+      <p>
+        Keychain is a self-custody wallet interface for supported blockchain
+        networks. Features vary by platform and may include wallet and account
+        management, signing and broadcasting transactions, dApp connections,
+        Hive and Hive-Engine operations, pre-approved account-management
+        actions, portfolio information, swaps, and bridges.
+      </p>
+      <p>
+        The browser extension supports Hive and EVM networks. The mobile app
+        does not currently support EVM networks, and other features may differ
+        between platforms. Supported networks, assets, providers, and routes may
+        change. Availability of a feature or quote does not mean it is offered
+        to every user or in every jurisdiction.
+      </p>
       <h2>2. Eligibility and lawful use</h2>
-      <p>You must be legally able to enter into these Terms and use the Services. You are responsible for complying with laws applicable to your activities, including tax, sanctions, anti-money-laundering, and other digital-asset requirements.</p>
-      <p>You must not use a Service or transaction route if doing so would be unlawful for you or the provider concerned, evade geographic or other restrictions, or act for a sanctioned person or entity. We and our providers may restrict access by location, account, or transaction. Showing a route or quote does not establish that it is lawful for you to use it.</p>
+      <p>
+        You must be legally able to enter into these Terms and use the Services.
+        You are responsible for complying with laws applicable to your
+        activities, including tax, sanctions, anti-money-laundering, and other
+        digital-asset requirements.
+      </p>
+      <p>
+        You must not use a Service or swap/bridge route if doing so would be
+        unlawful for you or the provider concerned, evade geographic or other
+        restrictions, or act for a sanctioned person or entity. We and our
+        providers may restrict access by location, account, or transaction.
+        Showing a route or quote does not establish that it is lawful for you to
+        use it.
+      </p>
       <h2>3. Wallet security and recovery</h2>
-      <p>For ordinary wallet functions, Keychain does not hold your assets or control your private keys. Credentials created or imported in Keychain are stored on your device using the application's available local encryption and security measures. You are responsible for keeping your passwords, private keys, recovery phrases, backups, devices, browser, operating system, and connected hardware wallets secure.</p>
-      <p>Keep your software reasonably up to date and take precautions against malware, malicious browser extensions, phishing, remote-access scams, insecure backups, and compromised cloud accounts. Recovery information stored in an unprotected file, screenshot, message, or cloud account may be exposed. Anyone who obtains a private key or recovery phrase may be able to move the associated assets.</p>
-      <p>You bear the consequences of lost or disclosed credentials, inadequate backups, or compromise of your device or third-party accounts to the extent the loss is not attributable to a breach of duty by Hive Keychain and applicable law permits that allocation of responsibility. We cannot reset a lost wallet password, reconstruct a private key or recovery phrase, reverse a completed blockchain transfer, or recover assets sent to an incorrect address or network.</p>
-      <p>With a supported hardware wallet, signing secrets remain under the control of that device. Keychain may receive the public account information and signatures required for the requested operation. Follow the hardware wallet provider's security and recovery instructions.</p>
-      <p>Some swap routes involve temporary processing of assets outside your wallet. Those arrangements are described in Section 7.</p>
+      <p>
+        For ordinary wallet functions, Keychain does not hold your assets or
+        control your private keys. Credentials created or imported in Keychain
+        are stored on your device using the application's available local
+        encryption and security measures. You are responsible for keeping your
+        passwords, private keys, recovery phrases, backups, devices, browser,
+        operating system, and connected hardware wallets secure.
+      </p>
+      <p>
+        Keep your software reasonably up to date and take precautions against
+        malware, malicious browser extensions, phishing, remote-access scams,
+        insecure backups, and compromised cloud accounts. Recovery information
+        stored in an unprotected file, screenshot, message, or cloud account may
+        be exposed. Anyone who obtains a private key or recovery phrase may be
+        able to move the associated assets.
+      </p>
+      <p>
+        You bear the consequences of lost or disclosed credentials, inadequate
+        backups, or compromise of your device or third-party accounts to the
+        extent the loss is not attributable to a breach of duty by Hive Keychain
+        and applicable law permits that allocation of responsibility. We cannot
+        reset a lost wallet password, reconstruct a private key or recovery
+        phrase, reverse a completed blockchain transfer, or recover assets sent
+        to an incorrect address or network.
+      </p>
+      <p>
+        With a supported hardware wallet, signing secrets remain under the
+        control of that device. Keychain may receive the public account
+        information and signatures required for the requested operation. Follow
+        the hardware wallet provider's security and recovery instructions.
+      </p>
+      <p>
+        Some swap routes involve temporary processing of assets outside your
+        wallet. Those arrangements are described in Section 7.
+      </p>
       <h2>4. Transactions, approvals, and permissions</h2>
-      <p>You decide whether to authorize a transaction, signing request, contract approval, dApp connection, or other permission. Review each request before signing or approving it, including the network, account, recipient, token, amount, contract or spender, permissions, and fees. Blockchain transactions may be irreversible. You must also have the right to publish any content you broadcast through Keychain, including content that becomes permanently public on a blockchain.</p>
-      <p>Approvals, signatures, session keys, and delegated permissions can authorize future activity without another Keychain confirmation. Disconnecting a dApp does not necessarily revoke an on-chain allowance, smart-contract approval, or permission held by a third party. You may need to revoke it separately and pay the relevant network fee.</p>
-      <p>If you authorize a bot, script, AI agent, or other third-party application, you are responsible for the access you grant, monitoring its activity where practical, and reviewing or revoking permissions that are no longer needed. Keychain does not control the actions of third-party applications merely because they connect through the wallet.</p>
-      <p>A dApp may present misleading requests, and transaction previews or security warnings may be incomplete. We cannot guarantee that a warning or simulation will detect every risk or that an approved transaction will produce the result you expect.</p>
+      <p>
+        You decide whether to authorize a transaction, signing request, contract
+        approval, dApp connection, or other permission. Review each request
+        before signing or approving it, including the network, account,
+        recipient, token, amount, contract or spender, permissions, and fees.
+        Blockchain transactions may be irreversible. You must also have the
+        right to publish any content you broadcast through Keychain, including
+        content that becomes permanently public on a blockchain.
+      </p>
+      <p>
+        Approvals, signatures, session keys, and delegated permissions can
+        authorize future activity without another Keychain confirmation.
+        Disconnecting a dApp does not necessarily revoke an on-chain allowance,
+        smart-contract approval, or permission held by a third party. You may
+        need to revoke it separately and pay the relevant network fee.
+      </p>
+      <p>
+        If you authorize a bot, script, AI agent, or other third-party
+        application, you are responsible for the access you grant, monitoring
+        its activity where practical, and reviewing or revoking permissions that
+        are no longer needed. Keychain does not control the actions of
+        third-party applications merely because they connect through the wallet.
+      </p>
+      <p>
+        A dApp may present misleading requests, and transaction previews or
+        security warnings may be incomplete. We cannot guarantee that a warning
+        or simulation will detect every risk or that an approved transaction
+        will produce the result you expect.
+      </p>
       <h2>5. Pre-approved operations</h2>
-      <p>Where supported, Keychain allows you to enable limited Hive or Hive-Engine account-management actions, such as claiming rewards, accounts, or savings, and staking supported Hive-Engine tokens. These features operate within the settings and permissions you enable. They do not authorize arbitrary transfers or give Keychain ownership of your account.</p>
-      <p>Review your settings and disable any automation you no longer want. We may modify or discontinue these features for technical, security, or legal reasons.</p>
+      <p>
+        Where supported, Keychain allows you to enable limited Hive or
+        Hive-Engine account-management actions, such as claiming rewards,
+        accounts, or savings, and staking supported Hive-Engine tokens. These
+        features operate within the settings and permissions you enable. They do
+        not authorize arbitrary transfers or give Keychain ownership of your
+        account.
+      </p>
+      <p>
+        Review your settings and disable any automation you no longer want. We
+        may modify or discontinue these features for technical, security, or
+        legal reasons.
+      </p>
       <h2>6. Networks and displayed information</h2>
-      <p>Keychain relies on blockchain nodes, RPC endpoints, pricing services, token and NFT metadata sources, and other infrastructure. Balances, histories, exchange rates, estimates, and other information may be delayed, inaccurate, or unavailable. Gas estimates and expected transaction outcomes are not guaranteed.</p>
-      <p>If you add a custom network, RPC endpoint, token, asset, or contract, check its details yourself. Displaying an asset or integration is not an endorsement of its safety, legitimacy, or value.</p>
+      <p>
+        Keychain relies on blockchain nodes, RPC endpoints, pricing services,
+        token and NFT metadata sources, and other infrastructure. Balances,
+        histories, exchange rates, estimates, and other information may be
+        delayed, inaccurate, or unavailable. Gas estimates and expected
+        transaction outcomes are not guaranteed.
+      </p>
+      <p>
+        If you add a custom network, RPC endpoint, token, asset, or contract,
+        check its details yourself. Displaying an asset or integration is not an
+        endorsement of its safety, legitimacy, or value.
+      </p>
       <h2>7. Swaps, bridges, and third-party providers</h2>
-      <p>Keychain may display routes from Keychain Swap and independent exchanges, aggregators, liquidity providers, and bridges. Depending on availability, these may include LI.FI, Uniswap, 0x, Socket, Changelly, LetsExchange, StealthEX, and InstaSwap. The selected route determines which provider and process apply.</p>
-      <p>Some routes use smart contracts without transferring custody of your wallet to us. Others require you to send assets to a provider-controlled deposit address for settlement. Certain Keychain Swap transactions require an input transfer to a Keychain-controlled processing account solely to carry out the requested exchange. That limited processing is not a general custody, deposit, savings, or hosted-wallet service, and it does not give us access to the keys or other assets in your wallet.</p>
-      <p>Providers may use additional counterparties or bridges and may apply their own terms, eligibility checks, and privacy policies. We do not control their systems, reserves, or settlement times. Quotes are estimates, not promises of execution at a specified price or time.</p>
-      <p>Before proceeding, verify the provider, input and output assets and networks, recipient or deposit address, approval target, amount, expiry, and any required memo or tag. Errors in those details may result in permanent loss.</p>
+      <p>
+        Keychain may display routes from Keychain Swap and independent
+        exchanges, aggregators, liquidity providers, and bridges. Depending on
+        availability, these may include LI.FI, Uniswap, 0x, Socket, Changelly,
+        LetsExchange, StealthEX, and InstaSwap. The selected route determines
+        which provider and process apply.
+      </p>
+      <p>
+        Some routes use smart contracts without transferring custody of your
+        wallet to us. Others require you to send assets to a provider-controlled
+        deposit address for settlement. Certain Keychain Swap transactions
+        require an input transfer to a Keychain-controlled processing account
+        solely to carry out the requested exchange. That limited processing is
+        not a general custody, deposit, savings, or hosted-wallet service, and
+        it does not give us access to the keys or other assets in your wallet.
+      </p>
+      <p>
+        Providers may use additional counterparties or bridges and may apply
+        their own terms, eligibility checks, and privacy policies. We do not
+        control their systems, reserves, or settlement times. Quotes are
+        estimates, not promises of execution at a specified price or time.
+      </p>
+      <p>
+        Before proceeding, verify the provider, input and output assets and
+        networks, recipient or deposit address, approval target, amount, expiry,
+        and any required memo or tag. Errors in those details may result in
+        permanent loss.
+      </p>
       <h2>8. Compliance checks, failed routes, and refunds</h2>
-      <p>A provider may restrict a route, request identity verification, review a transaction for compliance, or pause settlement. Labels such as “KYC possible” or “KYC never” describe the route information available to Keychain; they are not guarantees for a particular transaction. You may have to communicate directly with the provider about any verification request.</p>
-      <p>Swaps and bridges may fail, expire, be delayed, or settle for a different amount. Where recovery is possible, you might receive the original asset, an intermediate asset, or another refund asset, less applicable costs. The amount returned may also be affected by market movements, exchange-rate changes, or conversion losses. Recovery is not always possible. A pending transaction or compliance hold does not guarantee a refund. For assistance, send us the provider name, network, transaction hash, amount, and date—never your wallet secrets.</p>
+      <p>
+        A provider may restrict a route, request identity verification, review a
+        transaction for compliance, or pause settlement. Labels such as “KYC
+        possible” or “KYC never” describe the route information available to
+        Keychain; they are not guarantees for a particular transaction. You may
+        have to communicate directly with the provider about any verification
+        request.
+      </p>
+      <p>
+        Swaps and bridges may fail, expire, be delayed, or settle for a
+        different amount. Where recovery is possible, you might receive the
+        original asset, an intermediate asset, or another refund asset, less
+        applicable costs. The amount returned may also be affected by market
+        movements, exchange-rate changes, or conversion losses. Recovery is not
+        always possible. A pending transaction or compliance hold does not
+        guarantee a refund. For assistance, send us the provider name, network,
+        transaction hash, amount, and date—never your wallet secrets.
+      </p>
       <h2>9. Fees</h2>
-      <p>Keychain does not charge a service fee for ordinary wallet management, signing, or broadcasting. We currently charge no additional Hive Keychain fee on third-party swap or bridge routes. Keychain Swap carries a service fee of <strong>0.75% of the swap output</strong>, reflected in the quote before confirmation.</p>
-      <p>Network gas, approval costs, provider fees, liquidity charges, bridge fees, token taxes, spreads, slippage, and similar costs may still apply. These are not Hive Keychain fees unless expressly identified as such. See the Fees page for further information.</p>
+      <p>
+        Keychain does not charge a service fee for ordinary wallet management,
+        signing, or broadcasting. We currently charge no additional Hive
+        Keychain fee on third-party swap or bridge routes. A detail of the swap
+        and bridge fees is available on the <a href="/fees">Fees page</a>.
+      </p>
+      <p>
+        Network gas, approval costs, provider fees, liquidity charges, bridge
+        fees, token taxes, spreads, slippage, and similar costs may still apply.
+        These are not Hive Keychain fees unless expressly identified as such.
+      </p>
       <h2>10. Risks and information provided</h2>
-      <p>Digital assets carry substantial risks. Smart contracts may contain vulnerabilities; networks, bridges, and service providers can fail or be attacked; assets can lose value; and approvals may expose more assets than a single transaction. Fraud, phishing, impersonation, malicious software, and unauthorized access can cause irreversible losses.</p>
-      <p>Prices, risk indicators, transaction previews, route rankings, and other information in Keychain are provided for convenience. They are not audits, guarantees, or financial, investment, legal, tax, or security advice. An absence of warnings does not establish that a transaction, contract, website, or provider is safe. Keychain does not become your adviser or fiduciary by displaying this information or making a route available.</p>
+      <p>
+        Digital assets carry substantial risks. Smart contracts may contain
+        vulnerabilities; networks, bridges, and service providers can fail or be
+        attacked; assets can lose value; and approvals may expose more assets
+        than a single transaction. Fraud, phishing, impersonation, malicious
+        software, and unauthorized access can cause irreversible losses.
+      </p>
+      <p>
+        Prices, risk indicators, transaction previews, route rankings, and other
+        information in Keychain are provided for convenience. They are not
+        audits, guarantees, or financial, investment, legal, tax, or security
+        advice. An absence of warnings does not establish that a transaction,
+        contract, website, or provider is safe. Keychain does not become your
+        adviser or fiduciary by displaying this information or making a route
+        available.
+      </p>
       <h2>11. Connected services and personal information</h2>
-      <p>Websites, dApps, blockchain nodes, portfolio services, and other providers connected to Keychain operate independently and may receive public wallet addresses and transaction details as needed for your requests. Their services and data practices are outside our control.</p>
-      <p>Our Privacy Policy explains how Keychain and its providers process information, including mobile analytics and diagnostics. Data recorded on a public blockchain is generally accessible to others and cannot be removed by us.</p>
+      <p>
+        Websites, dApps, blockchain nodes, portfolio services, and other
+        providers connected to Keychain operate independently and may receive
+        public wallet addresses and transaction details as needed for your
+        requests. Their services and data practices are outside our control.
+      </p>
+      <p>
+        Our <a href="/privacy">Privacy Policy</a> explains how Keychain and its
+        providers process information, including mobile analytics and
+        diagnostics. Data recorded on a public blockchain is generally
+        accessible to others and cannot be removed by us.
+      </p>
       <h2>12. Support impersonation and scams</h2>
-      <p>Scammers may impersonate Hive Keychain staff, contributors, moderators, or support representatives on Discord, Telegram, social media, websites, or in direct messages. Names, logos, profile pictures, and server roles are not sufficient proof of identity. Check the official support links in Keychain or on our website before trusting instructions.</p>
-      <p><strong>Hive Keychain support will never ask for your private key, recovery phrase, wallet password, or other signing secret, or require a crypto transfer to verify, unlock, secure, or recover your wallet.</strong> Be wary of requests to install unofficial software, grant remote access, connect to unfamiliar sites, or sign a transaction supposedly to validate your wallet.</p>
-      <p>Independent impersonators are not under our control. We are not responsible for their conduct or instructions you follow, except to the extent a loss is attributable to Hive Keychain under applicable law. If you suspect impersonation, stop communicating with the account and report it through a verified channel.</p>
+      <p>
+        Scammers may impersonate Hive Keychain staff, contributors, moderators,
+        or support representatives on Discord, Telegram, social media, websites,
+        or in direct messages. Names, logos, profile pictures, and server roles
+        are not sufficient proof of identity. Check the official support links
+        in Keychain or on our website before trusting instructions.
+      </p>
+      <p>
+        <strong>
+          Hive Keychain support will never ask for your private key, recovery
+          phrase, wallet password, or other signing secret, or require a crypto
+          transfer to verify, unlock, secure, or recover your wallet.
+        </strong>{" "}
+        Be wary of requests to install unofficial software, grant remote access,
+        connect to unfamiliar sites, or sign a transaction supposedly to
+        validate your wallet.
+      </p>
+      <p>
+        Independent impersonators are not under our control. We are not
+        responsible for their conduct or instructions you follow, except to the
+        extent a loss is attributable to Hive Keychain under applicable law. If
+        you suspect impersonation, stop communicating with the account and
+        report it through a verified channel.
+      </p>
       <h2>13. Acceptable use and open-source licenses</h2>
-      <p>Do not use Keychain unlawfully, interfere with its infrastructure, bypass security controls, distribute malware, impersonate our representatives, or facilitate fraud or abuse.</p>
-      <p>Parts of Keychain are open source, including components released under the MIT License. Those licenses govern your rights in the relevant code and prevail over inconsistent restrictions in these Terms. Our name, logos, and branding remain protected by applicable intellectual-property rights.</p>
+      <p>
+        Do not use Keychain unlawfully, interfere with its infrastructure,
+        bypass security controls, distribute malware, impersonate our
+        representatives, or facilitate fraud or abuse.
+      </p>
+      <p>
+        Parts of Keychain are open source, including components released under
+        the MIT License. Those licenses govern your rights in the relevant code
+        and prevail over inconsistent restrictions in these Terms. Our name,
+        logos, and branding remain protected by applicable intellectual-property
+        rights.
+      </p>
       <h2>14. Availability</h2>
-      <p>We may change, restrict, suspend, or discontinue any feature, network, integration, or route for operational, security, compliance, or other reasons. We will seek to avoid unnecessary disruption but do not guarantee continuous service. Disabling a Keychain feature does not stop or reverse a blockchain transaction already submitted.</p>
+      <p>
+        We may change, restrict, suspend, or discontinue any feature, network,
+        integration, or route for operational, security, compliance, or other
+        reasons. We will seek to avoid unnecessary disruption but do not
+        guarantee continuous service. Disabling a Keychain feature does not stop
+        or reverse a blockchain transaction already submitted.
+      </p>
       <h2>15. Events outside reasonable control</h2>
-      <p>Neither party is liable for a delay or failure to perform an obligation under these Terms caused by circumstances beyond its reasonable control, including natural disasters, war, government restrictions, major power or communications failures, network outages, or cyberattacks that reasonable precautions could not have prevented.</p>
-      <p>The affected party must take reasonable steps to limit the disruption and resume performance. A hack, vulnerability, or supplier failure does not, by itself, establish that an event was beyond our reasonable control. This clause does not excuse a failure to exercise reasonable care, affect rights to assets, or override non-excludable liability.</p>
+      <p>
+        Neither party is liable for a delay or failure to perform an obligation
+        under these Terms caused by circumstances beyond its reasonable control,
+        including natural disasters, war, government restrictions, major power
+        or communications failures, network outages, or cyberattacks that
+        reasonable precautions could not have prevented.
+      </p>
+      <p>
+        The affected party must take reasonable steps to limit the disruption
+        and resume performance. A hack, vulnerability, or supplier failure does
+        not, by itself, establish that an event was beyond our reasonable
+        control. This clause does not excuse a failure to exercise reasonable
+        care, affect rights to assets, or override non-excludable liability.
+      </p>
       <h2>16. Warranties and disclaimers</h2>
-      <p>To the fullest extent permitted by law, Keychain is provided <strong>“as is” and “as available”</strong>, without warranties of merchantability, fitness for a particular purpose, non-infringement, accuracy, security, or uninterrupted operation. We do not warrant that the software, networks, smart contracts, APIs, providers, or routes will be free of errors, outages, vulnerabilities, or attacks. Mandatory statutory rights remain unaffected.</p>
+      <p>
+        To the fullest extent permitted by law, Keychain is provided{" "}
+        <strong>“as is” and “as available”</strong>, without warranties of
+        merchantability, fitness for a particular purpose, non-infringement,
+        accuracy, security, or uninterrupted operation. We do not warrant that
+        the software, networks, smart contracts, APIs, providers, or routes will
+        be free of errors, outages, vulnerabilities, or attacks. Mandatory
+        statutory rights remain unaffected.
+      </p>
       <h2>17. Limitation of liability</h2>
-      <p>In this section, the “Keychain Parties” are Hive Keychain Ltd. and its current and former officers, directors, employees, affiliates, contractors, and authorized representatives, insofar as a claim concerns their work in connection with the Services.</p>
-      <p>To the fullest extent permitted by law, the Keychain Parties are not liable for indirect, incidental, special, or consequential damages, lost profits or opportunities, or losses arising from market movements, mistaken instructions or other user errors, lost or disclosed credentials, independently compromised devices or backups, independent support impersonators, malicious dApps or smart contracts, third-party providers, network failures, inaccurate third-party data, or failed transactions, except to the extent a loss results from a breach of duty for which a Keychain Party is legally responsible.</p>
-      <p>The <strong>combined total liability of all Keychain Parties to you for all claims arising out of or relating to these Terms or the Services</strong>, whether in contract, tort (including negligence), statute, or otherwise, is limited to <strong>US$100 in aggregate</strong>, to the fullest extent permitted by law. If a claim arises directly from a Keychain Swap transaction for which Hive Keychain actually received a service fee exceeding US$100, the aggregate limit is instead the amount of that fee. If claims concern several Keychain Swap transactions, the highest fee actually received for any single affected transaction sets the limit; fees are not added together. Separate incidents, claims, or legal theories do not increase the cap. Network and independent provider fees are excluded from this calculation.</p>
-      <p>Nothing in these Terms limits or excludes liability for fraud, willful misconduct, death or personal injury caused by negligence, or any other liability or remedy that cannot lawfully be restricted. If any limitation is unenforceable, the remaining limitations continue to apply to the extent permitted by law.</p>
-      <p>The officers, directors, employees, affiliates, contractors, and authorized representatives identified above may enforce the protections of this section under the Contracts (Rights of Third Parties) Ordinance (Cap. 623). No other person is given a right to enforce these Terms under that Ordinance. Hive Keychain and users may amend or terminate these Terms without the consent of those third parties.</p>
+
+      <p>
+        The protections in this section apply to Hive Keychain Ltd., its
+        affiliates, and their current and former directors, officers, employees,
+        contractors, and authorized representatives acting in connection with
+        the Services (collectively, the “Keychain Parties”).
+      </p>
+
+      <p>
+        To the fullest extent permitted by law, the Keychain Parties are not
+        liable for indirect, incidental, special, or consequential damages, lost
+        profits or opportunities, or losses arising from market movements, user
+        errors, lost or disclosed credentials, independently compromised devices
+        or backups, independent support impersonators, malicious dApps or smart
+        contracts, third-party providers, network failures, inaccurate
+        third-party information, or failed transactions, except to the extent
+        such losses result from a breach of duty for which a Keychain Party is
+        legally responsible.
+      </p>
+
+      <p>
+        To the fullest extent permitted by law, the combined liability of all
+        Keychain Parties for all claims arising out of or relating to these
+        Terms or the Services, whether in contract, tort (including negligence),
+        statute, or otherwise, shall not exceed
+        <strong> US$100 in aggregate</strong>.
+      </p>
+
+      <p>
+        If a claim arises directly from a Keychain Swap transaction for which
+        Hive Keychain received a service fee exceeding US$100, the aggregate
+        limit shall instead equal that fee. Where multiple transactions are
+        involved, the highest fee received for any single affected transaction
+        determines the limit. Fees are not cumulative, and separate claims or
+        incidents do not increase the cap.
+      </p>
+
+      <p>
+        These limitations apply collectively to all Keychain Parties and do not
+        create any liability that would not otherwise exist.
+      </p>
+
+      <p>
+        If any part of this section is unenforceable, the remaining provisions
+        shall remain effective to the extent permitted by law.
+      </p>
+
+      <p>
+        Each Keychain Party other than Hive Keychain Ltd. may enforce these
+        protections under the Contracts (Rights of Third Parties) Ordinance
+        (Cap. 623). No other person is granted enforcement rights under that
+        Ordinance. These Terms may be amended or terminated without the consent
+        of those third parties.
+      </p>
       <h2>18. Third-party claims</h2>
-      <p>If your unlawful conduct, breach of these Terms, or infringement of another person's rights gives rise to a third-party claim against Hive Keychain, you agree to reimburse our reasonable resulting costs and losses, insofar as the law permits. This obligation does not apply to claims attributable to our fraud, willful misconduct, or other liability that cannot lawfully be excluded.</p>
+      <p>
+        If your unlawful conduct, breach of these Terms, or infringement of
+        another person's rights gives rise to a third-party claim against Hive
+        Keychain, you agree to reimburse our reasonable resulting costs and
+        losses, insofar as the law permits. This obligation does not apply to
+        claims attributable to our fraud, willful misconduct, or other liability
+        that cannot lawfully be excluded.
+      </p>
       <h2>19. Governing law and disputes</h2>
-      <p>Hong Kong law governs these Terms, subject to any mandatory law that applies to you. Before bringing formal proceedings, email <a href="mailto:contact@hive-keychain.com">contact@hive-keychain.com</a> with details of the dispute and allow 30 days for an informal resolution attempt.</p>
-      <p>Subject to the consumer protections below, any dispute, controversy, difference, or claim arising out of or relating to these Terms or the Services, including their existence, validity, interpretation, performance, breach, or termination and related non-contractual obligations, shall be referred to and finally resolved by arbitration administered by the Hong Kong International Arbitration Centre (HKIAC) under the HKIAC Administered Arbitration Rules in force when the Notice of Arbitration is submitted. The seat of arbitration is Hong Kong, there will be one arbitrator, and proceedings will be conducted in English. Hong Kong law governs the arbitration agreement.</p>
-      <p>This arbitration requirement applies to business users and to other disputes only where mandatory pre-dispute arbitration is permitted by applicable law. A Hong Kong consumer may choose arbitration or agree to it in writing after a dispute arises; otherwise the consumer may bring the dispute before a court or tribunal with jurisdiction. Either party may seek urgent interim relief from a competent court. To the extent permitted by law, claims must be brought individually rather than as a class or representative action. Mandatory consumer rights are preserved.</p>
+      <p>
+        Hong Kong law governs these Terms, subject to any mandatory law that
+        applies to you. Before bringing formal proceedings, email{" "}
+        <a href="mailto:contact@hive-keychain.com">contact@hive-keychain.com</a>{" "}
+        with details of the dispute and allow 30 days for an informal resolution
+        attempt.
+      </p>
+      <p>
+        Subject to the consumer protections below, any dispute, controversy,
+        difference, or claim arising out of or relating to these Terms or the
+        Services, including their existence, validity, interpretation,
+        performance, breach, or termination and related non-contractual
+        obligations, shall be referred to and finally resolved by arbitration
+        administered by the Hong Kong International Arbitration Centre (HKIAC)
+        under the HKIAC Administered Arbitration Rules in force when the Notice
+        of Arbitration is submitted. The seat of arbitration is Hong Kong, there
+        will be one arbitrator, and proceedings will be conducted in English.
+        Hong Kong law governs the arbitration agreement.
+      </p>
+      <p>
+        This arbitration requirement applies only to the extent enforceable
+        under applicable law, including mandatory consumer protection rules.
+        Either party may seek urgent interim relief from a court of competent
+        jurisdiction. To the extent permitted by law, claims must be brought
+        individually rather than as a class or representative action.
+      </p>
       <h2>20. Changes to the legal documents</h2>
-      <p>We may update these Terms, the Privacy Policy, and the Fees page. Current versions and their dates will be available on our website or through the Services, and earlier versions may be available in our public source-code repository. You are responsible for checking for updates periodically.</p>
-      <p>We will make reasonable efforts to notify users of changes through Keychain or our website. In browser-extension versions that support document verification, a change to a published legal document’s identifier or cryptographic hash triggers a prompt to review the updated documents and expressly accept the Terms or acknowledge the applicable notices before using affected features. The document identifiers and confirmation time are stored locally on the device. The mobile app does not currently offer this mechanism. We cannot guarantee individual notice to users who do not open or update Keychain.</p>
-      <p>Revised documents take effect on their stated effective date, or when posted if no other date is given. If Keychain requests express acceptance of updated Terms, you must accept them before using the affected features. Otherwise, continued use may constitute acceptance only where permitted by law and subject to any required notice. Where reasonably practicable, we will give advance notice of material changes to user rights or Hive Keychain fees, except when urgent legal or security reasons require faster action. Privacy Policy acknowledgment does not replace any separate consent required by law.</p>
-      <p>If you do not accept revised Terms, discontinue use of the affected Services. You remain able to use any recovery or export functions available in your version of Keychain to secure your wallet credentials. Changes do not retroactively amend the terms applicable to completed transactions unless required by law or expressly agreed.</p>
+      <p>
+        We may update these Terms, the Privacy Policy, and the Fees page.
+        Current versions and their dates will be available on our website or
+        through the Services, and earlier versions may be available in our
+        public source-code repository. You are responsible for checking for
+        updates periodically.
+      </p>
+      <p>
+        We will make reasonable efforts to notify users of changes through
+        Keychain or our website. Starting with version 4.0.0, Keychain extension
+        will prompt you to review the updated Terms of Service, Fees and Privacy
+        Policy after each change before using the Services.
+      </p>
+      <p>
+        Revised documents take effect on their stated effective date, or when
+        posted if no other date is given. If Keychain requests express
+        acceptance of updated Terms, you must accept them before using the
+        affected features. Otherwise, continued use may constitute acceptance
+        only where permitted by law and subject to any required notice. Where
+        reasonably practicable, we will give advance notice of material changes
+        to user rights or Hive Keychain fees, except when urgent legal or
+        security reasons require faster action. Privacy Policy acknowledgment
+        does not replace any separate consent required by law.
+      </p>
+      <p>
+        If you do not accept revised Terms, discontinue use of the affected
+        Services. You remain able to use any recovery or export functions
+        available in your version of Keychain to secure your wallet credentials.
+        Changes do not retroactively amend the terms applicable to completed
+        transactions unless required by law or expressly agreed.
+      </p>
       <h2>21. Contact</h2>
-      <p>Questions about these Terms or a transaction can be sent to <a href="mailto:contact@hive-keychain.com">contact@hive-keychain.com</a>. Never send us wallet passwords, private keys, or recovery phrases.</p>
+      <p>
+        Questions about these Terms or a transaction can be sent to{" "}
+        <a href="mailto:contact@hive-keychain.com">contact@hive-keychain.com</a>
+        . Never send us wallet passwords, private keys, or recovery phrases.
+      </p>
       <nav className="legal-crosslinks" aria-label="More legal pages">
         <span>Legal</span>
-        <a className="btn btn-ghost btn-sm" href="#/fees">Fees</a>
-        <a className="btn btn-ghost btn-sm" href="#/privacy">Privacy Policy</a>
-        <a className="btn btn-ghost btn-sm" href="#/">← Back to home</a>
+        <a className="btn btn-ghost btn-sm" href="#/fees">
+          Fees
+        </a>
+        <a className="btn btn-ghost btn-sm" href="#/privacy">
+          Privacy Policy
+        </a>
+        <a className="btn btn-ghost btn-sm" href="#/">
+          ← Back to home
+        </a>
       </nav>
     </article>
   );
