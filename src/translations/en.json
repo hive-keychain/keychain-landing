@@ -1,1 +1,20 @@
-{"announce.link":"See the networks","announce.pill":"New","announce.text":"Keychain is multichain now. It works on Hive plus Ethereum, Base, BNB Chain, Polygon, Avalanche, Arbitrum and Optimism.","footer.legal":"Legal","footer.product":"Product","footer.resources":"Resources","hero.cta.demo":"See it in action","hero.cta.download":"Download","hero.subtitle":"It works for Hive and 7 EVM networks, and you can add any other EVM network yourself. Hold and send assets, swap, buy, sign transactions and connect to dApps, on mobile or in your browser. Your keys stay on your device.","hero.title.after":"and every EVM chain","hero.title.before":"One wallet for","nav.chains":"Chains","nav.dapps":"dApps","nav.demo":"Demo","nav.download":"Download","nav.faq":"FAQ","nav.reviews":"Reviews","nav.security":"Security"}
+{
+  "announce.link": "See the networks",
+  "announce.pill": "New",
+  "announce.text": "Keychain is multichain now. It works on Hive plus Ethereum, Base, BNB Chain, Polygon, Avalanche, Arbitrum and Optimism.",
+  "footer.legal": "Legal",
+  "footer.product": "Product",
+  "footer.resources": "Resources",
+  "hero.cta.demo": "See it in action",
+  "hero.cta.download": "Download",
+  "hero.subtitle": "One wallet for Hive and 7 EVM networks. Send, swap, buy, sign and connect to dApps on mobile or browser, with your keys always on your device.",
+  "hero.title.after": "and every EVM chain",
+  "hero.title.before": "One wallet for",
+  "nav.chains": "Chains",
+  "nav.dapps": "dApps",
+  "nav.demo": "Demo",
+  "nav.download": "Download",
+  "nav.faq": "FAQ",
+  "nav.reviews": "Reviews",
+  "nav.security": "Security"
+}

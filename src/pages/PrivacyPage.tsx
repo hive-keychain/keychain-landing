@@ -1,53 +1,66 @@
-// Complete legal text extracted verbatim from the original mockup.
 export default function PrivacyPage() {
   return (
-      <article className="legal-article" aria-label="Privacy Policy">
-        <a className="legal-back" href="#/">← Back to home</a>
-        <h1>Hive Keychain Beta Privacy Policy</h1>
-        <p className="legal-company">Hive Keychain Ltd.</p>
-        <p className="legal-effective">Effective Date: July 8th, 2026</p>
-        <p>This Privacy Policy explains how information is handled when you use Hive Keychain Beta and the services made available through it (the "Services"). The Services are provided by Hive Keychain Ltd. ("Hive Keychain", "we", "us", or "our"), a company incorporated in Hong Kong.</p>
-        <p>The production version of Hive Keychain may be governed by a separate privacy policy. This Privacy Policy applies to the beta version only.</p>
-        <h2>1. Summary</h2>
-        <p>Hive Keychain is designed so that wallet credentials are controlled by you. We do not receive or store hardware-wallet private keys, seed phrases, recovery phrases, PINs, or signing credentials. If you create or import wallet credentials into the Services, those credentials are stored locally on your device in encrypted form where supported by the application.</p>
-        <p>We do not currently use analytics services, tracking cookies, or crash-reporting services in the Services. We also do not intentionally build user profiles or track users across websites.</p>
-        <h2>2. Local Device Storage</h2>
-        <p>The Services store information locally on your device to provide wallet functionality. This may include account names, public addresses, public keys, encrypted private keys or seed phrases, preferences, active chain state, custom chains, custom RPC endpoints, active RPCs, custom tokens, custom NFTs, dApp permissions, known domains, dApp logos, whitelisted addresses, ENS information, pending transactions, canceled transactions, local transaction history displayed by the app, light-node registration data, wallet settings, and other local application data.</p>
-        <p>We do not use cookies on the Site. The browser extension and any related apps necessarily use local storage or equivalent local device storage to operate wallet features, remember settings, and maintain wallet state.</p>
-        <h2>3. Hardware Wallets</h2>
-        <p>When you connect a hardware wallet such as Ledger, your private keys, seed phrase, recovery phrase, PIN, and signing credentials remain on or under the control of the hardware wallet and are not shared with Hive Keychain. The hardware wallet may share public account information with Hive Keychain, such as addresses, public keys, derivation paths, supported chains, and information needed to display accounts and request signatures.</p>
-        <h2>4. Public Blockchain and Technical Data</h2>
-        <p>To provide wallet functionality, Hive Keychain may process public blockchain account information and technical data, including Hive usernames, public wallet addresses, public keys, chain IDs, RPC URLs, transaction hashes, balances, token holdings, NFT holdings, token contract addresses, NFT contract addresses, dApp domains or origins, gas lookup inputs, price lookup inputs, security-check inputs, swap quote parameters, and route information.</p>
-        <p>This information is used to display balances, transaction history, token and NFT information, chain metadata, gas estimates, price data, dApp connection requests, security notices, swap quotes, and other wallet features. Although this information is generally public or technical in nature, public blockchain addresses and transaction history may reveal information about your activity when associated with you by you or by others.</p>
-        <h2>5. Extension Permissions and Webpage Interaction</h2>
-        <p>The browser extension may request permissions that allow it to store local data, communicate with webpages, detect dApp requests, inject wallet provider interfaces, display transaction or signing prompts, use notifications, and support extension features such as side panel or background processing.</p>
-        <p>The extension may run content scripts on webpages and frames to enable dApp communication. This is necessary for wallet functionality and does not mean that Hive Keychain intends to collect browsing profiles, analytics, cookies, or user-tracking data.</p>
-        <h2>6. Backend APIs and Infrastructure</h2>
-        <p>Some Services rely on Hive Keychain backend APIs or light-node infrastructure to provide chain data, token and NFT discovery, transaction history, contract metadata, ABI data, price data, gas data, risk notices, chain metadata, and security-related information. These services are designed to process the chain data and technical lookup parameters needed to provide those features, not to build user profiles or track users.</p>
-        <p>We do not intentionally store IP addresses, wallet identifiers, analytics identifiers, crash reports, or user-tracking profiles in connection with these backend services. However, ordinary internet communications may involve temporary processing of technical connection information by hosting providers, security providers, network infrastructure, app stores, browser stores, email providers, or other infrastructure providers under their own systems and policies.</p>
-        <h2>7. Third-Party Services</h2>
-        <p>Some features require interaction with third-party services, including public RPC providers, custom RPC providers selected by you, LI.FI and its route providers, decentralized exchanges, bridges, liquidity providers, block explorers, price and metadata providers, security or risk data providers, Transak, app stores, browser stores, and dApps you choose to use.</p>
-        <p>Public or technical data may be sent to these third parties when you use features that depend on them. Third-party services process information under their own privacy policies and terms. Hive Keychain does not control how third-party services process data.</p>
-        <p>If you use a custom RPC endpoint, dApp, bridge, swap provider, or other third-party service, that third party may receive your public address, IP address, transaction data, request metadata, and other information according to its own systems and policies.</p>
-        <h2>8. Analytics, Cookies, and Crash Reporting</h2>
-        <p>Hive Keychain does not currently use analytics services, tracking cookies, or crash-reporting services in the Services. If we introduce analytics, tracking cookies, or crash-reporting services in the future, we will update this Privacy Policy and, where required by applicable law, request consent or provide appropriate controls.</p>
-        <h2>9. Blockchain Immutability</h2>
-        <p>Data broadcast to a blockchain or public network may be public, permanent, irreversible, and immutable. This may include account names, wallet addresses, public keys, transaction hashes, token transfers, NFT transfers, smart-contract interactions, approvals, messages, signatures, and other on-chain data. Hive Keychain cannot delete, modify, hide, or remove data written to a blockchain or public network.</p>
-        <h2>10. Voluntary Communications</h2>
-        <p>If you contact us by email, support channels, app stores, browser stores, social media, or other communication channels, we may receive the information you choose to provide, such as your name, email address, account name, wallet address, transaction hash, screenshots, logs, support description, or other information included in your message. We use this information to respond to you, provide support, investigate issues, improve the Services, and protect users and the Services.</p>
-        <h2>11. Data Retention</h2>
-        <p>Local wallet data remains on your device until you delete it, uninstall the Services, clear local storage, reset the application, or otherwise remove it. Public blockchain data remains available according to the rules and behavior of the relevant blockchain or network. Support communications may be retained for as long as reasonably necessary to respond to your request, maintain records, resolve disputes, enforce our terms, comply with legal obligations, and protect users and the Services.</p>
-        <h2>12. Your Choices</h2>
-        <p>You can limit some data processing by choosing which features to use, changing RPC endpoints, adding or removing custom RPCs or chains, disconnecting dApps, clearing local app or extension data, deleting local wallets, or choosing not to use features that require Hive Keychain infrastructure, swap providers, third-party data providers, or public blockchain broadcasts.</p>
-        <p>You may contact us to request access, correction, deletion, or other action regarding personal information we may hold about you. We may not be able to delete information stored locally on your own device, information controlled by third parties, or information written to public blockchains or public networks.</p>
-        <h2>13. International Users</h2>
-        <p>The Services may be used by users in different jurisdictions, and service providers or infrastructure may process information in different countries. By using the Services, you understand that information may be processed in jurisdictions that may have data protection laws different from those in your jurisdiction.</p>
-        <p>Nothing in this Privacy Policy limits rights you may have under mandatory privacy or data protection laws that apply to you.</p>
-        <h2>14. Changes to This Privacy Policy</h2>
-        <p>We may update this Privacy Policy from time to time by posting the updated version through the Services or on our website. Changes are effective when posted unless stated otherwise. You should review this Privacy Policy periodically.</p>
-        <h2>15. Contact Us</h2>
-        <p>If you have questions about this Privacy Policy, please contact us at <a href="mailto:privacy@hive-keychain.com">privacy@hive-keychain.com</a>.</p>
-        <nav className="legal-crosslinks" aria-label="More legal pages"><span>Legal</span><a className="btn btn-ghost btn-sm" href="#/terms">Terms of Service</a><a className="btn btn-ghost btn-sm" href="#/fees">Fees</a><a className="btn btn-ghost btn-sm" href="#/">← Back to home</a></nav>
-      </article>
+    <article className="legal-article" aria-label="Privacy Policy">
+      <a className="legal-back" href="#/">← Back to home</a>
+      <h1>Privacy Policy</h1>
+      <p className="legal-company">Hive Keychain Ltd.</p>
+      <p className="legal-effective">Last updated: November 8, 2026</p>
+        <p>This policy explains how Hive Keychain Ltd. (“Hive Keychain”, “we”, “us”, or “our”) handles information when you use the Keychain browser extension, mobile app, websites, and related services. We are incorporated in Hong Kong. Information processed depends on the features you use: EVM network functionality is currently available in the browser extension, not the mobile app. Because Keychain is a wallet, it is important to distinguish information kept on your device from information shared when you use a blockchain or an online service.</p>
+        <h2>1. Private keys and information kept on your device</h2>
+        <p>Keychain is designed so that you control your wallet credentials. Private keys, passwords, and recovery information you enter into the wallet are stored locally using the security and encryption measures available in the app and on your device. They are not sent to Hive Keychain to create a hosted wallet account. We cannot retrieve your password or recovery phrase for you.</p>
+        <p>The software may also keep account names and public addresses, selected networks, token information, saved preferences, connected-site permissions, settings, and locally cached balances or transaction information. If you use a supported hardware wallet, Keychain may receive public account details and signatures, but not the signing secrets held by that device.</p>
+        <p>On browser-extension versions with the legal-document acknowledgment feature, Keychain also stores the identifiers or cryptographic hashes of the Terms, Privacy Policy, and Fees page that you have reviewed, together with the time of confirmation. These records are kept locally to recognize when the published documents change and another prompt is needed. This feature is not currently available in the mobile app. The local record does not require you to disclose a private key, recovery phrase, or wallet address to us.</p>
+        <p>Removing Keychain or clearing application data may remove locally stored information. Make sure you have a secure backup of anything needed to restore access before doing so.</p>
+        <h2>2. Information used to provide online features</h2>
+        <p>When you connect to a blockchain node, request a balance, obtain a quote, submit a transaction, load token metadata, or use another connected feature, information needed for that request is sent to the relevant service. Depending on the action, this can include public account names and wallet addresses, chain identifiers, token pairs, amounts, destination addresses, transaction hashes, contract details, and the status of a swap or bridge.</p>
+        <p>Our swap and portfolio infrastructure may process quote requests, selected providers, execution records, and transaction history to display routes, track processing, handle errors, and respond to support or compliance issues. The browser extension generates a random client token and stores it locally for portfolio execution and history requests. That token helps the service retrieve records associated with the same installation; it is not your private key.</p>
+        <p>Like other online services, our servers and service providers may receive technical connection information, such as an IP address, device or browser details, request times, and diagnostic information. A country inferred from a network connection or provided in a quote request may be used to apply provider availability and legal restrictions. We do not need your precise GPS position to create or use a wallet.</p>
+        <h2>3. Public blockchain information</h2>
+        <p>Public blockchains record account addresses, transactions, balances, and, on some networks, messages or content. This information can be viewed and analyzed by anyone, including services outside our control. An address may identify you when combined with other information. We cannot delete or change data already published to a blockchain.</p>
+        <h2>4. Mobile analytics and crash reports</h2>
+        <p>The mobile app uses Google Firebase Analytics and Firebase Crashlytics. Analytics may record app usage events, such as screens visited within the app, along with technical information and identifiers associated with an app installation. Crashlytics receives crash reports, error details, device and operating-system information, and installation identifiers to help us investigate failures. Google processes this information as a service provider under its own applicable terms and policies.</p>
+        <p>These tools are used to understand app performance and fix problems, not to collect wallet private keys or recovery phrases. We do not intentionally include those secrets in analytics events or support reports. Some collection is performed automatically by the Firebase software; the exact data depends on the platform, app configuration, and use of the app.</p>
+        <h2>5. Browser extension permissions and the in-app browser</h2>
+        <p>The browser extension needs permissions to interact with supported websites, detect wallet requests, display approvals, save local settings, and communicate with blockchain services. We do not use those permissions to sell browsing profiles or run behavioral advertising.</p>
+        <p>The mobile app includes an in-app browser. Websites opened there may use cookies, local storage, analytics, and other tracking technologies under their own policies, just as websites do in a regular browser. The app provides a way to clear website data, but clearing data within Keychain may not remove information already held by a website or third party.</p>
+        <p>If you connect your wallet to a dApp or approve a request, the dApp can receive the public account details or transaction information needed for that interaction. Read the site's privacy terms before connecting.</p>
+        <h2>6. Device permissions</h2>
+        <p>Keychain may request camera access to scan QR codes, and it may use device authentication for local security. The embedded browser may support website requests for location or media access, subject to your operating system and browser permissions. You can manage permissions in your device settings, although disabling some permissions may prevent the related feature from working.</p>
+        <h2>7. Providers and other recipients</h2>
+        <p>We share or transmit information only as needed to operate the Services, respond to requests, protect the service, comply with law, or work with the providers involved in a transaction. Depending on what you use, recipients may include:</p>
+        <ul>
+          <li>Blockchain RPC and infrastructure providers, explorers, and market or token metadata services.</li>
+          <li>Swap aggregators, exchanges, bridges, and settlement providers selected for a quote or transaction, which may include LI.FI, Uniswap, 0x, Socket, Changelly, LetsExchange, StealthEX, InstaSwap, and Keychain Swap infrastructure.</li>
+          <li>Google, for mobile analytics and crash diagnostics.</li>
+          <li>Hosting, network security, and technical service providers that help operate our infrastructure.</li>
+          <li>Authorities or parties to whom disclosure is required by applicable law or necessary to address fraud, security incidents, or legal claims.</li>
+        </ul>
+        <p>A third-party exchange or bridge may request identity verification or information for anti-money-laundering or sanctions checks. That provider controls the information it collects through its own process and is responsible for explaining its use. Keychain may receive transaction status or compliance-review status to show you what is happening. Fiat purchase and sale providers are not currently enabled through Keychain.</p>
+        <p>We do not sell wallet information or personal data to data brokers or advertisers.</p>
+        <h2>8. Why we use information</h2>
+        <p>We use the information described above to operate wallet-connected features, show balances and quotes, process and track requested transactions, apply service restrictions, investigate failed routes, maintain security, prevent abuse, answer support requests, and improve reliability. Mobile app analytics helps us understand how features are used and where the app fails.</p>
+        <p>Where applicable data-protection law requires a legal basis, our processing is based on providing the Services you request, legitimate operational and security interests, legal obligations, or consent where required. You may choose not to use an optional third-party service, but doing so may limit the functions available to you.</p>
+        <h2>9. Storage, retention, and security</h2>
+        <p>Wallet credentials are stored on your device rather than in a Hive Keychain hosted account. Other information, including service logs, support messages, and swap execution records, may be held by us or service providers for as long as reasonably necessary to provide the relevant function, investigate problems, meet legal obligations, and protect the service. Retention depends on the type of record and the provider involved.</p>
+        <p>We use technical and organizational measures intended to protect information under our control. No device, network, encryption system, or third-party provider can be guaranteed completely secure. Protect your device and recovery information, and never send a private key or recovery phrase to support.</p>
+        <h2>10. International processing</h2>
+        <p>We operate from Hong Kong and use service providers that may process information in other countries. Blockchain networks and their participants are distributed internationally. When data is sent to a provider or a public network, it may be accessed or processed outside your country and subject to different laws.</p>
+        <h2>11. Your choices and rights</h2>
+        <p>You can choose which accounts to import, which dApps to connect, which routes to request, and which optional device permissions to grant. You can clear browser site data or remove locally stored wallet information using the applicable controls, subject to the need to retain your own backup.</p>
+        <p>You may contact us to request access to, correction of, or information about personal data we hold about you, and to request deletion where applicable law and our operational obligations permit it. We may need to verify your request. We cannot edit records held by an independent provider, recover secrets we never received, or remove transactions from a public blockchain. Additional rights may apply depending on your location.</p>
+        <h2>12. Children</h2>
+        <p>Keychain is not designed or marketed for children. If you are not legally able to consent to use of the Services in your jurisdiction, do not use them without any consent that the law requires.</p>
+        <h2>13. Changes to this policy</h2>
+        <p>We may revise this policy as Keychain's features, providers, or data practices change. The current version and its update date will be available through the Services or our website. You are responsible for reviewing it periodically. We will make reasonable efforts to notify users of updates, including by displaying a notice or asking for renewed acknowledgment in browser-extension versions that support this feature. We cannot guarantee that every user will receive an individual notification.</p>
+        <p>Acknowledging or continuing to use Keychain after an update does not replace any separate consent required by applicable privacy law. Where consent is legally required for a new purpose or type of processing, we will seek it separately before relying on it.</p>
+        <h2>14. Contact</h2>
+        <p>For privacy questions or requests to access or correct information, email <a href="mailto:contact@hive-keychain.com">contact@hive-keychain.com</a>. Please do not include private keys, recovery phrases, or wallet passwords in your message.</p>
+      <nav className="legal-crosslinks" aria-label="More legal pages">
+        <span>Legal</span>
+          <a className="btn btn-ghost btn-sm" href="#/terms">Terms of Service</a>
+          <a className="btn btn-ghost btn-sm" href="#/fees">Fees</a>
+        <a className="btn btn-ghost btn-sm" href="#/">← Back to home</a>
+      </nav>
+    </article>
   );
 }
