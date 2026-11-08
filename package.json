@@ -34,6 +34,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "predeploy": "npm run build",
+    "git:archive": "rm -f keychain-landing-*.zip && git archive --format=zip --output=keychain-landing-$(date +%Y%m%d-%H%M%S).zip main",
     "deploy": "cp dist/index.html dist/404.html && echo 'hive-keychain.com' > ./dist/CNAME && gh-pages -d dist"
   },
   "dependencies": {
