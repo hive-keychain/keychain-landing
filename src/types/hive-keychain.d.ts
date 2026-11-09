@@ -1,6 +1,4 @@
-// Minimal typings for the API the Hive Keychain browser extension
-// injects into every page as `window.hive_keychain`. Only the methods
-// the live Hive demo on this page uses are declared.
+// Minimal typings for the non-broadcast API used by the landing page.
 
 export interface HiveKeychainResponse {
   success: boolean;
@@ -18,38 +16,6 @@ export interface HiveKeychain {
   requestSignBuffer: (
     username: string,
     message: string,
-    keyType: HiveKeyType,
-    callback: HiveKeychainCallback,
-  ) => void;
-  requestVote: (
-    username: string,
-    permlink: string,
-    author: string,
-    weight: number,
-    callback: HiveKeychainCallback,
-  ) => void;
-  requestCustomJson: (
-    username: string,
-    id: string,
-    keyType: HiveKeyType,
-    json: string,
-    displayMessage: string,
-    callback: HiveKeychainCallback,
-  ) => void;
-  requestPost?: (
-    username: string,
-    title: string,
-    body: string,
-    parentPermlink: string,
-    parentAuthor: string,
-    jsonMetadata: string,
-    permlink: string,
-    commentOptions: string,
-    callback: HiveKeychainCallback,
-  ) => void;
-  requestBroadcast?: (
-    username: string,
-    operations: unknown[],
     keyType: HiveKeyType,
     callback: HiveKeychainCallback,
   ) => void;
