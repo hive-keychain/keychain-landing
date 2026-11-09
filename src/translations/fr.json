@@ -10,6 +10,7 @@
   "footer.legal": "Légal",
   "footer.product": "Produit",
   "footer.resources": "Ressources",
+  "faq.networks.answer": "Hive, Ethereum, BNB Chain, Avalanche C-Chain, Arbitrum One, Base, Polygon PoS et Optimism sont inclus. Des réseaux de test pris en charge sont disponibles, et d’autres réseaux EVM compatibles peuvent être configurés manuellement.",
   "hero.cta.demo": "Le voir en action",
   "hero.cta.download": "Télécharger",
   "nav.chains": "Chaînes",

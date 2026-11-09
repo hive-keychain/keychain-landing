@@ -10,6 +10,7 @@
   "footer.legal": "法律",
   "footer.product": "產品",
   "footer.resources": "資源",
+  "faq.networks.answer": "目前已支援 Hive、Ethereum、BNB Chain、Avalanche C-Chain、Arbitrum One、Base、Polygon PoS 和 Optimism。另有受支援的測試網絡，其他相容的 EVM 網絡也可以手動設定。",
   "hero.cta.demo": "查看實際運作",
   "hero.cta.download": "下載",
   "nav.chains": "鏈",

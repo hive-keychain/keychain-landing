@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useLanguage } from '../context/LanguageContext';
 
 const QUESTIONS = [
   {
@@ -11,7 +12,8 @@ const QUESTIONS = [
   },
   {
     question: 'Which networks does the browser extension support?',
-    answer: 'Hive, Ethereum, BNB Chain, Avalanche C-Chain, Arbitrum One, Base, Polygon PoS, and Optimism are included. Supported testnets are available, and compatible EVM networks can be configured through Add Network.',
+    answer: 'Hive, Ethereum, BNB Chain, Avalanche C-Chain, Arbitrum One, Base, Polygon PoS, and Optimism are included. Supported testnets are available, and other compatible EVM networks can be configured manually.',
+    answerKey: 'faq.networks.answer',
   },
   {
     question: 'Does EVM support work on mobile?',
@@ -36,6 +38,7 @@ const QUESTIONS = [
 ] as const;
 
 export default function Faq() {
+  const { t } = useLanguage();
   const [openItems, setOpenItems] = useState<ReadonlySet<number>>(new Set([0]));
   const toggle = (i: number) =>
     setOpenItems((prev) => {
@@ -60,7 +63,9 @@ export default function Faq() {
                     {item.question}
                     <svg className="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6" /></svg>
                   </button>
-                  <div className="ans" id={answerId}>{item.answer}</div>
+                  <div className="ans" id={answerId}>
+                    {'answerKey' in item ? t(item.answerKey) : item.answer}
+                  </div>
                 </div>
               );
             })}

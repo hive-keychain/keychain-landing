@@ -11,6 +11,7 @@
   "footer.legal": "Legal",
   "footer.product": "Product",
   "footer.resources": "Resources",
+  "faq.networks.answer": "Hive, Ethereum, BNB Chain, Avalanche C-Chain, Arbitrum One, Base, Polygon PoS, and Optimism are included. Supported testnets are available, and other compatible EVM networks can be configured manually.",
   "hero.cta.demo": "Explore features",
   "hero.cta.download": "Get Keychain",
   "hero.subtitle": "Manage Hive and EVM wallets, connect to dApps, and review swap routes across supported networks—all from one browser extension, with your keys under your control.",
