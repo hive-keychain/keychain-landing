@@ -5,7 +5,7 @@
   "dapps.empty.network.body": "{network} 暂无精选 dApps。其他兼容的 dApps 仍可通过 Keychain 连接。",
   "dapps.empty.network.title": "{network} 暂无 dApps",
   "dapps.empty.title": "暂无 dApps",
-  "dapps.subtitle": "探索集成了 Keychain 的精选 Web3 dApps。此目录仅供入门参考，并非完整列表。",
+  "dapps.subtitle": "探索集成了 Keychain 的精选 Web3 dApps。以下是一些示例，并非完整列表。",
   "dapps.title": "连接你喜爱的 dApps！",
   "footer.legal": "法律",
   "footer.product": "产品",

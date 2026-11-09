@@ -6,7 +6,7 @@
   "dapps.empty.network.body": "No dApps are featured for {network} yet. Other compatible dApps may still connect through Keychain.",
   "dapps.empty.network.title": "No dApps listed on {network} yet",
   "dapps.empty.title": "No dApps listed yet",
-  "dapps.subtitle": "Explore featured Web3 dApps that implement Keychain. This directory is a starting point, not an exhaustive list.",
+  "dapps.subtitle": "Explore featured Web3 dApps that implement Keychain. Here are some examples, not an exhaustive list.",
   "dapps.title": "Connect to your favorite dApps!",
   "footer.legal": "Legal",
   "footer.product": "Product",
