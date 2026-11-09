@@ -10,14 +10,14 @@ const features = [
     icon: <><rect x="4" y="10" width="16" height="10" rx="2" /><path d="M8 10V7a4 4 0 0 1 8 0v3" /></>,
   },
   {
-    titleKey: 'security.ledger.title',
-    bodyKey: 'security.ledger.body',
-    icon: <><rect x="3" y="6" width="18" height="12" rx="2" /><path d="M7 10h4M7 14h2M17 12h.01" /></>,
-  },
-  {
     titleKey: 'security.review.title',
     bodyKey: 'security.review.body',
     icon: <><path d="M12 3l7 3v5c0 4.6-3 8.1-7 10-4-1.9-7-5.4-7-10V6l7-3z" /><path d="m9 12 2 2 4-4" /></>,
+  },
+  {
+    titleKey: 'security.ledger.title',
+    bodyKey: 'security.ledger.body',
+    icon: <><rect x="3" y="6" width="18" height="12" rx="2" /><path d="M7 10h4M7 14h2M17 12h.01" /></>,
   },
   {
     titleKey: 'security.permissions.title',
