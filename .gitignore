@@ -1,3 +1,5 @@
 /node_modules
 dist
 keychain-landing*.zip
+public/.DS_Store
+public/assets/.DS_Store
