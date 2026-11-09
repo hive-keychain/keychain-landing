@@ -20,12 +20,14 @@ const TESTIMONIALS = [
     image: 'https://images.hive.blog/u/howo/avatar',
     quote: "I use Keychain daily to interact with the chain! It's the best out there.",
   },
+  /*
   {
     name: 'Vaultec',
     role: 'Founder of VSC Network',
     image: 'https://images.hive.blog/u/vaultec/avatar',
     quote: 'Keychain is the ultimate wallet interface for the Hive blockchain. We look forward  to working on bringing the world of cross-chain to Hive',
   },
+  */
   {
     name: 'Dan',
     role: 'Co-founder @ 3Speak',
@@ -53,7 +55,7 @@ export default function Reviews() {
         <div className="wrap">
           <div className="sec-head center reveal">
             <h2>Trusted by the Hive community.</h2>
-            <p>Seven voices from builders and leaders across the Hive ecosystem.</p>
+            <p>Voices from builders and leaders across the Hive ecosystem.</p>
           </div>
           <div className="quotes reveal-group" ref={carousel.trackRef}>
             {TESTIMONIALS.map((testimonial) => (
