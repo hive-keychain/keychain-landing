@@ -1,46 +1,36 @@
-import { useRef, useState, type KeyboardEvent, type ReactNode } from 'react';
+import { useEffect, useRef, useState, type KeyboardEvent, type ReactNode } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import EvmConnectionDemo from './EvmConnectionDemo';
 import HiveDemo from './HiveDemo';
 
 type ConnectionType = 'evm' | 'hive';
-type PreviewId = 'accounts' | 'portfolio' | 'swaps';
+type ShowcaseId = 'portfolio' | 'swaps';
 
-interface PreviewMedia {
+interface ShowcaseMedia {
   type: 'image' | 'video';
   src: string;
   poster?: string;
+  mimeType?: 'video/mp4' | 'video/webm';
   altKey: string;
   width: number;
   height: number;
 }
 
-interface PreviewConfig {
-  id: PreviewId;
-  tabKey: string;
+interface ShowcaseConfig {
+  id: ShowcaseId;
+  labelKey: string;
   titleKey: string;
-  bodyKey: string;
+  descriptionKey: string;
   featureKeys: [string, string, string];
-  media?: PreviewMedia;
+  media?: ShowcaseMedia;
 }
 
-const PREVIEWS: PreviewConfig[] = [
-  {
-    id: 'accounts',
-    tabKey: 'demo.preview.accounts.tab',
-    titleKey: 'demo.preview.accounts.title',
-    bodyKey: 'demo.preview.accounts.body',
-    featureKeys: [
-      'demo.preview.accounts.feature1',
-      'demo.preview.accounts.feature2',
-      'demo.preview.accounts.feature3',
-    ],
-  },
+const SHOWCASES: ShowcaseConfig[] = [
   {
     id: 'portfolio',
-    tabKey: 'demo.preview.portfolio.tab',
+    labelKey: 'demo.preview.portfolio.label',
     titleKey: 'demo.preview.portfolio.title',
-    bodyKey: 'demo.preview.portfolio.body',
+    descriptionKey: 'demo.preview.portfolio.description',
     featureKeys: [
       'demo.preview.portfolio.feature1',
       'demo.preview.portfolio.feature2',
@@ -49,9 +39,9 @@ const PREVIEWS: PreviewConfig[] = [
   },
   {
     id: 'swaps',
-    tabKey: 'demo.preview.swaps.tab',
+    labelKey: 'demo.preview.swaps.label',
     titleKey: 'demo.preview.swaps.title',
-    bodyKey: 'demo.preview.swaps.body',
+    descriptionKey: 'demo.preview.swaps.description',
     featureKeys: [
       'demo.preview.swaps.feature1',
       'demo.preview.swaps.feature2',
@@ -104,39 +94,74 @@ function handleTabKeys<T extends string>(
   focusButton(ids[next]);
 }
 
-function PreviewVisual({ preview }: { preview: PreviewConfig }) {
+function ShowcaseVisual({ showcase }: { showcase: ShowcaseConfig }) {
   const { t } = useLanguage();
-  if (preview.media?.type === 'image') {
-    return <img className="preview-media" src={preview.media.src} alt={t(preview.media.altKey)} width={preview.media.width} height={preview.media.height} />;
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const pauseForReducedMotion = () => {
+      if (reducedMotion.matches) video.pause();
+    };
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) video.pause();
+    });
+
+    pauseForReducedMotion();
+    reducedMotion.addEventListener('change', pauseForReducedMotion);
+    observer.observe(video);
+    return () => {
+      reducedMotion.removeEventListener('change', pauseForReducedMotion);
+      observer.disconnect();
+    };
+  }, []);
+
+  if (showcase.media?.type === 'image') {
+    return <img className="preview-media" src={showcase.media.src} alt={t(showcase.media.altKey)} width={showcase.media.width} height={showcase.media.height} />;
   }
-  if (preview.media?.type === 'video') {
+  if (showcase.media?.type === 'video') {
     return (
-      <video className="preview-media" controls muted playsInline preload="metadata" poster={preview.media.poster} width={preview.media.width} height={preview.media.height} aria-label={t(preview.media.altKey)}>
-        <source src={preview.media.src} type="video/webm" />
+      <video ref={videoRef} className="preview-media" controls muted playsInline preload="metadata" poster={showcase.media.poster} width={showcase.media.width} height={showcase.media.height} aria-label={t(showcase.media.altKey)}>
+        <source src={showcase.media.src} type={showcase.media.mimeType ?? 'video/mp4'} />
       </video>
     );
   }
   return (
-    <div className={`preview-fallback preview-${preview.id}`} aria-hidden="true">
+    <div className={`preview-fallback preview-${showcase.id}`} aria-hidden="true">
       <div className="preview-orbit orbit-one" />
       <div className="preview-orbit orbit-two" />
       <span className="preview-mark"><img src="assets/keychain-logo.png" alt="" /></span>
-      <div className="preview-pills">
-        <span>{t(preview.featureKeys[0])}</span>
-        <span>{t(preview.featureKeys[1])}</span>
-        <span>{t(preview.featureKeys[2])}</span>
-      </div>
     </div>
+  );
+}
+
+function ProductShowcase({ showcase }: { showcase: ShowcaseConfig }) {
+  const { t } = useLanguage();
+
+  return (
+    <article className={`product-showcase showcase-${showcase.id} reveal`}>
+      <div className="showcase-media-wrap">
+        <ShowcaseVisual showcase={showcase} />
+      </div>
+      <div className="demo-copy showcase-copy">
+        <p className="showcase-eyebrow">{t(showcase.labelKey)}</p>
+        <h3>{t(showcase.titleKey)}</h3>
+        <p>{t(showcase.descriptionKey)}</p>
+        <ul>
+          {showcase.featureKeys.map((key) => <li key={key}><CheckIcon /> {t(key)}</li>)}
+        </ul>
+      </div>
+    </article>
   );
 }
 
 export default function ProductDemo() {
   const { t } = useLanguage();
   const [connection, setConnection] = useState<ConnectionType>('evm');
-  const [previewId, setPreviewId] = useState<PreviewId>('accounts');
   const connectionRefs = useRef<Record<string, HTMLButtonElement | null>>({});
-  const previewRefs = useRef<Record<string, HTMLButtonElement | null>>({});
-  const preview = PREVIEWS.find((item) => item.id === previewId) ?? PREVIEWS[0];
 
   return (
     <section className="block" id="demo">
@@ -208,49 +233,12 @@ export default function ProductDemo() {
           <p>{t('demo.explore.subtitle')}</p>
         </div>
 
-        <div className="preview-tabs" role="tablist" aria-label={t('demo.explore.selectorLabel')}>
-          {PREVIEWS.map((item) => (
-            <button
-              key={item.id}
-              ref={(element) => { previewRefs.current[item.id] = element; }}
-              type="button"
-              role="tab"
-              id={`preview-tab-${item.id}`}
-              aria-selected={previewId === item.id}
-              aria-controls={`preview-panel-${item.id}`}
-              tabIndex={previewId === item.id ? 0 : -1}
-              onClick={() => setPreviewId(item.id)}
-              onKeyDown={(event) => handleTabKeys(
-                event,
-                PREVIEWS.map(({ id }) => id),
-                previewId,
-                setPreviewId,
-                (next) => previewRefs.current[next]?.focus(),
-              )}
-            >
-              {t(item.tabKey)}
-            </button>
-          ))}
-        </div>
-
-        <div
-          className="product-preview reveal"
-          id={`preview-panel-${preview.id}`}
-          role="tabpanel"
-          aria-labelledby={`preview-tab-${preview.id}`}
-        >
-          <PreviewVisual preview={preview} />
-          <div className="demo-copy preview-copy">
-            <h3>{t(preview.titleKey)}</h3>
-            <p>{t(preview.bodyKey)}</p>
-            <ul>
-              {preview.featureKeys.map((key) => <li key={key}><CheckIcon /> {t(key)}</li>)}
-            </ul>
-          </div>
+        <div className="explore-showcases">
+          {SHOWCASES.map((showcase) => <ProductShowcase key={showcase.id} showcase={showcase} />)}
         </div>
 
         <div className="demo-cta reveal">
-          <a className="btn btn-red" href="/#download">{t('demo.cta')}</a>
+          <a className="btn btn-red" href="/#download">{t('demo.explore.cta')}</a>
         </div>
       </div>
     </section>
