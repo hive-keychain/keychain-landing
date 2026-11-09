@@ -89,6 +89,20 @@ async function fetchOnce(chain: string): Promise<DappGroup[]> {
 }
 
 /**
+ * Check a chain once for selector availability. A failed request is returned
+ * as unknown so callers never treat a temporary API outage as an empty chain.
+ */
+export async function probeChainDapps(
+  chain: string,
+): Promise<DappGroup[] | null> {
+  try {
+    return await fetchOnce(chain);
+  } catch {
+    return null;
+  }
+}
+
+/**
  * Load the dApp groups for a chain, following the original mockup's
  * silent-retry policy:
  * - up to 4 attempts (delays 0.8s / 2s / 4s, 30s timeout each);

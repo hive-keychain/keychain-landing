@@ -1,1 +1,25 @@
-{"announce.link":"查看网络","announce.pill":"新","announce.text":"Keychain 现已支持多链。它可在 Hive 以及 Ethereum、Base、BNB Chain、Polygon、Avalanche、Arbitrum 和 Optimism 上使用。","footer.legal":"法律","footer.product":"产品","footer.resources":"资源","hero.cta.demo":"查看实际运作","hero.cta.download":"下载","hero.subtitle":"它支持 Hive 和 7 个 EVM 网络,你也可以自行添加任何其他 EVM 网络。在手机或浏览器中持有和发送资产、兑换、购买、签署交易并连接 dApps。你的密钥始终保存在你的设备上。","hero.title.after":"和每条 EVM 链","hero.title.before":"一个钱包适用于","nav.chains":"链","nav.dapps":"dApps","nav.demo":"演示","nav.download":"下载","nav.faq":"常见问题","nav.reviews":"评价","nav.security":"安全"}
+{
+  "announce.link": "查看网络",
+  "announce.pill": "新",
+  "dapps.empty.body": "精选 dApps 会在加入目录后显示在这里。",
+  "dapps.empty.network.body": "{network} 暂无精选 dApps。其他兼容的 dApps 仍可通过 Keychain 连接。",
+  "dapps.empty.network.title": "{network} 暂无 dApps",
+  "dapps.empty.title": "暂无 dApps",
+  "dapps.subtitle": "探索集成了 Keychain 的精选 Web3 dApps。以下是一些示例，并非完整列表。",
+  "dapps.title": "连接你喜爱的 dApps！",
+  "footer.legal": "法律",
+  "footer.product": "产品",
+  "footer.resources": "资源",
+  "faq.mobile.answer": "目前还不支持。EVM 账户和网络目前仅在浏览器扩展程序中受支持。iOS 和 Android 应用目前仅支持 Hive。",
+  "faq.mobile.question": "Keychain Mobile 支持 EVM 吗？",
+  "faq.networks.answer": "目前已支持 Hive、Ethereum、BNB Chain、Avalanche C-Chain、Arbitrum One、Base、Polygon PoS 和 Optimism。另有受支持的测试网络，其他兼容的 EVM 网络也可以手动配置。",
+  "hero.cta.demo": "查看实际运作",
+  "hero.cta.download": "下载",
+  "nav.chains": "链",
+  "nav.dapps": "dApps",
+  "nav.demo": "演示",
+  "nav.download": "下载",
+  "nav.faq": "常见问题",
+  "nav.reviews": "评价",
+  "nav.security": "安全"
+}

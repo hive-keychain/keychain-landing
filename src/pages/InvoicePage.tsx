@@ -2,20 +2,20 @@ import { useEffect, useRef, useState } from 'react';
 import { decode } from 'hive-uri';
 import HiveQRCode from 'hive-qrcode';
 
-// Keychain Store invoice page. Behaviour ported 1:1 from the current
+// Keychain Store invoice page. Behaviour ported from the current
 // landing (hive-keychain/keychain-landing, src/components/Pages/Invoice.tsx):
 // a shared invoice link looks like
+//   https://hive-keychain.com/invoice/<hive-uri payload>
+// Older links use the hash form
 //   https://hive-keychain.com/#invoice/<hive-uri payload>
+// which is rewritten to the path before this page renders.
 // The payload rebuilds a hive://sign/op/... URI, which is decoded to
 // render the payment QR, and the page auto-redirects to that URI so
 // the Keychain app opens when it is installed. Everything happens
-// client-side; the invoice data travels inside the URL hash.
+// client-side; the invoice data travels in the URL.
 // Presentation follows this landing's design system (invoice-*
-// classes in src/index.css) instead of the current landing's
-// Tailwind utilities. The QR centre logo uses the site logo already
-// in public/assets (relative path, so it also works from a subpath)
-// instead of the current landing's /favicon.png.
-const InvoicePage = () => {
+// classes in src/index.css).
+const InvoicePage = ({ payload }: { payload: string | null }) => {
   const [invoiceUri, setInvoiceUri] = useState<string>('');
   const [decodedOp, setDecodedOp] = useState<any>(null);
   const [error, setError] = useState<string | null>(null);
@@ -58,40 +58,30 @@ const InvoicePage = () => {
   }, []);
 
   useEffect(() => {
-    // Extract the invoice data from URL hash
-    const hash = window.location.hash;
-    if (hash && hash.startsWith('#invoice/')) {
-      const invoiceData = hash.replace('#invoice/', '');
-
-      try {
-        const uri = `hive://sign/op/${invoiceData}`;
-        setInvoiceUri(uri);
-
-        const decoded = decode(uri);
-        setDecodedOp(decoded.tx.operations[0]);
-
-        // Auto-redirect to Hive app
-        window.location.href = uri;
-      } catch (error) {
-        console.error('Error decoding Hive URI:', error);
-        setError('Error al procesar la factura. Por favor, verifica que el enlace sea correcto.');
-      }
-    } else {
+    if (!payload) {
+      setInvoiceUri('');
+      setDecodedOp(null);
       setError('No se encontró información de la factura en la URL.');
+      return;
     }
-  }, []);
 
-  // Listen for hash changes
-  useEffect(() => {
-    const handleHashChange = () => {
-      window.location.reload();
-    };
+    try {
+      const uri = `hive://sign/op/${payload}`;
+      setInvoiceUri(uri);
 
-    window.addEventListener('hashchange', handleHashChange);
-    return () => {
-      window.removeEventListener('hashchange', handleHashChange);
-    };
-  }, []);
+      const decoded = decode(uri);
+      setDecodedOp(decoded.tx.operations[0]);
+      setError(null);
+
+      // Auto-redirect to Hive app
+      window.location.href = uri;
+    } catch (err) {
+      console.error('Error decoding Hive URI:', err);
+      setInvoiceUri('');
+      setDecodedOp(null);
+      setError('Error al procesar la factura. Por favor, verifica que el enlace sea correcto.');
+    }
+  }, [payload]);
 
   return (
     <div className="invoice-page">
@@ -115,7 +105,7 @@ const InvoicePage = () => {
                       op={decodedOp}
                       size={300}
                       withLogo
-                      logoImage="assets/keychain-logo.png"
+                      logoImage="/assets/keychain-logo.png"
                     />
                   )}
                 </div>

@@ -1,1 +1,25 @@
-{"announce.link":"Ver las redes","announce.pill":"Nuevo","announce.text":"Keychain ahora es multichain. Funciona en Hive más Ethereum, Base, BNB Chain, Polygon, Avalanche, Arbitrum y Optimism.","footer.legal":"Legal","footer.product":"Producto","footer.resources":"Recursos","hero.cta.demo":"Míralo en acción","hero.cta.download":"Descargar","hero.subtitle":"Funciona para Hive y 7 redes EVM, y puedes agregar cualquier otra red EVM por tu cuenta. Guarda y envía activos, intercambia, compra, firma transacciones y conéctate a dApps, en el móvil o en tu navegador. Tus claves permanecen en tu dispositivo.","hero.title.after":"y cada cadena EVM","hero.title.before":"Una billetera para","nav.chains":"Cadenas","nav.dapps":"dApps","nav.demo":"Demo","nav.download":"Descargar","nav.faq":"Preguntas","nav.reviews":"Reseñas","nav.security":"Seguridad"}
+{
+  "announce.link": "Ver las redes",
+  "announce.pill": "Nuevo",
+  "dapps.empty.body": "Las dApps destacadas aparecerán aquí a medida que se añadan al directorio.",
+  "dapps.empty.network.body": "Aún no hay dApps destacadas para {network}. Otras dApps compatibles aún pueden conectarse mediante Keychain.",
+  "dapps.empty.network.title": "Aún no hay dApps listadas en {network}",
+  "dapps.empty.title": "Aún no hay dApps listadas",
+  "dapps.subtitle": "Explora dApps Web3 destacadas que integran Keychain. Estos son algunos ejemplos, no una lista exhaustiva.",
+  "dapps.title": "¡Conéctate a tus dApps favoritas!",
+  "footer.legal": "Legal",
+  "footer.product": "Producto",
+  "footer.resources": "Recursos",
+  "faq.mobile.answer": "Todavía no. Actualmente, las cuentas y redes EVM solo son compatibles con la extensión del navegador. Por el momento, las aplicaciones para iOS y Android solo son compatibles con Hive.",
+  "faq.mobile.question": "¿Keychain Mobile es compatible con EVM?",
+  "faq.networks.answer": "Se incluyen Hive, Ethereum, BNB Chain, Avalanche C-Chain, Arbitrum One, Base, Polygon PoS y Optimism. Hay redes de prueba compatibles disponibles, y otras redes EVM compatibles pueden configurarse manualmente.",
+  "hero.cta.demo": "Míralo en acción",
+  "hero.cta.download": "Descargar",
+  "nav.chains": "Cadenas",
+  "nav.dapps": "dApps",
+  "nav.demo": "Demo",
+  "nav.download": "Descargar",
+  "nav.faq": "Preguntas",
+  "nav.reviews": "Reseñas",
+  "nav.security": "Seguridad"
+}

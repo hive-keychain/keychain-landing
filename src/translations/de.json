@@ -1,1 +1,25 @@
-{"announce.link":"Netzwerke ansehen","announce.pill":"Neu","announce.text":"Keychain ist jetzt multichain. Es läuft auf Hive plus Ethereum, Base, BNB Chain, Polygon, Avalanche, Arbitrum und Optimism.","footer.legal":"Rechtliches","footer.product":"Produkt","footer.resources":"Ressourcen","hero.cta.demo":"In Aktion sehen","hero.cta.download":"Herunterladen","hero.subtitle":"Sie funktioniert für Hive und 7 EVM Netzwerke, und du kannst selbst jedes andere EVM Netzwerk hinzufügen. Verwahre und sende Assets, tausche, kaufe, signiere Transaktionen und verbinde dich mit dApps, auf dem Handy oder im Browser. Deine Schlüssel bleiben auf deinem Gerät.","hero.title.after":"und jede EVM Chain","hero.title.before":"Eine Wallet für","nav.chains":"Netzwerke","nav.dapps":"dApps","nav.demo":"Demo","nav.download":"Herunterladen","nav.faq":"FAQ","nav.reviews":"Bewertungen","nav.security":"Sicherheit"}
+{
+  "announce.link": "Netzwerke ansehen",
+  "announce.pill": "Neu",
+  "dapps.empty.body": "Ausgewählte dApps erscheinen hier, sobald sie zum Verzeichnis hinzugefügt werden.",
+  "dapps.empty.network.body": "Für {network} werden noch keine dApps vorgestellt. Andere kompatible dApps können sich möglicherweise trotzdem über Keychain verbinden.",
+  "dapps.empty.network.title": "Noch keine dApps für {network} gelistet",
+  "dapps.empty.title": "Noch keine dApps gelistet",
+  "dapps.subtitle": "Entdecke ausgewählte Web3-dApps, die Keychain integrieren. Dies sind einige Beispiele, keine vollständige Liste.",
+  "dapps.title": "Verbinde dich mit deinen Lieblings-dApps!",
+  "footer.legal": "Rechtliches",
+  "footer.product": "Produkt",
+  "footer.resources": "Ressourcen",
+  "faq.mobile.answer": "Noch nicht. EVM-Konten und -Netzwerke werden derzeit nur in der Browser-Erweiterung unterstützt. Die iOS- und Android-Apps unterstützen vorerst nur Hive.",
+  "faq.mobile.question": "Unterstützt Keychain Mobile EVM?",
+  "faq.networks.answer": "Hive, Ethereum, BNB Chain, Avalanche C-Chain, Arbitrum One, Base, Polygon PoS und Optimism sind enthalten. Unterstützte Testnetze sind verfügbar, und weitere kompatible EVM-Netzwerke können manuell konfiguriert werden.",
+  "hero.cta.demo": "In Aktion sehen",
+  "hero.cta.download": "Herunterladen",
+  "nav.chains": "Netzwerke",
+  "nav.dapps": "dApps",
+  "nav.demo": "Demo",
+  "nav.download": "Herunterladen",
+  "nav.faq": "FAQ",
+  "nav.reviews": "Bewertungen",
+  "nav.security": "Sicherheit"
+}

@@ -37,11 +37,18 @@ npm install
 npm run dev       # start the dev server
 npm run build     # production build into dist/
 npm run preview   # serve the production build locally
+npm run deploy    # build and publish dist/ to the gh-pages branch
 ```
 
-To deploy, serve `dist/` from any static host (Vercel, Netlify, Cloudflare
-Pages, GitHub Pages via Actions). Routing is hash-based, so no server rewrites
-are needed.
+Routes are real paths: `/terms`, `/privacy`, `/fees`, and `/invoice/<payload>`.
+Older hash URLs (`#/terms`, `#/privacy`, `#/fees`, `#/`, and `#invoice/...`)
+open the same pages and are rewritten to those paths. In-page sections stay
+hash links (`/#download`).
+
+`npm run deploy` adds a `404.html` fallback and a `CNAME` for
+`hive-keychain.com`, then pushes `dist/` to the `gh-pages` branch. GitHub Pages
+serves that file for the paths above so the app can read them. Any other static
+host needs the same single-page fallback.
 
 ## License
 

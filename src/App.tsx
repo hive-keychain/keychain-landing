@@ -16,77 +16,65 @@ import PrivacyPage from './pages/PrivacyPage';
 import InvoicePage from './pages/InvoicePage';
 import SectionNavigation from './components/SectionNavigation';
 import { LanguageProvider } from './context/LanguageContext';
-import { pendingLandingSection } from './normalizeLegacyUrl';
+import { normalizeLegacyUrl, pendingLandingSection } from './normalizeLegacyUrl';
 import { useReveal } from './hooks/useReveal';
+import { installAppLinkInterceptor, LEGAL_TITLES, routeFromLocation } from './route';
 
-// Internal hash router, ported from the original mockup: home by
-// default, #/terms, #/fees and #/privacy render the legal pages inside
-// the same page (the home markup stays mounted, only hidden, exactly
-// like the original, so demo and dApps state survive the trip).
-// Keychain Store invoice hashes (#invoice/...) take priority over
-// everything and render the invoice page, like the current landing.
-const LEGAL: Record<string, 'terms' | 'fees' | 'privacy'> = {
-  '/terms': 'terms',
-  '/fees': 'fees',
-  '/privacy': 'privacy',
-};
-const TITLES: Record<string, string> = {
-  '/terms': 'Hive Keychain Beta Terms',
-  '/fees': 'Hive Keychain Beta Fees',
-  '/privacy': 'Hive Keychain Beta Privacy Policy',
-};
-const HOME_TITLE = 'Keychain, the wallet for Hive and EVM';
-
-function routeFromHash(): { legal: 'terms' | 'fees' | 'privacy' | null; key: string | null; invoice: boolean } {
-  const hash = window.location.hash || '';
-  // Invoice hashes (#invoice/...) take priority over every other
-  // route and are never rewritten, exactly like the current landing:
-  // its App special-cases them above its routes and its legacy URL
-  // normalizer leaves them untouched.
-  if (hash.startsWith('#invoice/')) {
-    return { legal: null, key: null, invoice: true };
-  }
-  const key = hash.indexOf('#/') === 0 ? hash.slice(1) : null;
-  return { legal: key && LEGAL[key] ? LEGAL[key] : null, key, invoice: false };
-}
+// Home, /terms, /fees, /privacy, and /invoice/<payload> render inside
+// the same page. The home markup stays mounted (only hidden) so demo
+// and dApps state survive a trip to a legal page or an invoice.
+// Legacy hash URLs are rewritten in normalizeLegacyUrl before paint.
+const HOME_TITLE = 'Hive Keychain — Your keys. Your crypto. Your wallet.';
 
 export default function App() {
-  const [route, setRoute] = useState(routeFromHash);
+  const [route, setRoute] = useState(routeFromLocation);
   useReveal();
 
   useEffect(() => {
-    const onHash = () => setRoute(routeFromHash());
-    window.addEventListener('hashchange', onHash);
-    return () => window.removeEventListener('hashchange', onHash);
+    const sync = () => {
+      normalizeLegacyUrl();
+      setRoute(routeFromLocation());
+    };
+    window.addEventListener('popstate', sync);
+    window.addEventListener('hashchange', sync);
+    return () => {
+      window.removeEventListener('popstate', sync);
+      window.removeEventListener('hashchange', sync);
+    };
   }, []);
+
+  useEffect(() => installAppLinkInterceptor(), []);
 
   useEffect(() => {
     const hash = window.location.hash || '';
-    if (route.invoice) {
+    if (route.kind === 'invoice') {
       document.title = 'Keychain Store Invoice · Keychain';
       window.scrollTo(0, 0);
       return;
     }
-    if (route.legal) {
-      document.title = TITLES[route.key!] + ' · Keychain';
+    if (route.kind === 'legal') {
+      document.title = LEGAL_TITLES[route.page] + ' · Keychain';
       window.scrollTo(0, 0);
       return;
     }
     document.title = HOME_TITLE;
-    if (route.key === '/' || hash === '' || hash === '#') {
-      // A pending ?section= deep link owns the scroll position;
-      // SectionNavigation consumes it and scrolls to the section.
-      if (!pendingLandingSection()) {
-        window.scrollTo(0, 0);
+    const sectionId = hash.startsWith('#') ? hash.slice(1).split('?')[0] : '';
+    if (sectionId && !sectionId.startsWith('/')) {
+      const target = document.getElementById(sectionId);
+      if (target) {
+        target.scrollIntoView();
+        return;
       }
-    } else if (hash.charAt(0) === '#') {
-      const target = document.getElementById(hash.slice(1));
-      if (target) target.scrollIntoView();
+    }
+    // A pending ?section= deep link owns the scroll position;
+    // SectionNavigation consumes it and scrolls to the section.
+    if (!pendingLandingSection()) {
+      window.scrollTo(0, 0);
     }
   }, [route]);
 
-  const isLegal = route.legal !== null;
-  const isInvoice = route.invoice;
+  const isLegal = route.kind === 'legal';
+  const isInvoice = route.kind === 'invoice';
 
   return (
     <LanguageProvider>
@@ -105,14 +93,14 @@ export default function App() {
       </main>
       <main className="legal-main" id="legalMain" hidden={!isLegal}>
         <div className="wrap">
-          {route.legal === 'terms' && <TermsPage />}
-          {route.legal === 'fees' && <FeesPage />}
-          {route.legal === 'privacy' && <PrivacyPage />}
+          {route.kind === 'legal' && route.page === 'terms' && <TermsPage />}
+          {route.kind === 'legal' && route.page === 'fees' && <FeesPage />}
+          {route.kind === 'legal' && route.page === 'privacy' && <PrivacyPage />}
         </div>
       </main>
-      {isInvoice && (
+      {route.kind === 'invoice' && (
         <main id="invoiceMain">
-          <InvoicePage />
+          <InvoicePage payload={route.payload} />
         </main>
       )}
       <Footer />

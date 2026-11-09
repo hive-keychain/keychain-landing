@@ -1,4 +1,42 @@
 {
+  "name": "keychain-landing",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Landing page for Hive Keychain, the open-source self-custody wallet for Hive and supported EVM networks.",
+  "keywords": [
+    "hive",
+    "hive-keychain",
+    "keychain",
+    "wallet",
+    "evm",
+    "multichain",
+    "landing-page"
+  ],
+  "homepage": "https://hive-keychain.com",
+  "bugs": {
+    "url": "https://github.com/hive-keychain/keychain-landing/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hive-keychain/keychain-landing.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Hive Keychain",
+    "url": "https://hive-keychain.com"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "git:archive": "rm -f keychain-landing-*.zip && git archive --format=zip --output=keychain-landing-$(date +%Y%m%d-%H%M%S).zip main",
+    "deploy": "cp dist/index.html dist/404.html && echo 'hive-keychain.com' > ./dist/CNAME && gh-pages -d dist"
+  },
   "dependencies": {
     "hive-qrcode": "^1.0.0",
     "hive-uri": "^0.2.5",
@@ -11,18 +49,10 @@
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",
     "autoprefixer": "^10.4.18",
+    "gh-pages": "^6.3.0",
     "postcss": "^8.4.35",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.5.3",
     "vite": "^5.4.11"
-  },
-  "name": "keychain-multichain-landing",
-  "private": true,
-  "scripts": {
-    "build": "vite build",
-    "dev": "vite",
-    "preview": "vite preview"
-  },
-  "type": "module",
-  "version": "0.0.0"
+  }
 }

@@ -1,3 +1,5 @@
+import { applyLegacyRedirect, canonicalizeLegalPath } from "./route";
+
 export const LANDING_SECTION_KEY = "keychain:landing-section";
 
 /**
@@ -12,13 +14,19 @@ export const LANDING_SECTION_KEY = "keychain:landing-section";
  * and scrolls to the section. The legacy hash form
  * (#/?section=download) is accepted too.
  *
- * Invoice hashes (#invoice/...) stay untouched, like the current
- * landing. This app routes by hash (#/terms, ...), so unlike the
- * current landing there are no hash page routes to rewrite here.
+ * Invoice hashes (#invoice/...) and the old hash pages (#/terms,
+ * #/fees, #/privacy, #/) are rewritten to path routes. Section capture
+ * runs before that rewrite so #/?section=download still scrolls.
  */
 export function normalizeLegacyUrl() {
   const url = new URL(window.location.href);
-  if (url.hash.startsWith("#invoice/")) return;
+  if (
+    url.hash.startsWith("#invoice/") ||
+    url.hash.startsWith("#/invoice/")
+  ) {
+    applyLegacyRedirect();
+    return;
+  }
 
   let section = url.searchParams.get("section");
 
@@ -45,6 +53,9 @@ export function normalizeLegacyUrl() {
       );
     }
   }
+
+  applyLegacyRedirect();
+  canonicalizeLegalPath();
 }
 
 /** Keep accepting section links that arrive through hash changes too. */

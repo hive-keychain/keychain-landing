@@ -4,15 +4,12 @@ import { scrollToLandingSection } from "../scrollToLandingSection";
 
 /**
  * Consumes a stored ?section= target once the home page is shown and
- * scrolls to it. Adapted from the current landing's SectionNavigation
- * (which reads the router location; this app routes by hash, so the
- * parent passes whether the home page is active).
+ * scrolls to it. Adapted from the current landing's SectionNavigation.
+ * The parent passes whether the home page is active.
  */
 export default function SectionNavigation({ active }: { active: boolean }) {
   useEffect(() => {
-    if (!active || window.location.hash.startsWith("#invoice/")) {
-      return;
-    }
+    if (!active) return;
 
     const sectionId = consumeLandingSection();
     if (!sectionId) return;

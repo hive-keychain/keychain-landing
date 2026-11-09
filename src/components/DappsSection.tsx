@@ -1,12 +1,19 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { Dapp, DappGroup } from "../lib/dapps";
-import { DAPP_NETWORKS, catLabel, loadChainDapps } from "../lib/dapps";
+import {
+  DAPP_NETWORKS,
+  catLabel,
+  loadChainDapps,
+  probeChainDapps,
+} from "../lib/dapps";
 import { FALLBACK_HIVE } from "../data/fallbackHive";
+import { useLanguage } from "../context/LanguageContext";
 import CarouselDots from "./CarouselDots";
 
 // Works with your dApps, ported from the original mockup script.
-// Behaviour notes (identical to the original):
+// Behaviour notes:
 // - one category visible at a time, chips generated from the response;
+// - the network selector stays hidden when only Hive has listed dApps;
 // - cards link to the dApp url, or to mobileUrl on small screens when
 //   the dApp provides one;
 // - a broken icon removes itself, leaving the initial-letter tile;
@@ -17,11 +24,13 @@ import CarouselDots from "./CarouselDots";
 type ViewState = "loading" | "content" | "empty";
 
 export default function DappsSection() {
+  const { t } = useLanguage();
   const [chain, setChain] = useState("hive");
   const [label, setLabel] = useState("Hive");
   const [groups, setGroups] = useState<DappGroup[] | null>(null);
   const [category, setCategory] = useState<string | null>(null);
   const [view, setView] = useState<ViewState>("loading");
+  const [showNetworkSelector, setShowNetworkSelector] = useState(false);
   const [isSmall, setIsSmall] = useState(
     () =>
       typeof window !== "undefined" &&
@@ -96,6 +105,37 @@ export default function DappsSection() {
       requestIdRef.current++;
     };
   }, [load]);
+
+  // Hide the network selector when every non-Hive API returns an empty
+  // result. Unknown results keep the selector available so a temporary API
+  // failure cannot make a supported network disappear.
+  useEffect(() => {
+    let cancelled = false;
+    const otherNetworks = DAPP_NETWORKS.filter((network) => network.chain !== "hive");
+
+    Promise.all(
+      otherNetworks.map(async (network) => ({
+        chain: network.chain,
+        data: await probeChainDapps(network.chain),
+      })),
+    ).then((results) => {
+      if (cancelled) return;
+
+      results.forEach(({ chain: resultChain, data }) => {
+        if (data !== null) cacheRef.current[resultChain] = data;
+      });
+
+      const hasUnknownNetwork = results.some(({ data }) => data === null);
+      const hasOtherDapps = results.some(({ data }) =>
+        data?.some((group) => group?.dapps?.length),
+      );
+      setShowNetworkSelector(hasUnknownNetwork || hasOtherDapps);
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   // Track the small-screen media query for mobileUrl hrefs.
   useEffect(() => {
@@ -214,32 +254,31 @@ export default function DappsSection() {
     <section className="block alt" id="dapps">
       <div className="wrap">
         <div className="sec-head reveal">
-          <h2>Works with your dApps</h2>
-          <p>
-            Start exploring: this is just a sample of the Hive and EVM dApps
-            that work with Keychain.
-          </p>
+          <h2>{t("dapps.title")}</h2>
+          <p>{t("dapps.subtitle")}</p>
         </div>
-        <div
-          className="tabs dapp-nets"
-          role="tablist"
-          aria-label="Network"
-          id="dappNets"
-        >
-          {DAPP_NETWORKS.map((n) => (
-            <button
-              key={n.chain}
-              type="button"
-              role="tab"
-              aria-selected={chain === n.chain}
-              data-chain={n.chain}
-              data-label={n.label}
-              onClick={() => onNetClick(n.chain, n.label)}
-            >
-              {n.label}
-            </button>
-          ))}
-        </div>
+        {showNetworkSelector && (
+          <div
+            className="tabs dapp-nets"
+            role="tablist"
+            aria-label="Network"
+            id="dappNets"
+          >
+            {DAPP_NETWORKS.map((n) => (
+              <button
+                key={n.chain}
+                type="button"
+                role="tab"
+                aria-selected={chain === n.chain}
+                data-chain={n.chain}
+                data-label={n.label}
+                onClick={() => onNetClick(n.chain, n.label)}
+              >
+                {n.label}
+              </button>
+            ))}
+          </div>
+        )}
 
         <div
           className="cat-chips"
@@ -338,15 +377,13 @@ export default function DappsSection() {
         <div className="dapp-state" id="dappEmpty" hidden={view !== "empty"}>
           <h3 id="dappEmptyTitle">
             {groups && validGroups.length === 0
-              ? "No dApps listed on " + label + " yet"
-              : "No dApps listed yet"}
+              ? t("dapps.empty.network.title").replace("{network}", label)
+              : t("dapps.empty.title")}
           </h3>
           <p id="dappEmptyText">
             {groups && validGroups.length === 0
-              ? "Keychain already works on " +
-                label +
-                ". Listings will appear here on their own as soon as they are added to the Keychain ecosystem."
-              : "Listings will appear here as soon as they are added to the Keychain ecosystem."}
+              ? t("dapps.empty.network.body").replace("{network}", label)
+              : t("dapps.empty.body")}
           </p>
         </div>
       </div>

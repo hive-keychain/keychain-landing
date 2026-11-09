@@ -36,12 +36,12 @@ export default function Header({ showAnnounce = true }: { showAnnounce?: boolean
     <>
       <header className="site">
         <div className="wrap nav">
-          <a className="brand" href="#"><img className="mark" src="assets/keychain-logo.png" alt="Hive Keychain logo" width="38" height="38" /><span><span className="name">Keychain</span><span className="by">powered by Hive</span></span></a>
+          <a className="brand" href="/"><img className="mark" src="assets/keychain-logo.png" alt="Hive Keychain logo" width="38" height="38" /><span><span className="name">Keychain</span><span className="by">powered by Hive</span></span></a>
           <nav aria-label="Main">
             {NAV_SECTIONS.map(({ id, key }) => (
               <a
                 key={id}
-                href={`#${id}`}
+                href={`/#${id}`}
                 className={activeSection === id ? 'active' : undefined}
                 aria-current={activeSection === id ? 'true' : undefined}
                 onClick={() => setActiveSection(id)}
@@ -51,11 +51,11 @@ export default function Header({ showAnnounce = true }: { showAnnounce?: boolean
             ))}
           </nav>
           <LanguageSelector />
-          <a className="btn btn-red btn-sm" href="#download">{t('nav.download')}</a>
+          <a className="btn btn-red btn-sm" href="/#download">{t('nav.download')}</a>
         </div>
       </header>
       <div className="announce" id="announceBar" hidden={!showAnnounce}>
-        <div className="wrap"><span className="pill">{t('announce.pill')}</span><span>{t('announce.text')}</span><a href="#chains">{t('announce.link')}</a></div>
+        <div className="wrap"><span className="pill">{t('announce.pill')}</span><span>{t('announce.text')}</span><a href="/#chains">{t('announce.link')}</a></div>
       </div>
     </>
   );
