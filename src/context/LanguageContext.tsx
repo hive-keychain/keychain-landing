@@ -63,7 +63,7 @@ function detectLanguage(): Language {
 interface LanguageContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
-  t: (key: string) => string;
+  t: (key: string, values?: Record<string, string | number>) => string;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(
@@ -84,8 +84,16 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({
       language === "tw" ? "zh-TW" : language === "zh" ? "zh-CN" : language;
   }, [language]);
 
-  const t = (key: string): string => {
-    return translations[language][key] ?? translations.en[key] ?? key;
+  const t = (
+    key: string,
+    values: Record<string, string | number> = {},
+  ): string => {
+    const template = translations[language][key] ?? translations.en[key] ?? key;
+    return template.replace(/\{([a-zA-Z0-9_]+)\}/g, (match, name: string) =>
+      Object.prototype.hasOwnProperty.call(values, name)
+        ? String(values[name])
+        : match,
+    );
   };
 
   return (

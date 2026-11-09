@@ -1,23 +1,63 @@
-import { useState, type ReactNode } from 'react';
+import { useRef, useState, type KeyboardEvent, type ReactNode } from 'react';
+import { useLanguage } from '../context/LanguageContext';
+import EvmConnectionDemo from './EvmConnectionDemo';
 import HiveDemo from './HiveDemo';
 
-const NETWORKS = {
-  hive: { name: 'Hive', color: '#e31337', balance: '1,205 HIVE', from: '100 HIVE', to: '42.70 HBD' },
-  ethereum: { name: 'Ethereum', color: '#627eea', balance: '0.42 ETH', from: '0.05 ETH', to: '132.40 USDC' },
-  base: { name: 'Base', color: '#0052ff', balance: '100 USDC', from: '100 USDC', to: '0.037 ETH' },
-  polygon: { name: 'Polygon', color: '#8247e5', balance: '640 POL', from: '100 POL', to: '19.80 USDC' },
-  bnb: { name: 'BNB Chain', color: '#f0b90b', balance: '0.85 BNB', from: '0.10 BNB', to: '59.20 USDC' },
-} as const;
+type ConnectionType = 'evm' | 'hive';
+type PreviewId = 'accounts' | 'portfolio' | 'swaps';
 
-type NetworkKey = keyof typeof NETWORKS;
-type DemoTab = 'swap' | 'cross-chain' | 'portfolio' | 'power' | 'hive';
+interface PreviewMedia {
+  type: 'image' | 'video';
+  src: string;
+  poster?: string;
+  altKey: string;
+  width: number;
+  height: number;
+}
 
-const TABS: { id: DemoTab; label: string }[] = [
-  { id: 'swap', label: 'Swaps' },
-  { id: 'cross-chain', label: 'Cross-chain' },
-  { id: 'portfolio', label: 'Portfolio' },
-  { id: 'power', label: 'Hive Power' },
-  { id: 'hive', label: 'Hive operations' },
+interface PreviewConfig {
+  id: PreviewId;
+  tabKey: string;
+  titleKey: string;
+  bodyKey: string;
+  featureKeys: [string, string, string];
+  media?: PreviewMedia;
+}
+
+const PREVIEWS: PreviewConfig[] = [
+  {
+    id: 'accounts',
+    tabKey: 'demo.preview.accounts.tab',
+    titleKey: 'demo.preview.accounts.title',
+    bodyKey: 'demo.preview.accounts.body',
+    featureKeys: [
+      'demo.preview.accounts.feature1',
+      'demo.preview.accounts.feature2',
+      'demo.preview.accounts.feature3',
+    ],
+  },
+  {
+    id: 'portfolio',
+    tabKey: 'demo.preview.portfolio.tab',
+    titleKey: 'demo.preview.portfolio.title',
+    bodyKey: 'demo.preview.portfolio.body',
+    featureKeys: [
+      'demo.preview.portfolio.feature1',
+      'demo.preview.portfolio.feature2',
+      'demo.preview.portfolio.feature3',
+    ],
+  },
+  {
+    id: 'swaps',
+    tabKey: 'demo.preview.swaps.tab',
+    titleKey: 'demo.preview.swaps.title',
+    bodyKey: 'demo.preview.swaps.body',
+    featureKeys: [
+      'demo.preview.swaps.feature1',
+      'demo.preview.swaps.feature2',
+      'demo.preview.swaps.feature3',
+    ],
+  },
 ];
 
 function CheckIcon() {
@@ -33,165 +73,184 @@ function HiveMark({ size = 14 }: { size?: number }) {
   );
 }
 
-function NetworkIcon({ id, size = 'normal' }: { id: NetworkKey; size?: 'normal' | 'small' }) {
-  const px = size === 'small' ? 12 : 14;
-  if (id === 'hive') {
-    return <span className="ico" style={{ background: NETWORKS[id].color }}><HiveMark size={px} /></span>;
-  }
-  return <span className="ico logo"><img src={`assets/chain-${id}.png`} alt="" /></span>;
+function EvmMark() {
+  return (
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" aria-hidden="true">
+      <path d="m12 2-7 10 7 4 7-4-7-10Z" /><path d="m5 13 7 9 7-9-7 4-7-4Z" />
+    </svg>
+  );
 }
 
-function DemoHeader({ children, status = 'Illustrative example' }: { children: ReactNode; status?: string }) {
-  return <div className="d-head"><span className="d-net">{children}</span><span className="d-live">● {status}</span></div>;
+function DemoHeader({ children, status }: { children: ReactNode; status: string }) {
+  return <div className="d-head"><span className="d-net">{children}</span><span className="d-live"><span aria-hidden="true">●</span> {status}</span></div>;
+}
+
+function handleTabKeys<T extends string>(
+  event: KeyboardEvent<HTMLButtonElement>,
+  ids: readonly T[],
+  active: T,
+  select: (id: T) => void,
+  focusButton: (id: T) => void,
+) {
+  const current = ids.indexOf(active);
+  let next = current;
+  if (event.key === 'ArrowRight' || event.key === 'ArrowDown') next = (current + 1) % ids.length;
+  else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') next = (current - 1 + ids.length) % ids.length;
+  else if (event.key === 'Home') next = 0;
+  else if (event.key === 'End') next = ids.length - 1;
+  else return;
+  event.preventDefault();
+  select(ids[next]);
+  focusButton(ids[next]);
+}
+
+function PreviewVisual({ preview }: { preview: PreviewConfig }) {
+  const { t } = useLanguage();
+  if (preview.media?.type === 'image') {
+    return <img className="preview-media" src={preview.media.src} alt={t(preview.media.altKey)} width={preview.media.width} height={preview.media.height} />;
+  }
+  if (preview.media?.type === 'video') {
+    return (
+      <video className="preview-media" controls muted playsInline preload="metadata" poster={preview.media.poster} width={preview.media.width} height={preview.media.height} aria-label={t(preview.media.altKey)}>
+        <source src={preview.media.src} type="video/webm" />
+      </video>
+    );
+  }
+  return (
+    <div className={`preview-fallback preview-${preview.id}`} aria-hidden="true">
+      <div className="preview-orbit orbit-one" />
+      <div className="preview-orbit orbit-two" />
+      <span className="preview-mark"><img src="assets/keychain-logo.png" alt="" /></span>
+      <div className="preview-pills">
+        <span>{t(preview.featureKeys[0])}</span>
+        <span>{t(preview.featureKeys[1])}</span>
+        <span>{t(preview.featureKeys[2])}</span>
+      </div>
+    </div>
+  );
 }
 
 export default function ProductDemo() {
-  const [tab, setTab] = useState<DemoTab>('swap');
-  const [network, setNetwork] = useState<NetworkKey>('hive');
-  const selected = NETWORKS[network];
+  const { t } = useLanguage();
+  const [connection, setConnection] = useState<ConnectionType>('evm');
+  const [previewId, setPreviewId] = useState<PreviewId>('accounts');
+  const connectionRefs = useRef<Record<string, HTMLButtonElement | null>>({});
+  const previewRefs = useRef<Record<string, HTMLButtonElement | null>>({});
+  const preview = PREVIEWS.find((item) => item.id === previewId) ?? PREVIEWS[0];
 
   return (
     <section className="block" id="demo">
       <div className="wrap">
         <div className="sec-head reveal">
-          <h2>Explore what Keychain can do</h2>
-          <p>Try five product views. Sample balances and routes are illustrative; the Hive operations tab connects to the real extension and asks before any action.</p>
+          <h2>{t('demo.title')}</h2>
+          <p>{t('demo.subtitle')}</p>
         </div>
 
-        <div className="tabs" role="tablist" aria-label="Product demo">
-          {TABS.map((item) => (
-            <button type="button" role="tab" id={`dtab-${item.id}`} aria-selected={tab === item.id} aria-controls={`dpanel-${item.id}`} onClick={() => setTab(item.id)} key={item.id}>
-              {item.label}
+        <div className="demo-shell connection-shell reveal">
+          <div className="demo-card connection-card">
+            <div className="connection-tabs" role="tablist" aria-label={t('demo.connect.selectorLabel')}>
+              {(['evm', 'hive'] as ConnectionType[]).map((id) => (
+                <button
+                  key={id}
+                  ref={(element) => { connectionRefs.current[id] = element; }}
+                  type="button"
+                  role="tab"
+                  id={`connection-tab-${id}`}
+                  aria-selected={connection === id}
+                  aria-controls={`connection-panel-${id}`}
+                  tabIndex={connection === id ? 0 : -1}
+                  onClick={() => setConnection(id)}
+                  onKeyDown={(event) => handleTabKeys(
+                    event,
+                    ['evm', 'hive'],
+                    connection,
+                    setConnection,
+                    (next) => connectionRefs.current[next]?.focus(),
+                  )}
+                >
+                  {t(`demo.connect.${id}`)}
+                </button>
+              ))}
+            </div>
+            <div className="connection-card-head">
+              <DemoHeader status={t('demo.connect.live')}>
+                <span className={`connection-icon ${connection}`}>
+                  {connection === 'evm' ? <EvmMark /> : <HiveMark size={14} />}
+                </span>
+                {t(`demo.${connection}.header`)}
+              </DemoHeader>
+            </div>
+            <div
+              id={`connection-panel-${connection}`}
+              role="tabpanel"
+              aria-labelledby={`connection-tab-${connection}`}
+            >
+              {connection === 'evm' ? <EvmConnectionDemo /> : <HiveDemo />}
+            </div>
+          </div>
+
+          <div className="demo-copy connection-copy">
+            <h3>{t('demo.connect.title')}</h3>
+            <p>{t('demo.connect.subtitle')}</p>
+            <ul>
+              <li><CheckIcon /> {t('demo.connect.benefit1')}</li>
+              <li><CheckIcon /> {t('demo.connect.benefit2')}</li>
+              <li><CheckIcon /> {t('demo.connect.benefit3')}</li>
+            </ul>
+            <p className="download-note">
+              {t('demo.connect.downloadBefore')} <a href="/#download">{t('demo.connect.downloadLink')}</a>
+            </p>
+          </div>
+        </div>
+
+        <div className="explore-head reveal">
+          <h3>{t('demo.explore.title')}</h3>
+          <p>{t('demo.explore.subtitle')}</p>
+        </div>
+
+        <div className="preview-tabs" role="tablist" aria-label={t('demo.explore.selectorLabel')}>
+          {PREVIEWS.map((item) => (
+            <button
+              key={item.id}
+              ref={(element) => { previewRefs.current[item.id] = element; }}
+              type="button"
+              role="tab"
+              id={`preview-tab-${item.id}`}
+              aria-selected={previewId === item.id}
+              aria-controls={`preview-panel-${item.id}`}
+              tabIndex={previewId === item.id ? 0 : -1}
+              onClick={() => setPreviewId(item.id)}
+              onKeyDown={(event) => handleTabKeys(
+                event,
+                PREVIEWS.map(({ id }) => id),
+                previewId,
+                setPreviewId,
+                (next) => previewRefs.current[next]?.focus(),
+              )}
+            >
+              {t(item.tabKey)}
             </button>
           ))}
         </div>
 
-        <div id="dpanel-swap" role="tabpanel" aria-labelledby="dtab-swap" hidden={tab !== 'swap'}>
-          <div className="demo-shell">
-            <div className="demo-card">
-              <DemoHeader><NetworkIcon id={network} />{selected.name}</DemoHeader>
-              <div className="d-bal">Sample balance on this network<b>{selected.balance}</b></div>
-              <div className="demo-route">
-                <div className="r-lbl">Recommended route · sample only</div>
-                <div className="r-main"><span>{selected.from}</span><span className="arrow">→</span><span>{selected.to}</span></div>
-                <div className="r-sub"><b>Provider A</b> · expected output and estimated costs shown before approval</div>
-              </div>
-              <div className="demo-route">
-                <div className="r-lbl">Another available route</div>
-                <div className="r-sub" style={{ marginTop: '4px' }}><b>Provider B</b> · compare the quote details and choose for yourself</div>
-              </div>
-              <div className="net-chips" role="group" aria-label="Switch illustrative network">
-                {(Object.keys(NETWORKS) as NetworkKey[]).map((id) => (
-                  <button type="button" aria-pressed={network === id} onClick={() => setNetwork(id)} key={id}>
-                    <NetworkIcon id={id} size="small" />{NETWORKS[id].name}
-                  </button>
-                ))}
-              </div>
-              <p className="try-hint" style={{ color: '#57d98e' }}>↑ Try it: switch networks to update the illustrative route.</p>
-            </div>
-            <div className="demo-copy">
-              <h3>Compare routes. Choose how you swap.</h3>
-              <p>When quotes are available, Keychain can recommend a route and show alternatives. Review the provider, expected output, and costs before selecting one.</p>
-              <ul>
-                <li><CheckIcon /> Same-network and cross-network routes may be available</li>
-                <li><CheckIcon /> Quote availability depends on the assets, networks, and providers</li>
-                <li><CheckIcon /> See the <a href="/fees">Fees page</a> for Keychain’s fee policy</li>
-              </ul>
-            </div>
+        <div
+          className="product-preview reveal"
+          id={`preview-panel-${preview.id}`}
+          role="tabpanel"
+          aria-labelledby={`preview-tab-${preview.id}`}
+        >
+          <PreviewVisual preview={preview} />
+          <div className="demo-copy preview-copy">
+            <h3>{t(preview.titleKey)}</h3>
+            <p>{t(preview.bodyKey)}</p>
+            <ul>
+              {preview.featureKeys.map((key) => <li key={key}><CheckIcon /> {t(key)}</li>)}
+            </ul>
           </div>
         </div>
 
-        <div id="dpanel-cross-chain" role="tabpanel" aria-labelledby="dtab-cross-chain" hidden={tab !== 'cross-chain'}>
-          <div className="demo-shell">
-            <div className="demo-card">
-              <DemoHeader><NetworkIcon id="base" />Cross-chain route</DemoHeader>
-              <div className="demo-route">
-                <div className="r-lbl">Sample route</div>
-                <div className="r-main"><span>100 USDC · Ethereum</span><span className="arrow">→</span><span>USDC · Base</span></div>
-                <div className="r-sub">Illustrative provider route · review the destination, expected output, and costs before approval</div>
-              </div>
-              <div className="demo-route">
-                <div className="r-lbl">How routes can work</div>
-                <div className="r-sub" style={{ marginTop: '4px' }}>Depending on availability, a provider may use smart contracts, bridges, or provider-managed exchanges.</div>
-              </div>
-            </div>
-            <div className="demo-copy">
-              <h3>Move assets between networks.</h3>
-              <p>Keychain brings supported cross-network routes into the wallet so you can review the complete quote before deciding.</p>
-              <ul>
-                <li><CheckIcon /> Available routes vary by asset, source, destination, and provider</li>
-                <li><CheckIcon /> You remain responsible for checking every transaction detail</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div id="dpanel-portfolio" role="tabpanel" aria-labelledby="dtab-portfolio" hidden={tab !== 'portfolio'}>
-          <div className="demo-shell">
-            <div className="demo-card">
-              <DemoHeader>Portfolio overview</DemoHeader>
-              <div className="d-bal">Illustrative total value<b>$4,820.30</b></div>
-              <div className="demo-route">
-                <div className="r-lbl">Sample assets</div>
-                <div className="r-main"><span>HIVE · ETH · USDC</span></div>
-                <div className="r-sub">Across Hive, Ethereum, Base, and Polygon · sample values only</div>
-              </div>
-              <div className="demo-route">
-                <div className="r-lbl">More activity</div>
-                <div className="r-sub" style={{ marginTop: '4px' }}>Token balances · NFTs where supported · transaction history</div>
-              </div>
-            </div>
-            <div className="demo-copy">
-              <h3>Your assets, in one place.</h3>
-              <p>The browser extension can bring supported EVM token balances, NFTs, and history together with your wallet accounts.</p>
-              <ul>
-                <li><CheckIcon /> Switch networks without leaving the extension</li>
-                <li><CheckIcon /> Asset data depends on network and data-provider support</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div id="dpanel-power" role="tabpanel" aria-labelledby="dtab-power" hidden={tab !== 'power'}>
-          <div className="demo-shell">
-            <div className="demo-card">
-              <DemoHeader><NetworkIcon id="hive" />Hive Power</DemoHeader>
-              <div className="d-bal">Illustrative balance<b>8,420 HP</b></div>
-              <div className="demo-route">
-                <div className="r-lbl">Sample account view</div>
-                <div className="r-main"><span>Available RC</span><span className="arrow">·</span><span>82%</span></div>
-                <div className="r-sub">Incoming and outgoing delegations · sample values only</div>
-              </div>
-              <div className="demo-route">
-                <div className="r-lbl">Account actions</div>
-                <div className="r-sub" style={{ marginTop: '4px' }}>Power up · power down · delegate · manage resource credits</div>
-              </div>
-            </div>
-            <div className="demo-copy">
-              <h3>Take control of your Hive Power.</h3>
-              <p>Manage Hive Power, delegations, and account resources directly from Keychain with operations designed for Hive accounts.</p>
-              <ul>
-                <li><CheckIcon /> Review the operation before it is broadcast</li>
-                <li><CheckIcon /> See balances, delegations, and resource status together</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div id="dpanel-hive" role="tabpanel" aria-labelledby="dtab-hive" hidden={tab !== 'hive'}>
-          <div className="demo-shell">
-            <HiveDemo />
-            <div className="demo-copy">
-              <h3>Try real Hive operations—with your approval.</h3>
-              <p>The sign-in step requests a signature only; it is not broadcast to Hive and does not change your account. Choose one optional follow, vote, or post action. The demo stops after one approved onchain transaction.</p>
-              <ul>
-                <li><CheckIcon /> Sign in with a non-broadcast message signature</li>
-                <li><CheckIcon /> Test at most one optional follow, vote, or post action per sign-in</li>
-                <li><CheckIcon /> Keychain shows the request before you authorize it</li>
-              </ul>
-              <p style={{ marginTop: '14px', fontSize: '14px' }}>No Keychain yet? <a href="#download" style={{ color: 'var(--red)', fontWeight: 800 }}>Choose a supported download</a>.</p>
-            </div>
-          </div>
+        <div className="demo-cta reveal">
+          <a className="btn btn-red" href="/#download">{t('demo.cta')}</a>
         </div>
       </div>
     </section>

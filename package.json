@@ -34,11 +34,10 @@
     "build": "vite build",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "git:archive": "rm -f keychain-landing-*.zip && git archive --format=zip --output=keychain-landing-$(date +%Y%m%d-%H%M%S).zip main",
+    "git:archive": "rm -f keychain-landing-*.zip && git archive --format=zip --output=keychain-landing-$(date +%Y%m%d-%H%M%S).zip $(git write-tree)",
     "deploy": "cp dist/index.html dist/404.html && echo 'hive-keychain.com' > ./dist/CNAME && gh-pages -d dist"
   },
   "dependencies": {
-    "hive-qrcode": "^1.0.0",
     "hive-uri": "^0.2.5",
     "lucide-react": "^0.344.0",
     "react": "^18.3.1",
