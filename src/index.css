@@ -309,8 +309,8 @@ a.dapp { text-decoration: none; color: inherit; }
 
 /* stats */
 .stats-band { background: var(--dark-bg); color: var(--dark-ink); border-radius: 26px; padding: 48px 40px; }
-.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; text-align: center; }
-.stat .num { font-family: "Sora", sans-serif; font-size: clamp(30px, 4vw, 44px); font-weight: 800; }
+.stats-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; text-align: center; }
+.stat .num { font-family: "Sora", sans-serif; font-size: clamp(26px, 2.8vw, 36px); font-weight: 800; white-space: nowrap; }
 .stat .num em { font-style: normal; color: var(--red); }
 .stat .lbl { margin-top: 6px; font-size: 14px; color: var(--dark-ink-2); font-weight: 600; }
 
@@ -575,6 +575,9 @@ footer.site { padding: 52px 0 54px; border-top: 1px solid var(--line); }
   .hero { padding: 48px 0 60px; }
   section.block { padding: 56px 0; }
   .stats-band, .download { padding: 38px 22px; }
+}
+@media (max-width: 460px) {
+  .stats-grid { grid-template-columns: 1fr; }
 }
 
 
