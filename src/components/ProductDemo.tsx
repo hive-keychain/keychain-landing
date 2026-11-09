@@ -36,6 +36,13 @@ const SHOWCASES: ShowcaseConfig[] = [
       'demo.preview.portfolio.feature2',
       'demo.preview.portfolio.feature3',
     ],
+    media: {
+      type: 'image',
+      src: '/assets/portfolio.png',
+      altKey: 'demo.preview.portfolio.imageAlt',
+      width: 2492,
+      height: 1194,
+    },
   },
   {
     id: 'swaps',
@@ -47,6 +54,13 @@ const SHOWCASES: ShowcaseConfig[] = [
       'demo.preview.swaps.feature2',
       'demo.preview.swaps.feature3',
     ],
+    media: {
+      type: 'image',
+      src: '/assets/swap.png',
+      altKey: 'demo.preview.swaps.imageAlt',
+      width: 1358,
+      height: 1408,
+    },
   },
 ];
 

@@ -575,8 +575,8 @@ a.dapp { text-decoration: none; color: inherit; }
 }
 .showcase-media-wrap { grid-area: media; min-width: 0; }
 .showcase-copy { grid-area: copy; min-width: 0; }
-.preview-media, .preview-fallback { display: block; width: 100%; aspect-ratio: 16 / 10; border-radius: 20px; }
-.preview-media { height: auto; object-fit: contain; background: var(--dark-bg); }
+.preview-media { display: block; width: 100%; height: auto; border-radius: 20px; object-fit: contain; }
+.preview-fallback { display: block; width: 100%; aspect-ratio: 16 / 10; border-radius: 20px; }
 .preview-fallback { position: relative; min-height: 330px; overflow: hidden; background: var(--dark-bg); border: 1px solid var(--dark-line); }
 .preview-fallback::before {
   content: ""; position: absolute; inset: 0; opacity: .72;
