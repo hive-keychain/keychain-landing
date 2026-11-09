@@ -1,6 +1,12 @@
 {
   "announce.link": "查看網絡",
   "announce.pill": "新",
+  "dapps.empty.body": "精選 dApps 會在加入目錄後顯示在這裡。",
+  "dapps.empty.network.body": "{network} 暫無精選 dApps。其他相容的 dApps 仍可透過 Keychain 連接。",
+  "dapps.empty.network.title": "{network} 暫無 dApps",
+  "dapps.empty.title": "暫無 dApps",
+  "dapps.subtitle": "探索精選的 Hive dApps 和相容的 EVM dApps。此目錄僅供入門參考，並非完整清單。",
+  "dapps.title": "連接你常用的 dApps。",
   "footer.legal": "法律",
   "footer.product": "產品",
   "footer.resources": "資源",

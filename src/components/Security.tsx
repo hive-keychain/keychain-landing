@@ -23,7 +23,7 @@ const features = [
     icon: <><path d="M10 13a5 5 0 0 0 7.5.5l2-2a5 5 0 0 0-7-7l-1.1 1" /><path d="M14 11a5 5 0 0 0-7.5-.5l-2 2a5 5 0 0 0 7 7l1.1-1" /></>,
   },
   {
-    title: 'Open-source apps',
+    title: 'Open-source software',
     body: <><a href={EXTENSION_SOURCE} target="_blank" rel="noopener noreferrer">Browser extension</a> and <a href={MOBILE_SOURCE} target="_blank" rel="noopener noreferrer">mobile app</a> source code are public for inspection and contribution.</>,
     icon: <><path d="m8 9-4 3 4 3M16 9l4 3-4 3M14 5l-4 14" /></>,
   },

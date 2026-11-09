@@ -1,6 +1,12 @@
 {
   "announce.link": "Netzwerke ansehen",
   "announce.pill": "Neu",
+  "dapps.empty.body": "Ausgewählte dApps erscheinen hier, sobald sie zum Verzeichnis hinzugefügt werden.",
+  "dapps.empty.network.body": "Für {network} werden noch keine dApps vorgestellt. Andere kompatible dApps können sich möglicherweise trotzdem über Keychain verbinden.",
+  "dapps.empty.network.title": "Noch keine dApps für {network} gelistet",
+  "dapps.empty.title": "Noch keine dApps gelistet",
+  "dapps.subtitle": "Entdecke ausgewählte Hive-dApps und kompatible EVM-dApps. Dieses Verzeichnis ist ein Ausgangspunkt und keine vollständige Liste.",
+  "dapps.title": "Verbinde dich mit den dApps, die du nutzt.",
   "footer.legal": "Rechtliches",
   "footer.product": "Produkt",
   "footer.resources": "Ressourcen",

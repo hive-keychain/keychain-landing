@@ -189,7 +189,7 @@ export default function ProductDemo() {
                 <li><CheckIcon /> Test at most one optional follow, vote, or post action per sign-in</li>
                 <li><CheckIcon /> Keychain shows the request before you authorize it</li>
               </ul>
-              <p style={{ marginTop: '14px', fontSize: '14px' }}>No Keychain yet? <a href="#download" style={{ color: 'var(--red)', fontWeight: 800 }}>Choose a supported app</a>.</p>
+              <p style={{ marginTop: '14px', fontSize: '14px' }}>No Keychain yet? <a href="#download" style={{ color: 'var(--red)', fontWeight: 800 }}>Choose a supported download</a>.</p>
             </div>
           </div>
         </div>

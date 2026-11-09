@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { Dapp, DappGroup } from "../lib/dapps";
 import { DAPP_NETWORKS, catLabel, loadChainDapps } from "../lib/dapps";
 import { FALLBACK_HIVE } from "../data/fallbackHive";
+import { useLanguage } from "../context/LanguageContext";
 import CarouselDots from "./CarouselDots";
 
 // Works with your dApps, ported from the original mockup script.
@@ -17,6 +18,7 @@ import CarouselDots from "./CarouselDots";
 type ViewState = "loading" | "content" | "empty";
 
 export default function DappsSection() {
+  const { t } = useLanguage();
   const [chain, setChain] = useState("hive");
   const [label, setLabel] = useState("Hive");
   const [groups, setGroups] = useState<DappGroup[] | null>(null);
@@ -214,11 +216,8 @@ export default function DappsSection() {
     <section className="block alt" id="dapps">
       <div className="wrap">
         <div className="sec-head reveal">
-          <h2>Connect to the apps you use.</h2>
-          <p>
-            Explore featured Hive dApps and compatible EVM applications. This
-            directory is a starting point, not an exhaustive list.
-          </p>
+          <h2>{t("dapps.title")}</h2>
+          <p>{t("dapps.subtitle")}</p>
         </div>
         <div
           className="tabs dapp-nets"
@@ -338,15 +337,13 @@ export default function DappsSection() {
         <div className="dapp-state" id="dappEmpty" hidden={view !== "empty"}>
           <h3 id="dappEmptyTitle">
             {groups && validGroups.length === 0
-              ? "No dApps listed on " + label + " yet"
-              : "No dApps listed yet"}
+              ? t("dapps.empty.network.title").replace("{network}", label)
+              : t("dapps.empty.title")}
           </h3>
           <p id="dappEmptyText">
             {groups && validGroups.length === 0
-              ? "No apps are featured for " +
-                label +
-                " yet. Other compatible applications may still connect through Keychain."
-              : "Featured listings will appear here as they are added to the directory."}
+              ? t("dapps.empty.network.body").replace("{network}", label)
+              : t("dapps.empty.body")}
           </p>
         </div>
       </div>

@@ -19,7 +19,7 @@ const QUESTIONS = [
   },
   {
     question: 'Can I import existing accounts?',
-    answer: 'Yes. Hive accounts can be added with the relevant Hive keys or master password. EVM accounts can be added with a seed phrase, private key, or compatible Ledger device in the browser extension. Hive and EVM credentials are different, so back up each one using the instructions shown in the app.',
+    answer: 'Yes. Hive accounts can be added with the relevant Hive keys or master password. EVM accounts can be added with a seed phrase, private key, or compatible Ledger device in the browser extension. Hive and EVM credentials are different, so back up each one using the instructions shown in Keychain.',
   },
   {
     question: 'Where does Keychain store my keys?',

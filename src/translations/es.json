@@ -1,6 +1,12 @@
 {
   "announce.link": "Ver las redes",
   "announce.pill": "Nuevo",
+  "dapps.empty.body": "Las dApps destacadas aparecerán aquí a medida que se añadan al directorio.",
+  "dapps.empty.network.body": "Aún no hay dApps destacadas para {network}. Otras dApps compatibles aún pueden conectarse mediante Keychain.",
+  "dapps.empty.network.title": "Aún no hay dApps listadas en {network}",
+  "dapps.empty.title": "Aún no hay dApps listadas",
+  "dapps.subtitle": "Explora dApps destacadas de Hive y dApps compatibles con EVM. Este directorio es un punto de partida, no una lista exhaustiva.",
+  "dapps.title": "Conéctate a las dApps que utilizas.",
   "footer.legal": "Legal",
   "footer.product": "Producto",
   "footer.resources": "Recursos",

@@ -12,7 +12,7 @@ const TESTIMONIALS = [
     name: 'Starkerz',
     role: 'Founder @ 3Speak',
     image: 'https://images.hive.blog/u/starkerz/avatar',
-    quote: 'From secure blockchain signatures, payments, using their in wallet browser to get cash back on purchases & quickly signing up & adding account data to the blockchain for posting content with my BTC account, Hive Keychain is one of our recommended go to apps in the Hive ecosystem!',
+    quote: 'From secure blockchain signatures, payments, using their in wallet browser to get cash back on purchases & quickly signing up & adding account data to the blockchain for posting content with my BTC account, Hive Keychain is one of our recommended go to dApps in the Hive ecosystem!',
   },
   {
     name: 'Howo',
@@ -38,7 +38,7 @@ const TESTIMONIALS = [
     name: 'Yabapmatt',
     role: 'CEO of Splinterlands',
     image: 'https://images.hive.blog/u/yabapmatt/avatar',
-    quote: "Hive Keychain is probably the most important tool in the entire Hive ecosystem. Hive is made to power web3 applications and Keychain is what allows users to easily and securely interact with those apps on both desktop and mobile. Without it, the user experience for Splinterlands and all Hive applications would be considerably worse and I don't think we would have had nearly the level of success that we have had.",
+    quote: "Hive Keychain is probably the most important tool in the entire Hive ecosystem. Hive is made to power web3 dApps and Keychain is what allows users to easily and securely interact with those dApps on both desktop and mobile. Without it, the user experience for Splinterlands and all Hive dApps would be considerably worse and I don't think we would have had nearly the level of success that we have had.",
   },
   {
     name: 'Arcange',

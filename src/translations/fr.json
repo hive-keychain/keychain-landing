@@ -1,6 +1,12 @@
 {
   "announce.link": "Voir les réseaux",
   "announce.pill": "Nouveau",
+  "dapps.empty.body": "Les dApps mises en avant apparaîtront ici au fur et à mesure de leur ajout au répertoire.",
+  "dapps.empty.network.body": "Aucune dApp n’est encore mise en avant pour {network}. D’autres dApps compatibles peuvent tout de même se connecter via Keychain.",
+  "dapps.empty.network.title": "Aucune dApp n’est encore répertoriée sur {network}",
+  "dapps.empty.title": "Aucune dApp n’est encore répertoriée",
+  "dapps.subtitle": "Découvrez des dApps Hive mises en avant et des dApps EVM compatibles. Ce répertoire est un point de départ, pas une liste exhaustive.",
+  "dapps.title": "Connectez-vous aux dApps que vous utilisez.",
   "footer.legal": "Légal",
   "footer.product": "Produit",
   "footer.resources": "Ressources",
