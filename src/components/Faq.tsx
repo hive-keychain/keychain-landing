@@ -16,8 +16,8 @@ const QUESTIONS = [
     answerKey: 'faq.networks.answer',
   },
   {
-    question: 'Does EVM support work on mobile?',
-    answer: 'No. EVM accounts and networks are currently supported in the browser extension. The iOS and Android apps are for Hive.',
+    question: 'Does Keychain Mobile support EVM?',
+    answer: 'Not yet. EVM accounts and networks are currently only supported in the browser extension. The iOS and Android Apps only support Hive for the time being.',
   },
   {
     question: 'Can I import existing accounts?',
