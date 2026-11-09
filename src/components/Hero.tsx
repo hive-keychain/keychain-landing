@@ -7,11 +7,11 @@ export default function Hero() {
         <div className="wrap">
           <div className="hero-grid">
             <div>
-              <h1>{t('hero.title.before')} <span className="accent">Hive</span> {t('hero.title.after')}</h1>
+              <h1>{t('hero.title.before')} <span className="accent">{t('hero.title.accent')}</span> {t('hero.title.after')}</h1>
               <p className="sub">{t('hero.subtitle')}</p>
               <div className="hero-ctas"><a className="btn btn-red" href="/#download">{t('hero.cta.download')}</a><a className="btn btn-ghost" href="/#demo">{t('hero.cta.demo')}</a></div>
-              <div className="hero-ratings" aria-label="App store ratings"><span className="stars" aria-hidden="true">★★★★★</span><span>4.8 · Chrome Web Store</span><span className="sep">·</span><span>4.7 · App Store & Google Play</span></div>
-              <div className="hero-meta"><span><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg> You hold your keys</span><span><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg> Hive plus 7 networks ready to use</span><span><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg> Free and open source</span></div>
+              <div className="hero-ratings" aria-label="Keychain history"><span className="cred-dot" aria-hidden="true" /> <span>Built for self-custody since 2019</span></div>
+              <div className="hero-meta"><span><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg> You approve what you sign</span><span><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg> Hive + EVM in the browser</span><span><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg> Free and open source</span></div>
             </div>
             <div className="ext-stage reveal">
               <div className="hero-visual">

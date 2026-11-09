@@ -7,12 +7,10 @@ export default function Chains() {
     <section className="block alt" id="chains" style={{ paddingTop: "64px" }}>
       <div className="wrap">
         <div className="sec-head reveal">
-          <h2>Hive + 7 networks, set up automatically</h2>
+          <h2>Hive and EVM, ready to go.</h2>
           <p>
-            Hive and the 7 EVM networks that come with Keychain are ready to go
-            with more coming soon. You do not need to hunt for RPC settings, add
-            tokens by hand or install a second app; but you can add other EVM
-            network.
+            Start with Hive and seven built-in EVM mainnets, plus supported
+            testnets. Need another EVM network? Add it directly from Keychain.
           </p>
         </div>
         <div className="marquee reveal" aria-label="Supported networks">
@@ -132,8 +130,7 @@ export default function Chains() {
           </div>
         </div>
         <p className="mc-line reveal">
-          <strong>Multichain available now on the browser extension</strong> ·
-          coming to iOS & Android soon.
+          <strong>Browser extension: Hive + EVM</strong> · iOS and Android: Hive
         </p>
         <div className="chains-grid reveal-group" ref={carousel.trackRef}>
           <div className="chain-card">
@@ -187,7 +184,7 @@ export default function Chains() {
               </span>
               <div>
                 <h3>Polygon</h3>
-                <div className="kind">EVM · L2</div>
+                <div className="kind">EVM · PoS</div>
               </div>
             </div>
             <span className="status">Available now</span>
@@ -199,7 +196,7 @@ export default function Chains() {
               </span>
               <div>
                 <h3>Avalanche</h3>
-                <div className="kind">EVM · C Chain</div>
+                <div className="kind">EVM · C-Chain</div>
               </div>
             </div>
             <span className="status">Available now</span>
@@ -246,7 +243,7 @@ export default function Chains() {
           active={carousel.active}
           onDotClick={carousel.dotClick}
         />
-        {/* <p className="chains-foot reveal">Tap once to switch networks. Your Hive accounts and your EVM addresses sit in the same wallet. Multichain works in the browser extension today and is coming to iOS and Android. Is your network missing from the list? Add any EVM network with its chain ID and RPC and it will work just like the ones that come included.</p> */}
+        <p className="chains-foot reveal">The Add Network flow configures the information Keychain needs for another compatible EVM network. Network availability and features can vary.</p>
       </div>
     </section>
   );

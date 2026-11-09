@@ -1,1 +1,16 @@
-{"announce.link":"查看網絡","announce.pill":"新","announce.text":"Keychain 現已支援多鏈。它可在 Hive 以及 Ethereum、Base、BNB Chain、Polygon、Avalanche、Arbitrum 和 Optimism 上使用。","footer.legal":"法律","footer.product":"產品","footer.resources":"資源","hero.cta.demo":"查看實際運作","hero.cta.download":"下載","hero.subtitle":"它支援 Hive 和 7 個 EVM 網絡,你也可以自行添加任何其他 EVM 網絡。在手機或瀏覽器中持有和傳送資產、兌換、購買、簽署交易並連接 dApps。你的密鑰始終保存在你的裝置上。","hero.title.after":"和每條 EVM 鏈","hero.title.before":"一個錢包適用於","nav.chains":"鏈","nav.dapps":"dApps","nav.demo":"示範","nav.download":"下載","nav.faq":"常見問題","nav.reviews":"評價","nav.security":"安全"}
+{
+  "announce.link": "查看網絡",
+  "announce.pill": "新",
+  "footer.legal": "法律",
+  "footer.product": "產品",
+  "footer.resources": "資源",
+  "hero.cta.demo": "查看實際運作",
+  "hero.cta.download": "下載",
+  "nav.chains": "鏈",
+  "nav.dapps": "dApps",
+  "nav.demo": "示範",
+  "nav.download": "下載",
+  "nav.faq": "常見問題",
+  "nav.reviews": "評價",
+  "nav.security": "安全"
+}

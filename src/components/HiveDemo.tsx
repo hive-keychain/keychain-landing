@@ -30,13 +30,13 @@ export default function HiveDemo() {
   );
   const [voted, setVoted] = useState(false);
   const [voteBusy, setVoteBusy] = useState(false);
-  const [voteSub, setVoteSub] = useState('Sign in to vote on this post.');
+  const [voteSub, setVoteSub] = useState('Optional: sign in to vote on this post.');
   const [postTitle, setPostTitle] = useState('');
   const [postBody, setPostBody] = useState('');
   const [postBusy, setPostBusy] = useState(false);
   const [posted, setPosted] = useState(false);
   const [postSub, setPostSub] = useState<ReactNode>(
-    'Signed locally with your posting key. It never leaves your device.',
+    'Optional: publishing broadcasts a post to Hive after you approve it in Keychain.',
   );
   const usernameRef = useRef<HTMLInputElement | null>(null);
   const postTitleRef = useRef<HTMLInputElement | null>(null);
@@ -119,7 +119,7 @@ export default function HiveDemo() {
     setDone({});
     setStep(1);
     setVoted(false);
-    setVoteSub('Sign in to vote on this post.');
+    setVoteSub('Optional: sign in to vote on this post.');
     refreshDetection();
   }
 
@@ -285,7 +285,7 @@ export default function HiveDemo() {
       return;
     }
     if (!bodyText) {
-      setPostSub('Write the post body first. Publishing signs it locally.');
+      setPostSub('Write the post body first. Publishing will ask Keychain to sign and broadcast it.');
       postBodyRef.current?.focus();
       return;
     }
@@ -380,7 +380,7 @@ export default function HiveDemo() {
         </ol>
         <div className="hive-step" id="hiveStep1" hidden={step !== 1}>
           <div className="demo-route" id="hiveAuthBox">
-            <div className="r-lbl">Step 1 · Sign in with Keychain</div>
+            <div className="r-lbl">Step 1 · Sign in with Keychain · signature only</div>
             <div id="hiveNoExtension" hidden={detected || !!user}>
               <div className="r-main" style={{ fontSize: '15px' }}>Keychain extension not detected</div>
               <div className="r-sub">This demo is live: it needs the Hive Keychain browser extension. Install it, unlock it, then check again. On mobile, open this page inside the Keychain app browser.</div>
@@ -388,7 +388,7 @@ export default function HiveDemo() {
               <div className="r-sub hive-auth-msg" id="hiveDetectMsg">{detectMsg}</div>
             </div>
             <div id="hiveSignInForm" hidden={!detected || !!user}>
-              <div className="r-sub" style={{ marginTop: '4px' }}>Enter your Hive username. Keychain will ask you to sign a short message to prove it is you. Your posting key never leaves your device.</div>
+              <div className="r-sub" style={{ marginTop: '4px' }}>Enter your Hive username. Keychain will ask you to sign a short message to prove it is you. This sign-in signature is not broadcast and does not change your account.</div>
               <div className="op-row">
                 <input className="op-input" id="hiveUsernameInput" type="text" placeholder="@yourusername" aria-label="Your Hive username" autoComplete="off" autoCapitalize="none" spellCheck="false" value={username} onChange={(e) => setUsername(e.target.value)} onKeyDown={onUsernameKeyDown} ref={usernameRef} />
                 <button type="button" className="op-btn" id="hiveSignInBtn" disabled={signBusy} onClick={signIn}>{signBusy ? 'Check Keychain…' : 'Sign in with Keychain'}</button>
@@ -397,13 +397,13 @@ export default function HiveDemo() {
             </div>
             <div id="hiveSignedIn" hidden={!user}>
               <div className="op-row" style={{ marginTop: '4px' }}><span className="hive-signed-badge">✓ Signed in as <span id="hiveSignedUser">{user ? '@' + user : '@account'}</span></span><button type="button" className="op-btn ghost" id="hiveSignOutBtn" onClick={signOut}>Disconnect</button></div>
-              <div className="r-sub">You’re connected. Work through the steps above. Follow @keychain, vote on the Hive Keychain Development Proposal 2026, then publish a post of your own. Each one opens a real Keychain confirmation and broadcasts to Hive when you approve it.</div>
+              <div className="r-sub">You’re connected. The next three steps are optional real Hive actions. Follow, vote, or publish only if you want to; each is broadcast only after you approve it in Keychain.</div>
             </div>
           </div>
         </div>
         <div className="hive-step" id="hiveStep2" hidden={step !== 2}>
           <div className="demo-route">
-            <div className="r-lbl">Step 2 · Follow</div>
+            <div className="r-lbl">Step 2 · Follow · optional onchain action</div>
             <div className="op-row" style={{ marginTop: '2px' }}><span className="r-main" style={{ fontSize: '15px', marginTop: '0' }}>@keychain</span><button type="button" className={following ? 'op-btn done' : 'op-btn ghost'} id="hiveFollowBtn" disabled={followBusy} onClick={toggleFollow}>{followBusy ? 'Check Keychain…' : following ? '✓ Following @keychain' : 'Follow @keychain'}</button></div>
             <div className="r-sub" id="hiveFollowSub" role="status" aria-live="polite">{followSub}</div>
           </div>
@@ -411,25 +411,25 @@ export default function HiveDemo() {
         </div>
         <div className="hive-step" id="hiveStep3" hidden={step !== 3}>
           <div className="demo-route">
-            <div className="r-lbl">Step 3 · Vote · @keychain on PeakD</div>
+            <div className="r-lbl">Step 3 · Vote · optional onchain action</div>
             <div className="r-main" style={{ fontSize: '15px' }}><a className="hive-post-link" id="hivePostLink" href="https://peakd.com/@keychain/hive-keychain-development-proposal-2026" target="_blank" rel="noopener"><span id="hivePostTitle">Hive Keychain Development Proposal 2026</span></a></div>
             <div className="r-sub" id="hivePostMeta">By @keychain · Tap the title to read it on PeakD</div>
-            <div className="op-row"><button type="button" className={'op-btn' + (voted ? ' done' : '')} id="hiveVoteBtn" disabled={!user || voteBusy} onClick={vote}>{voteBusy ? 'Check Keychain…' : voted ? '✓ Upvoted · 100%' : 'Upvote · 100%'}</button><span className="r-sub" id="hiveVoteSub" style={{ marginTop: '0' }} role="status" aria-live="polite">{voteSub}</span></div>
+            <div className="op-row"><button type="button" className={'op-btn' + (voted ? ' done' : '')} id="hiveVoteBtn" disabled={!user || voteBusy} onClick={vote}>{voteBusy ? 'Check Keychain…' : voted ? '✓ Upvoted · 100%' : 'Optional: upvote · 100%'}</button><span className="r-sub" id="hiveVoteSub" style={{ marginTop: '0' }} role="status" aria-live="polite">{voteSub}</span></div>
           </div>
           <div className="hive-nav"><button type="button" className="op-btn ghost" data-hive-back="2" onClick={() => goToStep(2)}>← Back</button><span className="spacer" /><button type="button" className="hive-skip" data-hive-skip="4" onClick={() => goToStep(4)}>Skip for now →</button></div>
         </div>
         <div className="hive-step" id="hiveStep4" hidden={step !== 4}>
           <div className="demo-route">
-            <div className="r-lbl">Step 4 · Post</div>
+            <div className="r-lbl">Step 4 · Post · optional onchain action</div>
             <div style={{ display: 'grid', gap: '8px', marginTop: '8px' }}>
               <input className="op-input" id="hivePostTitleInput" type="text" placeholder="Post title" aria-label="Hive post title" style={{ flex: 'none', width: '100%' }} value={postTitle} onChange={(e) => setPostTitle(e.target.value)} ref={postTitleRef} />
               <textarea className="op-input op-textarea" id="hivePostInput" placeholder="Write something to Hive…" aria-label="Write a Hive post" value={postBody} onChange={(e) => setPostBody(e.target.value)} ref={postBodyRef} />
             </div>
-            <div className="op-row"><button type="button" className={'op-btn' + (posted ? ' done' : '')} id="hivePostBtn" disabled={postBusy} onClick={publish}>{postBusy ? 'Check Keychain…' : posted ? '✓ Published' : 'Publish post'}</button></div>
+            <div className="op-row"><button type="button" className={'op-btn' + (posted ? ' done' : '')} id="hivePostBtn" disabled={postBusy} onClick={publish}>{postBusy ? 'Check Keychain…' : posted ? '✓ Published' : 'Optional: publish post'}</button></div>
             <div className="r-sub" id="hivePostSub" role="status" aria-live="polite">{postSub}</div>
           </div>
           <div className="hive-nav"><button type="button" className="op-btn ghost" data-hive-back="3" onClick={() => goToStep(3)}>← Back</button></div>
-          <p className="try-hint" style={{ color: '#57d98e' }}>Live on Hive: every step broadcasts for real when you confirm in Keychain.</p>
+          <p className="try-hint" style={{ color: '#57d98e' }}>The sign-in signature is not broadcast. Follow, vote, and post are real Hive broadcasts only when you approve them.</p>
         </div>
       </div>
   );

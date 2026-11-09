@@ -214,10 +214,10 @@ export default function DappsSection() {
     <section className="block alt" id="dapps">
       <div className="wrap">
         <div className="sec-head reveal">
-          <h2>Works with your dApps</h2>
+          <h2>Connect to the apps you use.</h2>
           <p>
-            Start exploring: this is just a sample of the Hive and EVM dApps
-            that work with Keychain.
+            Explore featured Hive dApps and compatible EVM applications. This
+            directory is a starting point, not an exhaustive list.
           </p>
         </div>
         <div
@@ -343,10 +343,10 @@ export default function DappsSection() {
           </h3>
           <p id="dappEmptyText">
             {groups && validGroups.length === 0
-              ? "Keychain already works on " +
+              ? "No apps are featured for " +
                 label +
-                ". Listings will appear here on their own as soon as they are added to the Keychain ecosystem."
-              : "Listings will appear here as soon as they are added to the Keychain ecosystem."}
+                " yet. Other compatible applications may still connect through Keychain."
+              : "Featured listings will appear here as they are added to the directory."}
           </p>
         </div>
       </div>

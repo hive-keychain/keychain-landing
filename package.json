@@ -2,7 +2,7 @@
   "name": "keychain-landing",
   "version": "1.0.0",
   "private": true,
-  "description": "Landing page for Hive Keychain, the self-custodial wallet for Hive and every EVM chain.",
+  "description": "Landing page for Hive Keychain, the open-source self-custody wallet for Hive and supported EVM networks.",
   "keywords": [
     "hive",
     "hive-keychain",

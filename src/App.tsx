@@ -24,7 +24,7 @@ import { installAppLinkInterceptor, LEGAL_TITLES, routeFromLocation } from './ro
 // the same page. The home markup stays mounted (only hidden) so demo
 // and dApps state survive a trip to a legal page or an invoice.
 // Legacy hash URLs are rewritten in normalizeLegacyUrl before paint.
-const HOME_TITLE = 'Keychain, the wallet for Hive and EVM';
+const HOME_TITLE = 'Hive Keychain — Your keys. Your crypto. Your wallet.';
 
 export default function App() {
   const [route, setRoute] = useState(routeFromLocation);

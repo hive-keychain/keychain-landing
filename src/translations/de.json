@@ -1,1 +1,16 @@
-{"announce.link":"Netzwerke ansehen","announce.pill":"Neu","announce.text":"Keychain ist jetzt multichain. Es läuft auf Hive plus Ethereum, Base, BNB Chain, Polygon, Avalanche, Arbitrum und Optimism.","footer.legal":"Rechtliches","footer.product":"Produkt","footer.resources":"Ressourcen","hero.cta.demo":"In Aktion sehen","hero.cta.download":"Herunterladen","hero.subtitle":"Sie funktioniert für Hive und 7 EVM Netzwerke, und du kannst selbst jedes andere EVM Netzwerk hinzufügen. Verwahre und sende Assets, tausche, kaufe, signiere Transaktionen und verbinde dich mit dApps, auf dem Handy oder im Browser. Deine Schlüssel bleiben auf deinem Gerät.","hero.title.after":"und jede EVM Chain","hero.title.before":"Eine Wallet für","nav.chains":"Netzwerke","nav.dapps":"dApps","nav.demo":"Demo","nav.download":"Herunterladen","nav.faq":"FAQ","nav.reviews":"Bewertungen","nav.security":"Sicherheit"}
+{
+  "announce.link": "Netzwerke ansehen",
+  "announce.pill": "Neu",
+  "footer.legal": "Rechtliches",
+  "footer.product": "Produkt",
+  "footer.resources": "Ressourcen",
+  "hero.cta.demo": "In Aktion sehen",
+  "hero.cta.download": "Herunterladen",
+  "nav.chains": "Netzwerke",
+  "nav.dapps": "dApps",
+  "nav.demo": "Demo",
+  "nav.download": "Herunterladen",
+  "nav.faq": "FAQ",
+  "nav.reviews": "Bewertungen",
+  "nav.security": "Sicherheit"
+}

@@ -5,20 +5,20 @@ export default function Stats() {
           <div className="stats-band reveal">
             <div className="stats-grid">
               <div className="stat">
-                <div className="num">4.8<em>★</em></div>
-                <div className="lbl">Average rating in the app stores</div>
+                <div className="num">85K+</div>
+                <div className="lbl">Users</div>
               </div>
               <div className="stat">
-                <div className="num">200K+</div>
-                <div className="lbl">Downloads, extension & mobile</div>
+                <div className="num">60+</div>
+                <div className="lbl">dApp integrations</div>
               </div>
               <div className="stat">
-                <div className="num">7+</div>
-                <div className="lbl">Years live securing accounts</div>
+                <div className="num">Since 2019</div>
+                <div className="lbl">Supporting the Hive ecosystem</div>
               </div>
               <div className="stat">
-                <div className="num">Audited</div>
-                <div className="lbl">Independent security audits · open source code</div>
+                <div className="num">Open source</div>
+                <div className="lbl">Public extension and mobile code</div>
               </div>
             </div>
           </div>
