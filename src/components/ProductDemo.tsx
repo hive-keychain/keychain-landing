@@ -183,10 +183,10 @@ export default function ProductDemo() {
             <HiveDemo />
             <div className="demo-copy">
               <h3>Try real Hive operations—with your approval.</h3>
-              <p>The sign-in step requests a signature only; it is not broadcast to Hive and does not change your account. Follow, vote, and post are optional onchain actions, each broadcast only after you approve it in Keychain.</p>
+              <p>The sign-in step requests a signature only; it is not broadcast to Hive and does not change your account. Choose one optional follow, vote, or post action. The demo stops after one approved onchain transaction.</p>
               <ul>
                 <li><CheckIcon /> Sign in with a non-broadcast message signature</li>
-                <li><CheckIcon /> Skip any optional follow, vote, or post action</li>
+                <li><CheckIcon /> Test at most one optional follow, vote, or post action per sign-in</li>
                 <li><CheckIcon /> Keychain shows the request before you authorize it</li>
               </ul>
               <p style={{ marginTop: '14px', fontSize: '14px' }}>No Keychain yet? <a href="#download" style={{ color: 'var(--red)', fontWeight: 800 }}>Choose a supported app</a>.</p>
