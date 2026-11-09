@@ -10,6 +10,8 @@
   "footer.legal": "Rechtliches",
   "footer.product": "Produkt",
   "footer.resources": "Ressourcen",
+  "faq.mobile.answer": "Noch nicht. EVM-Konten und -Netzwerke werden derzeit nur in der Browser-Erweiterung unterstützt. Die iOS- und Android-Apps unterstützen vorerst nur Hive.",
+  "faq.mobile.question": "Unterstützt Keychain Mobile EVM?",
   "faq.networks.answer": "Hive, Ethereum, BNB Chain, Avalanche C-Chain, Arbitrum One, Base, Polygon PoS und Optimism sind enthalten. Unterstützte Testnetze sind verfügbar, und weitere kompatible EVM-Netzwerke können manuell konfiguriert werden.",
   "hero.cta.demo": "In Aktion sehen",
   "hero.cta.download": "Herunterladen",

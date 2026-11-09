@@ -10,6 +10,8 @@
   "footer.legal": "Légal",
   "footer.product": "Produit",
   "footer.resources": "Ressources",
+  "faq.mobile.answer": "Pas encore. Les comptes et réseaux EVM ne sont actuellement pris en charge que dans l’extension de navigateur. Pour le moment, les applications iOS et Android ne prennent en charge que Hive.",
+  "faq.mobile.question": "Keychain Mobile prend-il en charge l’EVM ?",
   "faq.networks.answer": "Hive, Ethereum, BNB Chain, Avalanche C-Chain, Arbitrum One, Base, Polygon PoS et Optimism sont inclus. Des réseaux de test pris en charge sont disponibles, et d’autres réseaux EVM compatibles peuvent être configurés manuellement.",
   "hero.cta.demo": "Le voir en action",
   "hero.cta.download": "Télécharger",

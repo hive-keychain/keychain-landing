@@ -10,6 +10,8 @@
   "footer.legal": "Legal",
   "footer.product": "Producto",
   "footer.resources": "Recursos",
+  "faq.mobile.answer": "Todavía no. Actualmente, las cuentas y redes EVM solo son compatibles con la extensión del navegador. Por el momento, las aplicaciones para iOS y Android solo son compatibles con Hive.",
+  "faq.mobile.question": "¿Keychain Mobile es compatible con EVM?",
   "faq.networks.answer": "Se incluyen Hive, Ethereum, BNB Chain, Avalanche C-Chain, Arbitrum One, Base, Polygon PoS y Optimism. Hay redes de prueba compatibles disponibles, y otras redes EVM compatibles pueden configurarse manualmente.",
   "hero.cta.demo": "Míralo en acción",
   "hero.cta.download": "Descargar",

@@ -10,6 +10,8 @@
   "footer.legal": "法律",
   "footer.product": "产品",
   "footer.resources": "资源",
+  "faq.mobile.answer": "目前还不支持。EVM 账户和网络目前仅在浏览器扩展程序中受支持。iOS 和 Android 应用目前仅支持 Hive。",
+  "faq.mobile.question": "Keychain Mobile 支持 EVM 吗？",
   "faq.networks.answer": "目前已支持 Hive、Ethereum、BNB Chain、Avalanche C-Chain、Arbitrum One、Base、Polygon PoS 和 Optimism。另有受支持的测试网络，其他兼容的 EVM 网络也可以手动配置。",
   "hero.cta.demo": "查看实际运作",
   "hero.cta.download": "下载",

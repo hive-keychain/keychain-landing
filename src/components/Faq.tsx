@@ -17,7 +17,9 @@ const QUESTIONS = [
   },
   {
     question: 'Does Keychain Mobile support EVM?',
+    questionKey: 'faq.mobile.question',
     answer: 'Not yet. EVM accounts and networks are currently only supported in the browser extension. The iOS and Android Apps only support Hive for the time being.',
+    answerKey: 'faq.mobile.answer',
   },
   {
     question: 'Can I import existing accounts?',
@@ -60,7 +62,7 @@ export default function Faq() {
               return (
                 <div className={'faq-item' + (isOpen ? ' open' : '')} key={item.question}>
                   <button type="button" aria-expanded={isOpen} aria-controls={answerId} onClick={() => toggle(index)}>
-                    {item.question}
+                    {'questionKey' in item ? t(item.questionKey) : item.question}
                     <svg className="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6" /></svg>
                   </button>
                   <div className="ans" id={answerId}>
