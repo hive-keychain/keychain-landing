@@ -50,12 +50,12 @@ export default function Faq() {
           <div className="sec-head center reveal">
             <h2>Questions, answered</h2>
           </div>
-          <div className="faq-list">
+          <div className="faq-list reveal-group">
             {QUESTIONS.map((item, index) => {
               const answerId = `faq-answer-${index}`;
               const isOpen = openItems.has(index);
               return (
-                <div className={'faq-item reveal' + (isOpen ? ' open' : '')} key={item.question}>
+                <div className={'faq-item' + (isOpen ? ' open' : '')} key={item.question}>
                   <button type="button" aria-expanded={isOpen} aria-controls={answerId} onClick={() => toggle(index)}>
                     {item.question}
                     <svg className="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6" /></svg>
