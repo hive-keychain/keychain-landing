@@ -138,7 +138,7 @@ export default function Hero() {
                 <figure className="ext-shot">
                   <img
                     src="assets/extension-accounts.png"
-                    alt="Hive Keychain browser extension with the Accounts panel open: the current account in the header, HIVE and EVM filters, and the list of Hive and EVM accounts with add account and export"
+                    alt={t("media.extension.accountsAlt")}
                     width="866"
                     height="1198"
                   />
@@ -147,7 +147,7 @@ export default function Hero() {
               <figure className="phone-shot">
                 <img
                   src="assets/mobile-wallet.jpg"
-                  alt="Hive Keychain mobile app on the @keychain account: voting mana and resource credits at 100%, estimated account value $29,843, with HIVE, HBD and Hive Power balances"
+                  alt={t("media.mobile.walletAlt")}
                   width="640"
                   height="1385"
                   loading="lazy"

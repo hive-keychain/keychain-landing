@@ -32,6 +32,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "i18n:check": "node scripts/check-translations.mjs",
     "preview": "vite preview",
     "predeploy": "npm run build",
     "git:archive": "rm -f keychain-landing-*.zip && git archive --format=zip --output=keychain-landing-$(date +%Y%m%d-%H%M%S).zip $(git write-tree)",

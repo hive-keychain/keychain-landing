@@ -261,7 +261,7 @@ export default function DappsSection() {
           <div
             className="tabs dapp-nets"
             role="tablist"
-            aria-label="Network"
+            aria-label={t('dapps.networkSelector.label')}
             id="dappNets"
           >
             {DAPP_NETWORKS.map((n) => (
@@ -284,7 +284,7 @@ export default function DappsSection() {
           className="cat-chips"
           id="dappCats"
           role="tablist"
-          aria-label="dApp categories"
+          aria-label={t('dapps.categorySelector.label')}
           hidden={view !== "content"}
         >
           {validGroups.map((g) => (
@@ -299,7 +299,7 @@ export default function DappsSection() {
               }
               onClick={() => setCategory(g.category)}
             >
-              {catLabel(g.category)}
+              {catLabel(g.category, t)}
               <span className="count">{g.dapps.length}</span>
             </button>
           ))}
@@ -311,7 +311,7 @@ export default function DappsSection() {
           aria-live="polite"
           hidden={view !== "loading"}
         >
-          Loading dApps
+          {t('dapps.loading')}
         </p>
 
         <div className="dapp-grid reveal-group" id="dappGrid" ref={gridRef}>
@@ -377,12 +377,12 @@ export default function DappsSection() {
         <div className="dapp-state" id="dappEmpty" hidden={view !== "empty"}>
           <h3 id="dappEmptyTitle">
             {groups && validGroups.length === 0
-              ? t("dapps.empty.network.title").replace("{network}", label)
+              ? t("dapps.empty.network.title", { network: label })
               : t("dapps.empty.title")}
           </h3>
           <p id="dappEmptyText">
             {groups && validGroups.length === 0
-              ? t("dapps.empty.network.body").replace("{network}", label)
+              ? t("dapps.empty.network.body", { network: label })
               : t("dapps.empty.body")}
           </p>
         </div>

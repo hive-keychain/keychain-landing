@@ -115,7 +115,7 @@ export const useLanguage = () => {
 // design tokens (.lang-* rules in src/index.css, so it follows the
 // site theme, dark scheme included) rather than generic utilities.
 export const LanguageSelector: React.FC = () => {
-  const { language, setLanguage } = useLanguage();
+  const { language, setLanguage, t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const rootRef = React.useRef<HTMLDivElement>(null);
 
@@ -150,7 +150,7 @@ export const LanguageSelector: React.FC = () => {
       <button
         onClick={() => setIsOpen((open) => !open)}
         className="lang-btn"
-        aria-label="Select language"
+        aria-label={t('language.select')}
         aria-expanded={isOpen}
         aria-haspopup="true"
       >

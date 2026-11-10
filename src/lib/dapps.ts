@@ -29,16 +29,16 @@ export interface DappGroup {
 
 export const DAPP_API = 'https://api.hive-keychain.com/';
 
-export const CAT_LABELS: Record<string, string> = {
-  social: 'Social',
-  gaming: 'Gaming',
-  finance: 'Finance',
-  nft: 'NFT',
-  tool: 'Tools',
+export const CAT_LABEL_KEYS: Record<string, string> = {
+  social: 'dapps.category.social',
+  gaming: 'dapps.category.gaming',
+  finance: 'dapps.category.finance',
+  nft: 'dapps.category.nft',
+  tool: 'dapps.category.tool',
 };
 
-export function catLabel(key: string): string {
-  if (CAT_LABELS[key]) return CAT_LABELS[key];
+export function catLabel(key: string, translate: (key: string) => string): string {
+  if (CAT_LABEL_KEYS[key]) return translate(CAT_LABEL_KEYS[key]);
   return key ? key.charAt(0).toUpperCase() + key.slice(1) : key;
 }
 

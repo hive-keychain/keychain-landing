@@ -1,3 +1,5 @@
+import { useLanguage } from '../context/LanguageContext';
+
 // The dot row the original script builds under each mobile carousel.
 // Rendered here as plain markup with the same classes and aria labels.
 export default function CarouselDots({
@@ -11,19 +13,20 @@ export default function CarouselDots({
   onDotClick: (index: number) => void;
   hidden?: boolean;
 }) {
+  const { t } = useLanguage();
   if (count < 2) {
     return (
-      <div className="carousel-dots" aria-label="Carousel navigation" hidden />
+      <div className="carousel-dots" aria-label={t('carousel.navigation')} hidden />
     );
   }
   return (
-    <div className="carousel-dots" aria-label="Carousel navigation" hidden={hidden}>
+    <div className="carousel-dots" aria-label={t('carousel.navigation')} hidden={hidden}>
       {Array.from({ length: count }, (_, i) => (
         <button
           key={i}
           type="button"
           className={'carousel-dot' + (i === active ? ' active' : '')}
-          aria-label={'Go to item ' + (i + 1) + ' of ' + count}
+          aria-label={t('carousel.goToItem', { index: i + 1, count })}
           onClick={() => onDotClick(i)}
         />
       ))}
