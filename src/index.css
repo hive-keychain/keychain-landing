@@ -97,7 +97,13 @@ header.site {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+.brand a {
   text-decoration: none;
+  color: inherit;
+}
+.brand > a {
+  display: flex;
 }
 .brand .mark {
   width: 38px;
@@ -120,6 +126,9 @@ header.site {
   letter-spacing: 0.04em;
   text-transform: uppercase;
   margin-top: -3px;
+}
+.brand .by:hover {
+  color: var(--ink);
 }
 .nav nav {
   display: flex;
@@ -2317,7 +2326,13 @@ footer.site {
   display: flex;
   align-items: center;
   gap: 11px;
+}
+.foot-brand-head a {
   text-decoration: none;
+  color: inherit;
+}
+.foot-brand-head > a {
+  display: flex;
 }
 .foot-brand-head img {
   width: 40px;
@@ -2343,6 +2358,9 @@ footer.site {
   letter-spacing: 0.04em;
   text-transform: uppercase;
   margin-top: 2px;
+}
+.foot-brand-head .fby:hover {
+  color: var(--ink);
 }
 .foot-tagline {
   margin-top: 16px;

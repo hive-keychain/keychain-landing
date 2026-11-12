@@ -36,7 +36,7 @@ export default function Header({ showAnnounce = true }: { showAnnounce?: boolean
     <>
       <header className="site">
         <div className="wrap nav">
-          <a className="brand" href="/"><img className="mark" src="assets/keychain-logo.png" alt={t('brand.logoAlt')} width="38" height="38" /><span><span className="name">Keychain</span><span className="by">powered by Hive</span></span></a>
+          <div className="brand"><a href="/"><img className="mark" src="assets/keychain-logo.png" alt={t('brand.logoAlt')} width="38" height="38" /></a><span><a className="name" href="/">Keychain</a><a className="by" href="https://hive.io" target="_blank" rel="noopener">powered by Hive</a></span></div>
           <nav aria-label={t('nav.main.label')}>
             {NAV_SECTIONS.map(({ id, key }) => (
               <a
