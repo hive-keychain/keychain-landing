@@ -127,9 +127,6 @@ header.site {
   text-transform: uppercase;
   margin-top: -3px;
 }
-.brand .by:hover {
-  color: var(--ink);
-}
 .nav nav {
   display: flex;
   gap: 24px;
